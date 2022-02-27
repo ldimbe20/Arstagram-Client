@@ -3,19 +3,42 @@
 
 
 
-h2,.form-group,label,.form-control, .btn-primary .div {
-    color:rgb(0, 43, 29);
+h2,.form-group,label,.form-control, .btn-primary .div .title{
+    color:rgb(2, 2, 2);
    font-family:Quicksand;
-   font-weight:400;
+   font-weight:500;
  }
- 
+ /* create button */
  .btn-primary{
-     background-color:yellow;
+     background-color:#306b9c;;
      font-family:Quicksand;
      border-radius: 3px;
+     border:none;
+     color:white;
      
  }
 
- .button is-link is-dark{
-    font-family:Quicksand;
+ .btn-primary:hover{
+    background-color:rgb(165, 165, 108);
  }
+/* TITLES */
+
+ .title, .subtitle{
+    font-family:Quicksand;
+    font-weight:500;
+
+ }
+
+ /* delete and edit button */
+ .button.is-info{
+     background-color:rgb(141, 141, 11);
+     font-family:Quicksand;
+     font-weight:500;
+ }
+
+ .button.is-info:hover{
+    background-color:rgb(165, 165, 108);
+    font-family:Quicksand;
+    font-weight:500;
+}
+

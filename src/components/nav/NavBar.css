@@ -5,15 +5,19 @@
 
 
 .navbar-brand{
-   background-color:aqua;
+   background-color:#3e8ed0;
 
 }
 
-.navbar-start:active{
-   background-color:aqua;
 
-}
 
 .navbar-menu{
-   background-color:aqua;
+   background-color:#3e8ed0;
+}
+
+
+
+
+.navbar-item{
+   color:yellow;
 }

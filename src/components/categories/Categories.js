@@ -40,7 +40,7 @@ export const ShowCategories = () => {
 											{finishedCategories.label}
 										</div>
 										<button
-											className="button is-link is-dark,"
+											className="button is-info is light"
 											onClick={() => {
 												deleteCategory(finishedCategories.id).then(getAllCategories)
 											}}>
@@ -48,7 +48,7 @@ export const ShowCategories = () => {
 										</button>
 
 										
-										<Link className="button is-link is-dark  py-0 ml-2" to={`/categories/${finishedCategories.id}/update`}>Edit Category</Link>
+										<Link className="button is-info is light  py-0 ml-2" to={`/categories/${finishedCategories.id}/update`}>Edit Category</Link>
 									
 							
 									</div>
