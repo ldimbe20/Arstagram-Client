@@ -1,0 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
+
+
+
+h2,.form-group,label,.form-control, .btn-primary .div {
+    color:rgb(0, 43, 29);
+   font-family:Quicksand;
+   font-weight:400;
+ }
+ 
+ .btn-primary{
+     background-color:yellow;
+     font-family:Quicksand;
+     border-radius: 3px;
+     
+ }
+
+ .button is-link is-dark{
+    font-family:Quicksand;
+ }

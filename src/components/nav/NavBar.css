@@ -1,0 +1,19 @@
+.navbar-item img {
+   max-height: 3rem;
+}
+
+
+
+.navbar-brand{
+   background-color:aqua;
+
+}
+
+.navbar-start:active{
+   background-color:aqua;
+
+}
+
+.navbar-menu{
+   background-color:aqua;
+}
