@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { Link, useHistory } from "react-router-dom"
 import "./NavBar.css"
-import Logo from "./rare.jpeg"
+import Logo from "./Arstagram.png"
 
 export const NavBar = ({ token, setToken }) => {
 	const history = useHistory()
@@ -21,7 +21,7 @@ export const NavBar = ({ token, setToken }) => {
 			<div className='navbar-brand'>
 				<a className='navbar-item' href='/'>
 					<img src={Logo} height='3rem' />{" "}
-					<h1 className='title is-4'>Rare Publishing</h1>
+					
 				</a>
 
 				<a
@@ -38,7 +38,7 @@ export const NavBar = ({ token, setToken }) => {
 				</a>
 			</div>
 
-			<div className='navbar-menu' ref={navbar}>
+			<div className='navbar-end' ref={navbar}>
 				<div className='navbar-start'>
 					{token ? (
 						<>
