@@ -1,4 +1,4 @@
-# Rare: The Publishing Platform for the Discerning Writer
+# Sketchbook: The Publishing Platform for the Discerning Writer
 
 ## Getting Started
 1. Install dependencies: `npm install`

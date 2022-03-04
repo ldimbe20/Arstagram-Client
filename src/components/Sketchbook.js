@@ -5,7 +5,7 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 
-export const Rare = () => {
+export const Sketchbook = () => {
 	const [token, setTokenState] = useState(localStorage.getItem("token"))
 
 	const setToken = (newToken) => {
