@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { loginUser } from "./AuthManager"
+import "./auth.css"
 
 export const Login = ({ setToken }) => {
   const username = useRef()
@@ -31,7 +32,7 @@ export const Login = ({ setToken }) => {
   return (
     <section className="columns is-centered">
       <form className="column is-two-thirds" onSubmit={handleLogin}>
-        <h1 className="title">Sketchbook Publishing</h1>
+        <h1 className="title">Sketchbook Login</h1>
         <p className="subtitle">Please sign in</p>
 
         <div className="field">

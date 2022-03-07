@@ -30,7 +30,7 @@ export const Register = ({ setToken }) => {
 			registerUser(newUser).then((res) => {
 				if ("valid" in res && res.valid) {
 					setToken(res.token)
-					history.push("/")
+					history.push("/posts")
 				}
 			})
 		} else {
@@ -41,7 +41,7 @@ export const Register = ({ setToken }) => {
 	return (
 		<section className='columns is-centered'>
 			<form className='column is-two-thirds' onSubmit={handleRegister}>
-				<h1 className='title'>Sketchbook Publishing</h1>
+				<h1 className='title'>Sketchbook Registration</h1>
 				<p className='subtitle'>Create an account</p>
 				<div className='field'>
 					<label className='label'>First Name</label>
@@ -114,6 +114,7 @@ export const Register = ({ setToken }) => {
 							Submit
 						</button>
 					</div>
+				
 					<div className='control'>
 						<Link to='/login' className='button is-link is-light'>
 							Cancel

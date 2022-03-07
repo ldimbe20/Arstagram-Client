@@ -20,9 +20,12 @@ export const NavBar = ({ token, setToken }) => {
 			aria-label='main navigation'>
 			<div className='navbar-brand'>
 				<a className='navbar-item' href='/'>
-					<img src={Logo} height='3rem' />{" "}
+					{/* <img src={Logo} height='3rem' />{" "} */}
+
+					
 					
 				</a>
+
 
 				<a
 					role='button'
@@ -41,7 +44,7 @@ export const NavBar = ({ token, setToken }) => {
 			<div className='navbar-end' ref={navbar}>
 				<div className='navbar-start'>
 					{token ? (
-						<>
+						<>  
 							<Link to='/Posts' className='navbar-item'>
 								All Posts
 							</Link>
