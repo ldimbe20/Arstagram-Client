@@ -1,0 +1,24 @@
+.navbar-item img {
+   max-height: 3rem;
+}
+
+
+
+.navbar-brand{
+   background-color:#3e8ed0;
+
+}
+
+
+
+.navbar-menu{
+   background-color:#3e8ed0;
+}
+
+
+
+
+.navbar-item{
+   font-family:Quicksand;
+   font-weight:500;
+}
