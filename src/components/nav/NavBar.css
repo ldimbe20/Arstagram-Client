@@ -21,4 +21,13 @@
 .navbar-item{
    font-family:Quicksand;
    font-weight:500;
+   
 }
+
+
+.navbar
+{
+   border: 1px solid;
+   padding: 10px;
+   box-shadow: 5px 10px;
+ }

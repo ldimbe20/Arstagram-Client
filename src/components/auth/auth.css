@@ -10,16 +10,17 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
  }
  /* create button */
  .btn-primary{
-     background-color:#306b9c;
+     background-color:#b8b7b7;
      font-family:Quicksand;
      border-radius: 3px;
      border:none;
      color:white;
+    
      
  }
 
  .btn-primary:hover{
-    background-color:#3d8ed1;
+    background-color:#b8b7b7;
  }
 /* TITLES */
 
@@ -32,26 +33,26 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
 
  /* delete and edit button */
  .button.is-info{
-     background-color:#1663a3;
+     background-color:#b8b7b7;
      font-family:Quicksand;
      font-weight:500;
  }
 
  .button.is-info:hover{
-    background-color:#1f82d3;
+    background-color:#a09f9f;
     font-family:Quicksand;
     font-weight:500;
 }
 
 .button.is-link{
-    background-color:#1663a3;
+    background-color:#a09f9f;
     font-family:Quicksand;
     font-weight:500;
 
 }
 
 .button.is-link:hover{
-    background-color:#6eb6f1;
+    background-color:#b8b7b7;
     font-family:Quicksand;
     font-weight:500;
 }
@@ -64,7 +65,7 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
 }
 
 .button.is-link.is-light:hover{
-    background-color:#419fec;
+    background-color:#a09f9f;
     font-family:Quicksand;
     font-weight:500;
     color:white;
@@ -76,6 +77,3 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
     font-style:italic;
 }
 
-.label{
-
-}

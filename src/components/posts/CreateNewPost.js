@@ -65,67 +65,82 @@ export const PostForm = () => {
 	<div className='container'>
 		<form className='Column'>
 			<h2 className='title'>Create New Post</h2>
+			    
 			
-			
-				<fieldset className='fieldset'>
+	
+				<div className='field my-5'>
 				<label htmlFor='image'>Image:</label>
 					<input
 						type='url'
 						name='image_url'
 						placeholder='URL of img'
+						className='input'
 						value={post.image_url}
 						onChange={changePostState}
 					/>
-				</fieldset>
-				<fieldset>
-					<div className='form-group'>
-						<label htmlFor='title'>Title:</label>
+				</div>
+				<div className="field my-5">
+                    <label className="label">Title </label>
+                    <div className="control">
 						<input
 							required
 							autoFocus
 							type='text'
 							name='title'
-							className='form-control'
-							placeholder='Brief description about the post'
+							className='input'
+							placeholder='Title'
 							value={post.title}
 							onChange={changePostState}
 						/>
 					</div>
-				</fieldset>
-				<fieldset>
-					<div className='form-group'>
-						<label htmlFor='content'>Content:</label>
+				</div>
+				<div>
+					<div className='field my-5'>
+						<label className="label">Content:</label>
 						<input
 							required
 							autoFocus
 							type='text'
 							name='content'
-							className='form-control'
+							className='input'
 							placeholder='Content'
 							value={post.content}
 							onChange={changePostState}
 						/>
 					</div>
-				</fieldset>
-				<fieldset>
-					<>
-						<label htmlFor='category-select'> Choose a category:</label>
-						<select
-							name='category'
-							id='category-select'
-							onChange={(evt) => {
-								const copy = { ...post }
-								copy.category_id = parseInt(evt.target.value)
-								setPost(copy)
-							}}>
-							<option value=''>--Please choose a category-</option>
-							{categories.map((cat) => (
-								<option key={cat.id} value={cat.id}>
-									{cat.label}
-								</option>
-							))}
-						</select>
-					</>
+				</div>
+				
+				
+				<div className="field my-5">
+                   <label className="label">Category</label>
+						<div className="control">
+							<div className="select">
+								<select
+									onChange={
+										(evt) => {
+											const copy = { ...post }
+											copy.categoryId = parseInt(evt.target.value)
+											setPost(copy)
+										}
+									}>
+									<option> Choose a Category </option>
+									{
+										categories.map(category => {
+											return <option key={category.id} value={category.id}>{category.label}</option>
+										})
+									}
+								</select>
+							</div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
 					<div className='field my-5'>
 						<label className='label'> Tags </label>
 						{tags.map((tag) => {
@@ -162,7 +177,7 @@ export const PostForm = () => {
 							)
 						})}
 					</div>
-				</fieldset>
+				
 
 				<button
 					type='submit'
