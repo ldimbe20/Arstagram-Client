@@ -55,9 +55,9 @@ export const CategoryForm = ({getAllCategories}) => {
             //below we rerendering page with getAllCategories function
             .then(getAllCategories)
         }}
-        className="btn btn-primary">Create</button>
+        className="button is-primary is-small">Create</button>
     </form>
   )
 }
 
-
+<button class="button is-fullwidth">Normal</button>

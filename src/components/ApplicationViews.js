@@ -12,6 +12,7 @@ import { UpdateTag } from "./tags/UpdateTag"
 import { UpdateCategory } from "./categories/UpdateCategory"
 import { CommentForm } from "./comments/CommentForm"
 import { UpdatePost } from "./posts/UpdatePost"
+import { ShowMaterials } from "./materials/Materials"
 import { CommentList } from "./comments/CommentList"
 
 export const ApplicationViews = () => {
@@ -35,6 +36,10 @@ export const ApplicationViews = () => {
 			<Route exact path='/categories'>
 				{/* child */}
 				<ShowCategories />
+			</Route>
+			<Route exact path='/materials'>
+				{/* child */}
+				<ShowMaterials />
 			</Route>
 			<Route exact path='/userManagement'>
 				<UsersList />

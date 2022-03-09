@@ -56,7 +56,7 @@ export const UpdateCategory = () => {
                         // TODO: Call the update function and route to the Game list
                         updateCategory(currentCategory).then(() => history.push('/categories'))
                     }}
-                    className="btn btn-primary">Update</button>
+                    className="btn btn-primary is large">Update</button>
             </form>
         </center>
     )
