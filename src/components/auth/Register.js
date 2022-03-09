@@ -116,7 +116,7 @@ export const Register = ({ setToken }) => {
 					</div>
 				
 					<div className='control'>
-						<Link to='/login' className='button is-link is-light'>
+						<Link to='/login' className='button is-dark'>
 							Cancel
 						</Link>
 					</div>
