@@ -21,7 +21,7 @@ export const Login = ({ setToken }) => {
       if ("valid" in res && res.valid) {
         console.log(res)
         setToken(res.token)
-        history.push("/")
+        history.push("/posts")
       }
       else {
         setisUnsuccessful(true)
