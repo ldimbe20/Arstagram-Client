@@ -1,10 +1,10 @@
-// export const getMaterials = () => {
-// 	return fetch("http://localhost:8000/materials", {
-// 	  headers: {
-// 		'Authorization': `Token ${localStorage.getItem('token')}`
-// 	  }
-// 	}).then(res => res.json())
-//   }
+export const getMediums = () => {
+	return fetch("http://localhost:8000/mediums", {
+	  headers: {
+		'Authorization': `Token ${localStorage.getItem('token')}`
+	  }
+	}).then(res => res.json())
+  }
 
 //   export const deleteMaterial = materialId => {
 //     return fetch(`http://localhost:8000/${materialId}`, {

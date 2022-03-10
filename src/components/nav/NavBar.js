@@ -51,7 +51,7 @@ export const NavBar = ({ token, setToken }) => {
 							<Link to='/private_posts' className='navbar-item'>
 								My Posts
 							</Link>
-							<Link to='/createNewPost' className='navbar-item'>
+							<Link to='/createPost' className='navbar-item'>
 								Create New Post
 							</Link>
 							<Link
