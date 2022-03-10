@@ -7,6 +7,7 @@ import Multiselect from "multiselect-react-dropdown";
 
 
 export const PostForm = () => {
+	// const [moods, setMoods] = useState({})
 	const [mediums, setMediums] = useState([])
 	const history = useHistory()
 
@@ -42,7 +43,7 @@ export const PostForm = () => {
 
 
 
-
+//! need to fetch moods data
 
 
 	const fetchMediums = () => {
@@ -90,14 +91,14 @@ export const PostForm = () => {
 	}
 
 	return (
-	<div className='container'>
-		<form className='Column'>
-			<h2 className='title'>Create New Post</h2>
-			    
-			
-	
+		<div className='container'>
+			<form className='Column'>
+				<h2 className='title'>Create New Post</h2>
+
+
+
 				<div className='field my-5'>
-				<label htmlFor='image'>Image:</label>
+					<label htmlFor='image'>Image:</label>
 					<input
 						type='url'
 						name='image_url'
@@ -116,14 +117,14 @@ export const PostForm = () => {
 
 
 
-		
+
 
 
 
 
 				<div className="field my-5">
-                    <label className="label">Title </label>
-                    <div className="control">
+					<label className="label">Title </label>
+					<div className="control">
 						<input
 							required
 							autoFocus
@@ -136,7 +137,29 @@ export const PostForm = () => {
 						/>
 					</div>
 				</div>
-				<div>
+				
+				
+
+					{/* <div className="field my-5">
+						<label htmlFor='mood-select'> Choose a mood:</label>
+						<select
+							name='mood'
+							id='mood-select'
+							onChange={(evt) => {
+								const copy = { ...post }
+								copy.mood_id = parseInt(evt.target.value)
+								setPost(copy)
+							}}>
+							<option value=''>--Please choose a mood-</option>
+							{Moods.map((mood) => (
+								<option key={mood.id} value={mood.id}>
+									{mood.mood_type}
+								</option>
+							))}
+						</select>
+					</div> */}
+
+
 					<div className='field my-5'>
 						<label className="label">Notes:</label>
 						<input
@@ -150,127 +173,31 @@ export const PostForm = () => {
 							onChange={changePostState}
 						/>
 					</div>
-				</div>
-				
 				
 				<div className="field my-5">
-                   <label className="label">Medium</label>
-						<div className="control">
-							<div className="select">
-								<select
-									onChange={
-										(evt) => {
-											const copy = { ...post }
-											copy.mediumId = parseInt(evt.target.value)
-											setPost(copy)
-										}
-									}>
-									<option> Choose a Medium </option>
-									{
-										mediums.map(medium => {
-											return <option key={medium.id} value={medium.id}>{medium.name}</option>
-										})
-									}
-								</select>
-							</div>
-                    </div>
-                </div>
-
-				<Multiselect
+					<label className="label">Add Materials Below </label>
+					<Multiselect
 						isObject={false}
-						onRemove={	(evt) => {
+						onRemove={(array_of_mediums) => {
 							const copy = { ...post }
-							copy.mediumId = parseInt(evt.target.value)
-							setPost(copy)
-						}}
-						// onRemove={function noRefCheck() {}}
-						onSelect={function noRefCheck() {}}
-
-						
-						onSelect={	(array_of_mediums) => {
-							// console.table(evt)
-							// console.log(Array.isArray(evt))
-							// ! push this array to state
-
-
-							
-							// console.log(evt.value)
-							const copy = { ...post }
-							// copy.mediumId = parseInt(evt.target.value)
-							setPost({...copy,
+							setPost({
+								...copy,
 								mediums_used: array_of_mediums,
 							})
 						}}
-						// options={mediums.map(medium => medium.name)}
+						//when item is clicked the event is recorded(array_of_mediums) 
+						onSelect={(array_of_mediums) => {
+							//below we are making a copy of post object then resetting the setPost to the post object, but changing the mediums_used with recorded event
+							//on line 164
+							const copy = { ...post }
+							setPost({
+								...copy,
+								mediums_used: array_of_mediums,
+							})
+						}}
 						options={mediums.map((medium) => medium.name)}
-
-						selectedValues={[
-							{
-							  cat: 'Group 1',
-							  key: 'Option 1'
-							},
-							{
-							  cat: 'Group 1',
-							  key: 'Option 2'
-							}
-						  ]}
-						
-						
-
-						// selectedValues={["pizza"]}
-						showCheckbox
-      				/>
-
-
-
-
-
-
-
-					{/* <div className='field my-5'>
-						<label className='label'> Mediums </label>
-						{mediums.map((medium) => {
-							return (
-								<div className='control my-2'>
-									<label className='checkbox has-text-weight-medium'>
-										<input
-											type='checkbox'
-											className='mr-2'
-											name='medium'
-											value={medium.id}
-											key={`medium--${medium.id}`}
-											onChange={(evt) => {
-												const copy = { ...post }
-												copy.mediums.has(
-													parseInt(evt.target.value)
-												)
-													? copy.mediums.delete(
-															parseInt(
-																evt.target.value
-															)
-													)
-													: copy.mediums.add(
-															parseInt(
-																evt.target.value
-															)
-													)
-												setPost(copy)
-											}}
-										/>
-										{medium.name}
-									</label>
-								</div>
-							)
-						})}
-					</div> */}
-
-
-
-
-
-
-					
-				
+					/>
+				</div>
 
 				<button
 					type='submit'
@@ -296,7 +223,7 @@ export const PostForm = () => {
 					Create
 				</button>
 			</form>
-        
-	</div>
+
+		</div>
 	)
 }
