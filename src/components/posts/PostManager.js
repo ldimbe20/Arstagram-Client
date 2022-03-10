@@ -5,13 +5,7 @@ export const getPosts = () => {
 		},
 	}).then((res) => res.json())
 }
-export const getCategories = () => {
-	return fetch("http://localhost:8000/categories", {
-		headers: {
-			Authorization: `Token ${localStorage.getItem("token")}`,
-		},
-	}).then((res) => res.json())
-}
+
 
 export const getPostById = (postId) => {
 	return fetch(`http://localhost:8000/posts/${postId}`, {
