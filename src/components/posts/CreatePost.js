@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { createPost, getPosts } from "./PostManager"
+import Multiselect from "multiselect-react-dropdown";
+
 
 
 
 export const PostForm = () => {
-	const [categories, updateCategories] = useState([])
-	const [tags, setTags] = useState([])
+	const [mediums, setMediums] = useState([])
 	const history = useHistory()
 
 	// Below code allows users to upload their own photos 
@@ -29,21 +30,24 @@ export const PostForm = () => {
 	const [post, setPost] = useState({
 		// Declaring State variable
 		user_id: "",
-		category_id: 1,
+		mood_id: 1,
 		title: "",
 		publication_date: "",
-		image_url: string,
-		content: "",
-		approved: 1,
+		image_url: "",
+		notes: "",
+		private: "",
+		mediums_used: [],
 		
 	})
 
 
 
 
-	const fetchTags = () => {
+
+
+	const fetchMediums = () => {
 		return (
-			fetch("http://localhost:8000/tags", {
+			fetch("http://localhost:8000/mediums", {
 				method: "GET",
 				headers: {
 					Authorization: `Token ${localStorage.getItem("token")}`,
@@ -53,27 +57,31 @@ export const PostForm = () => {
 				//taking json string and parsing into js
 				.then((data) => {
 					// data = categories converted from string to array, setting that response with showCategories
-					setTags(data)
+					setMediums(data)
 				})
 		)
 	}
 
-	useEffect(() => {
-		fetchTags()
-	}, [])
+  
 
 	useEffect(() => {
-		fetch(`http://localhost:8000/categories`, {
-			method: "GET",
-			headers: {
-				Authorization: `Token ${localStorage.getItem("token")}`,
-			},
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				updateCategories(data)
-			})
+		fetchMediums()
 	}, [])
+
+
+
+	// useEffect(() => {
+	// 	fetch(`http://localhost:8000/categories`, {
+	// 		method: "GET",
+	// 		headers: {
+	// 			Authorization: `Token ${localStorage.getItem("token")}`,
+	// 		},
+	// 	})
+	// 		.then((res) => res.json())
+	// 		.then((data) => {
+	// 			updateCategories(data)
+	// 		})
+	// }, [])
 
 	const changePostState = (event) => {
 		const copy = { ...post }
@@ -99,11 +107,16 @@ export const PostForm = () => {
 						onChange={changePostState}
 					/>
 				</div>
-				<input type="file" id="post_image" onChange={createImageString} />
-				<input type="hidden" name="post_id" value={post.id} />
+				{/* <input type="file" id="post_image" onChange={createImageString} />
+				<input type="hidden" name="post_id" value={post.id} /> */}
 				<button onClick={() => {
 					// Upload the stringified image that is stored in state
 				}}>Upload</button>
+
+
+
+
+		
 
 
 
@@ -125,15 +138,15 @@ export const PostForm = () => {
 				</div>
 				<div>
 					<div className='field my-5'>
-						<label className="label">Content:</label>
+						<label className="label">Notes:</label>
 						<input
 							required
 							autoFocus
 							type='text'
-							name='content'
+							name='name'
 							className='input'
-							placeholder='Content'
-							value={post.content}
+							placeholder='Name'
+							value={post.name}
 							onChange={changePostState}
 						/>
 					</div>
@@ -141,21 +154,21 @@ export const PostForm = () => {
 				
 				
 				<div className="field my-5">
-                   <label className="label">Category</label>
+                   <label className="label">Medium</label>
 						<div className="control">
 							<div className="select">
 								<select
 									onChange={
 										(evt) => {
 											const copy = { ...post }
-											copy.categoryId = parseInt(evt.target.value)
+											copy.mediumId = parseInt(evt.target.value)
 											setPost(copy)
 										}
 									}>
-									<option> Choose a Category </option>
+									<option> Choose a Medium </option>
 									{
-										categories.map(category => {
-											return <option key={category.id} value={category.id}>{category.label}</option>
+										mediums.map(medium => {
+											return <option key={medium.id} value={medium.id}>{medium.name}</option>
 										})
 									}
 								</select>
@@ -163,6 +176,50 @@ export const PostForm = () => {
                     </div>
                 </div>
 
+				<Multiselect
+						isObject={false}
+						onRemove={	(evt) => {
+							const copy = { ...post }
+							copy.mediumId = parseInt(evt.target.value)
+							setPost(copy)
+						}}
+						// onRemove={function noRefCheck() {}}
+						onSelect={function noRefCheck() {}}
+
+						
+						onSelect={	(array_of_mediums) => {
+							// console.table(evt)
+							// console.log(Array.isArray(evt))
+							// ! push this array to state
+
+
+							
+							// console.log(evt.value)
+							const copy = { ...post }
+							// copy.mediumId = parseInt(evt.target.value)
+							setPost({...copy,
+								mediums_used: array_of_mediums,
+							})
+						}}
+						// options={mediums.map(medium => medium.name)}
+						options={mediums.map((medium) => medium.name)}
+
+						selectedValues={[
+							{
+							  cat: 'Group 1',
+							  key: 'Option 1'
+							},
+							{
+							  cat: 'Group 1',
+							  key: 'Option 2'
+							}
+						  ]}
+						
+						
+
+						// selectedValues={["pizza"]}
+						showCheckbox
+      				/>
 
 
 
@@ -170,29 +227,29 @@ export const PostForm = () => {
 
 
 
-					<div className='field my-5'>
-						<label className='label'> Tags </label>
-						{tags.map((tag) => {
+					{/* <div className='field my-5'>
+						<label className='label'> Mediums </label>
+						{mediums.map((medium) => {
 							return (
 								<div className='control my-2'>
 									<label className='checkbox has-text-weight-medium'>
 										<input
 											type='checkbox'
 											className='mr-2'
-											name='tag'
-											value={tag.id}
-											key={`tag--${tag.id}`}
+											name='medium'
+											value={medium.id}
+											key={`medium--${medium.id}`}
 											onChange={(evt) => {
 												const copy = { ...post }
-												copy.tags.has(
+												copy.mediums.has(
 													parseInt(evt.target.value)
 												)
-													? copy.tags.delete(
+													? copy.mediums.delete(
 															parseInt(
 																evt.target.value
 															)
 													)
-													: copy.tags.add(
+													: copy.mediums.add(
 															parseInt(
 																evt.target.value
 															)
@@ -200,12 +257,19 @@ export const PostForm = () => {
 												setPost(copy)
 											}}
 										/>
-										{tag.label}
+										{medium.name}
 									</label>
 								</div>
 							)
 						})}
-					</div>
+					</div> */}
+
+
+
+
+
+
+					
 				
 
 				<button
@@ -215,13 +279,13 @@ export const PostForm = () => {
 
 						const newPost = {
 							user_id: post.user_id,
-							category: post.category_id,
+							mood_id: post.mood_id,
 							title: post.title,
 							publication_date: Date.now(),
 							image_url: post.image_url,
-							content: post.content,
-							approved: 1,
-							tags: Array.from(post.tags),
+							notes: post.notes,
+							private: 1,
+							mediums: Array.from(post.mediums),
 						}
 
 						createPost(newPost)

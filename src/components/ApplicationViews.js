@@ -2,10 +2,9 @@ import React from "react"
 import { Route } from "react-router-dom"
 import {PrivatePostList} from "./posts/PrivatePost"
 import { ShowCategories } from "./categories/Categories"
-import { ShowMaterials } from "./materials/Materials"
+import { ShowMaterials } from "./mediums/Mediums"
 import { PostList } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
-import { ShowTags } from "./tags/Tag"
 import { CommentForm } from "./comments/CommentForm"
 import { UpdatePost } from "./posts/UpdatePost"
 
@@ -32,15 +31,9 @@ export const ApplicationViews = () => {
 				{/* child */}
 				<ShowCategories />
 			</Route>
-			<Route exact path='/materials'>
-				{/* child */}
-				<ShowMaterials />
-			</Route>
+			
 			<Route exact path='/createPost'>
 				<PostForm />
-			</Route>
-			<Route exact path='/tags'>
-				<ShowTags />
 			</Route>
 
 			<Route exact path='/comments/:postId(\d+)'>
