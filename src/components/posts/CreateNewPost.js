@@ -9,17 +9,37 @@ export const PostForm = () => {
 	const [tags, setTags] = useState([])
 	const history = useHistory()
 
+	// Below code allows users to upload their own photos 
+
+	// const getBase64 = (file, callback) => {
+    //     const reader = new FileReader();
+    //     reader.addEventListener('load', () => callback(reader.result));
+    //     reader.readAsDataURL(file);
+    //   }
+    
+    //   const createImageString = (event) => {
+    //     getBase64(event.target.files[0], (base64ImageString) => {
+    //         console.log("Base64 of file is", base64ImageString);
+    //         // Update a component state variable to the value of base64ImageString
+    //         setString(base64ImageString)
+    //     });
+    //   }
+  
+
 	const [post, setPost] = useState({
 		// Declaring State variable
 		user_id: "",
 		category_id: 1,
 		title: "",
 		publication_date: "",
-		image_url: "",
+		image_url: string,
 		content: "",
 		approved: 1,
-		tags: new Set(),
+		
 	})
+
+
+
 
 	const fetchTags = () => {
 		return (
@@ -79,6 +99,15 @@ export const PostForm = () => {
 						onChange={changePostState}
 					/>
 				</div>
+				<input type="file" id="post_image" onChange={createImageString} />
+				<input type="hidden" name="post_id" value={post.id} />
+				<button onClick={() => {
+					// Upload the stringified image that is stored in state
+				}}>Upload</button>
+
+
+
+
 				<div className="field my-5">
                     <label className="label">Title </label>
                     <div className="control">

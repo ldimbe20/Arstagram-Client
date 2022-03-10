@@ -90,7 +90,7 @@ export const NavBar = ({ token, setToken }) => {
 									</Link>
 									<Link
 										to='/login'
-										className='button is-outlined'>
+										className='button is-dark'>
 										Login
 									</Link>
 								</>
