@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { createPost, getPosts } from "./PostManager"
 
-// 'user', 'category', 'title', 'image_url', 'content', 'tags'
+
 
 export const PostForm = () => {
 	const [categories, updateCategories] = useState([])
