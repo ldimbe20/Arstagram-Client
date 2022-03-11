@@ -6,7 +6,7 @@ import { ShowMaterials } from "./mediums/Mediums"
 import { PostList } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
 import { CommentForm } from "./comments/CommentForm"
-import { UpdatePost } from "./posts/UpdatePost"
+
 
 import { CommentList } from "./comments/CommentList"
 
@@ -24,9 +24,7 @@ export const ApplicationViews = () => {
 			{/* when the url is posts, display postId- capturing after : and storing */}
 			{/* postId is the key post component! */}
 
-			<Route exact path='/posts/:postId(\d+)/update'>
-				<UpdatePost />
-			</Route>
+			
 			<Route exact path='/categories'>
 				{/* child */}
 				<ShowCategories />

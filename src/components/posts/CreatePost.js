@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { createPost, getPosts } from "./PostManager"
 import Multiselect from "multiselect-react-dropdown";
-
-
+import {getMoods} from "../moods/MoodManager"
+import {getMediums} from "../mediums/MediumsManager"
 
 
 export const PostForm = () => {
 	// const [moods, setMoods] = useState({})
 	const [mediums, setMediums] = useState([])
+	const [moods, setMoods] = useState([])
 	const history = useHistory()
 
 	// Below code allows users to upload their own photos 
@@ -36,64 +37,30 @@ export const PostForm = () => {
 		publication_date: "",
 		image_url: "",
 		notes: "",
-		private: "",
+		private: false,
 		mediums_used: [],
 		
 	})
 
-
-
-//! need to fetch moods data
-
-
-	const fetchMediums = () => {
-		return (
-			fetch("http://localhost:8000/mediums", {
-				method: "GET",
-				headers: {
-					Authorization: `Token ${localStorage.getItem("token")}`,
-				},
-			})
-				.then((res) => res.json())
-				//taking json string and parsing into js
-				.then((data) => {
-					// data = categories converted from string to array, setting that response with showCategories
-					setMediums(data)
-				})
-		)
-	}
-
-  
-
-	useEffect(() => {
-		fetchMediums()
-	}, [])
-
-
-
-	// useEffect(() => {
-	// 	fetch(`http://localhost:8000/categories`, {
-	// 		method: "GET",
-	// 		headers: {
-	// 			Authorization: `Token ${localStorage.getItem("token")}`,
-	// 		},
-	// 	})
-	// 		.then((res) => res.json())
-	// 		.then((data) => {
-	// 			updateCategories(data)
-	// 		})
-	// }, [])
-
+	useEffect(()=> {
+        getMoods().then(m => setMoods(m))
+    }, [])
+	
+	useEffect(()=> {
+        getMediums().then(m => setMediums(m))
+    }, [])
+	
 	const changePostState = (event) => {
 		const copy = { ...post }
-		copy[event.target.name] = event.target.value
+		copy[event.target.name] = event.target.value, 
 		setPost(copy)
 	}
+	
 
 	return (
 		<div className='container'>
 			<form className='Column'>
-				<h2 className='title'>Create New Post</h2>
+				{/* <h2 className='title'>Create New Post</h2> */}
 
 
 
@@ -115,13 +82,6 @@ export const PostForm = () => {
 				}}>Upload</button>
 
 
-
-
-
-
-
-
-
 				<div className="field my-5">
 					<label className="label">Title </label>
 					<div className="control">
@@ -137,13 +97,29 @@ export const PostForm = () => {
 						/>
 					</div>
 				</div>
-				
+
+				{/* <div className="field my-5">
+					<label className="label">Date </label>
+					<div className="control">
+						<input
+							required
+							autoFocus
+							type='Date'
+							name='Date'
+							className='input'
+							placeholder='Choose Date'
+							value={post.publication_date}
+							onChange={changePostState}
+						/>
+					</div>
+				</div> */}
 				
 
-					{/* <div className="field my-5">
+					<div className="field my-5">
 						<label htmlFor='mood-select'> Choose a mood:</label>
 						<select
 							name='mood'
+							className='input'
 							id='mood-select'
 							onChange={(evt) => {
 								const copy = { ...post }
@@ -151,13 +127,13 @@ export const PostForm = () => {
 								setPost(copy)
 							}}>
 							<option value=''>--Please choose a mood-</option>
-							{Moods.map((mood) => (
+							{moods.map((mood) => (
 								<option key={mood.id} value={mood.id}>
 									{mood.mood_type}
 								</option>
 							))}
 						</select>
-					</div> */}
+					</div>
 
 
 					<div className='field my-5'>
@@ -166,10 +142,10 @@ export const PostForm = () => {
 							required
 							autoFocus
 							type='text'
-							name='name'
+							name='notes'
 							className='input'
 							placeholder='Name'
-							value={post.name}
+							value={post.notes}
 							onChange={changePostState}
 						/>
 					</div>
@@ -198,7 +174,22 @@ export const PostForm = () => {
 						options={mediums.map((medium) => medium.name)}
 					/>
 				</div>
+             
 
+			 {/* This checkbox isn't recording state and I dont know why. Does it have some to do with event.target.checked */}
+				<div className="Private">
+                    <label className="checkbox">Check Here If Post Is Private:</label>
+                    <input type="checkbox"
+                         onChange={ 
+                             (event) => {
+                                 const copy ={...post}     
+                                 copy.private = event.target.checked  
+                                 setPost(copy)
+                                 }      
+                         }/>
+                </div>
+            
+	
 				<button
 					type='submit'
 					onClick={(evt) => {
@@ -208,10 +199,10 @@ export const PostForm = () => {
 							user_id: post.user_id,
 							mood_id: post.mood_id,
 							title: post.title,
-							publication_date: Date.now(),
+							publication_date: publication_date.toDateString(),
 							image_url: post.image_url,
 							notes: post.notes,
-							private: 1,
+							private: post.private,
 							mediums: Array.from(post.mediums),
 						}
 
@@ -219,7 +210,7 @@ export const PostForm = () => {
 							.then(() => history.push("/posts"))
 							.then(getPosts)
 					}}
-					className='btn btn-primary'>
+					className='btn btn-primary is-small'>
 					Create
 				</button>
 			</form>

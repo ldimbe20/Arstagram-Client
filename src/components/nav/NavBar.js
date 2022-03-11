@@ -15,7 +15,7 @@ export const NavBar = ({ token, setToken }) => {
 
 	return (
 		<nav
-			className='navbar is-light mb-5'
+			// className='navbar is-light mb-5'
 			role='navigation'
 			aria-label='main navigation'>
 			<div className='navbar-brand'>
