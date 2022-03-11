@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import {deletePost,getPosts} from "./PostManager"
+import {PostForm} from "./CreatePost"
 
 import "./posts.css"
 
@@ -17,13 +18,16 @@ export const PostList = () => {
 		getPosts().then((data) => setPosts(data))
 	}, [])
 
-console.log(posts)
+const getAllPosts = () => getPosts().then(data => setPosts(data))
+
+
 
 	return (
 		//  <> Fragment - putting all return elements into one JSX element
 		<>  
 			<div className='container'>
 				<div className='column'>
+				
 					<div className='title'>Posts</div>
 
 					{posts.map((finishedPost) => {
@@ -40,6 +44,7 @@ console.log(posts)
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
 												/>
+											<p>Title:{finishedPost.title}</p> 
                                             <p>Artist:{finishedPost.user.user.username}</p>    
 											<p>Mood:{finishedPost.mood.mood_type}</p>
 											<p>Mediums:{" "}
