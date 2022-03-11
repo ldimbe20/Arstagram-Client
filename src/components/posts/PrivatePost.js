@@ -40,6 +40,7 @@ console.log(posts)
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
 												/>
+											<p>Title:{finishedPost.title}</p> 
                                             <p>Artist:{finishedPost.user.user.username}</p>    
 											<p>Mood:{finishedPost.mood.mood_type}</p>
 											<p>Mediums:{" "}

@@ -153,25 +153,33 @@ export const PostForm = () => {
 				<div className="field my-5">
 					<label className="label">Add Materials Below </label>
 					<Multiselect
-						isObject={false}
+					    displayValue="key"
+						isObject={true}
 						onRemove={(array_of_mediums) => {
+							const array_of_newMediums = array_of_mediums.map((medium) =>(medium.id))
+
 							const copy = { ...post }
 							setPost({
 								...copy,
-								mediums_used: array_of_mediums,
+								mediums_used: array_of_newMediums,
 							})
 						}}
 						//when item is clicked the event is recorded(array_of_mediums) 
 						onSelect={(array_of_mediums) => {
 							//below we are making a copy of post object then resetting the setPost to the post object, but changing the mediums_used with recorded event
 							//on line 164
+							const array_of_newMediums = array_of_mediums.map((medium) =>(medium.id))
+
 							const copy = { ...post }
 							setPost({
 								...copy,
-								mediums_used: array_of_mediums,
+								mediums_used: array_of_newMediums,
 							})
 						}}
-						options={mediums.map((medium) => medium.name)}
+
+						options={mediums.map((medium) => ({id:medium.id, key:medium.name}))
+						}
+
 					/>
 				</div>
              
@@ -199,22 +207,24 @@ export const PostForm = () => {
 							user_id: post.user_id,
 							mood_id: post.mood_id,
 							title: post.title,
-							publication_date: publication_date.toDateString(),
+							publication_date: Date.now(),
 							image_url: post.image_url,
 							notes: post.notes,
 							private: post.private,
-							mediums: Array.from(post.mediums),
+							mediums_used: post.mediums_used
+							// mediums: Array.from(post.mediums.id),
 						}
 
-						createPost(newPost)
-							.then(() => history.push("/posts"))
-							.then(getPosts)
+							createPost(newPost)
+								.then(() => history.push("/posts"))
+								.then(getPosts)
 					}}
 					className='btn btn-primary is-small'>
 					Create
 				</button>
 			</form>
-
 		</div>
+
 	)
 }
+
