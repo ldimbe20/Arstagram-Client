@@ -212,13 +212,30 @@ export const PostForm = () => {
 							notes: post.notes,
 							private: post.private,
 							mediums_used: post.mediums_used
-							// mediums: Array.from(post.mediums.id),
+						
 						}
-
+                        
+						
 							createPost(newPost)
 								.then(() => history.push("/posts"))
 								.then(getPosts)
-					}}
+
+
+
+							//! trying to make a ternary statement to push new post based on if they are private or notes
+						// !trying to figure out a way to view this?
+
+							// (newPost.private === false)?
+							// 	createPost(newPost)
+							// 		.then(() => history.push("/posts"))
+							// 		.then(getPosts):
+							// (newPost.private === true)?
+							// 	createPost(newPost)
+							// 		.then(() => history.push("/private_posts"))
+							// 		.then(getPosts):
+
+
+				}}
 					className='btn btn-primary is-small'>
 					Create
 				</button>

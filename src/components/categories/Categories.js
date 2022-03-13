@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { CategoryForm } from "./CategoryForm"
 import {getCategories, deleteCategory} from "./categoryManager"
 import { Link, useHistory } from "react-router-dom"
-import CategoryList from "./CategoryList"
 import "./category.css"
 
 export const ShowCategories = ({}) => {

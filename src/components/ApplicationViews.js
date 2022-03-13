@@ -1,9 +1,9 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import {PrivatePostList} from "./posts/PrivatePost"
+import {ShowPrivatePost} from "./posts/PrivatePost"
 import { ShowCategories } from "./categories/Categories"
-import { ShowMaterials } from "./mediums/Mediums"
-import { PostList } from "./posts/SharedPost"
+import { ShowMedium } from "./mediums/Mediums"
+import { ShowPost } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
 import { CommentForm } from "./comments/CommentForm"
 
@@ -15,19 +15,19 @@ export const ApplicationViews = () => {
 		<>
 			<Route exact path='/posts'>
 				{/* parent */}
-				<PostList />
+				<ShowPost />
 			</Route>
 			<Route exact path='/private_posts'>
 				{/* child */}
-				<PrivatePostList />
+				<ShowPrivatePost />
 			</Route>
 			{/* when the url is posts, display postId- capturing after : and storing */}
 			{/* postId is the key post component! */}
 
 			
-			<Route exact path='/categories'>
+			<Route exact path='/mediums'>
 				{/* child */}
-				<ShowCategories />
+				<ShowMedium />
 			</Route>
 			
 			<Route exact path='/createPost'>

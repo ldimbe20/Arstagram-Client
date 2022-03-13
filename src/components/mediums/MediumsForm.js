@@ -1,15 +1,15 @@
-// import { createMaterial, updateMaterial, getMaterials } from "./MaterialsManager"
-// import { useEffect, useRef } from "react"
+import { createMedium, updateMedium, getMediums } from "./MaterialsManager"
+import { useEffect, useRef } from "react"
 
-// export const MaterialsForm = ({setMaterials, materials, }) =>{
-
-
-// // need form edit materials
-// //need to grab current material then do an update
+export const MediumsForm = ({setMediums, mediums, }) =>{
 
 
-// return(
-//     <>
+// need form edit mediums
+//need to grab current medium then do an update
+
+
+return(
+    <>
     
     
     
@@ -17,6 +17,6 @@
     
     
     
-//     </>
-// )
-// }
+    </>
+)
+}

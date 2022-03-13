@@ -46,16 +46,16 @@ export const NavBar = ({ token, setToken }) => {
 					{token ? (
 						<>  
 							<Link to='/posts' className='navbar-item'>
-								All Posts
+								Shared Posts
 							</Link>
 							<Link to='/private_posts' className='navbar-item'>
-								My Posts
+								Private Posts
 							</Link>
 							<Link to='/createPost' className='navbar-item'>
 								Create New Post
 							</Link>
 							<Link
-								to='/categories'
+								to='/mediums'
 								className='navbar-item'>
 								Material Manager
 							</Link>

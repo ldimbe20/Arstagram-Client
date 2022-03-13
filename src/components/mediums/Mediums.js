@@ -1,41 +1,43 @@
-// import {  getMaterials, deleteMaterial, } from "./MaterialsManager"
+import {  getMediums, deleteMedium, } from "./MediumsManager"
 
-// export const ShowMaterials = ({ materials, setMaterials }) => {
-//     return (
-//         <div className="column is-one-quarter mr-6">
+export const ShowMedium = ({ mediums, setMediums, setMediumToEdit, setEditBox }) => {
 
-//             {
-//                 materials.map(
-//                     (material) => {
-//                         return <div className="notification is-success p-3 has-text-weight-medium" key={`material--${material.id}`}>
-//                             <button className="delete is-info" onClick={() => { 
-//                                 deleteMaterial(material.id).then((res)=>{
-//                                     if (res.status === 304){
-//                                         window.alert("This material is already in use and cannot be deleted")
-//                                     }
+    
+    return (
+        <div className="column is-one-quarter mr-6">
 
-//                                 }).then(getMaterials)
-//                                     .then(setMaterials)
-//                             }}></button>
-//                             <div className="level-left">
+            {
+                mediums.map(
+                    (medium) => {
+                        return <div className="notification is-success p-3 has-text-weight-medium" key={`medium--${medium.id}`}>
+                            <button className="delete is-info" onClick={() => { 
+                                deleteMedium(medium.id).then((res)=>{
+                                    if (res.status === 304){
+                                        window.alert("This medium is already in use and cannot be deleted")
+                                    }
 
-//                                 <div className="level-item">
-//                                     <button className="button m-1" onClick={() => {
-//                                     setMaterialToEdit(material)
-//                                     setModalIsOpen(true)
-//                                 }}>Edit</button>
-//                                 </div>
-//                                 <div className="level-item px-5">
+                                }).then(getMediums)
+                                    .then(setMediums)
+                            }}></button>
+                            <div className="level-left">
 
-//                                     {material.label}
-//                                 </div>
-//                             </div>
+                                <div className="level-item">
+                                    <button className="button m-1" onClick={() => {
+                                    setMediumToEdit(medium)
+                                    setEditBox(true)
+                                }}>Edit</button>
+                                </div>
+                                <div className="level-item px-5">
 
-//                         // </div>
-//                     }
-//                 )
-//             }
+                                    {medium.label}
+                                </div>
+                            </div>
 
-//         </div>
-//     )
-// }
+                        // </div>
+                    }
+                )
+            }
+
+        </div>
+    )
+}

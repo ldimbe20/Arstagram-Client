@@ -5,7 +5,7 @@ import {deletePost,getPosts} from "./PostManager"
 
 import "./posts.css"
 
-export const PrivatePostList = () => {
+export const ShowPrivatePost = () => {
 	// declaring "works" that defines state
 	// declaring "showWorks" that defines function that will modify state/set value of works
 	// useState passes a value as argument and returns ARRAY WHEN INVOKED
