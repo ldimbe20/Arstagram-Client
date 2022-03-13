@@ -54,20 +54,20 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 											</p>
                                             <p>Date:{finishedPost.publication_date} </p>
                                             <p>Notes:{finishedPost.notes} </p>
-												{/* <Link
-													className='button is-link is-dark'
-													to={`/posts/${finishedPost.id}/update`}>
-													Edit
-												</Link>
-												<button
+											<button
 													className='button is-link is-dark'
 													onClick={() => {
 														deletePost(
 															finishedPost.id
-														).then(getPosts)
+														).then(getPosts).then((data) => setPosts(data))
+
+
+														.then(() => history.push('/posts'))
+
+
 													}}>
 													Delete
-												</button> */}
+												</button>
 											</div>
 										</div>
 									</div>
@@ -80,3 +80,9 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 		</>
 	)
 }
+{/* <button onClick={() => {
+	deleteGame(game.id).then(getAllTheGames)
+  }}>Delete Game</button>
+</section>
+})
+} */}

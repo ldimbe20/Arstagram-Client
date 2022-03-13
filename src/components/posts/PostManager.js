@@ -32,21 +32,21 @@ export const deletePost = (postId) => {
 
 
 
-  export const getPostByTitle = (searchTerm) => {
-    return fetch(`http://localhost:8000/posts?q=${searchTerm}`, {
-      headers: {
-        'Authorization': `Token ${localStorage.getItem('token')}`
-      }
-    }).then(res => res.json())
-  }  
+//   export const getPostByTitle = (searchTerm) => {
+//     return fetch(`http://localhost:8000/posts?q=${searchTerm}`, {
+//       headers: {
+//         'Authorization': `Token ${localStorage.getItem('token')}`
+//       }
+//     }).then(res => res.json())
+//   }  
 
-  export const getPostByCategory = (category_id) => {
-    return fetch(`http://localhost:8000/posts?category_id=${category_id}`, {
-      headers: {
-        'Authorization': `Token ${localStorage.getItem('token')}`
-      }
-    }).then(res => res.json())
-  }  
+//   export const getPostByCategory = (category_id) => {
+//     return fetch(`http://localhost:8000/posts?category_id=${category_id}`, {
+//       headers: {
+//         'Authorization': `Token ${localStorage.getItem('token')}`
+//       }
+//     }).then(res => res.json())
+//   }  
 
 
   

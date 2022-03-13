@@ -1,10 +1,11 @@
 export const getMediums = () => {
 	return fetch("http://localhost:8000/mediums", {
-	  headers: {
-		'Authorization': `Token ${localStorage.getItem('token')}`
-	  }
-	}).then(res => res.json())
-  }
+		headers: {
+			Authorization: `Token ${localStorage.getItem("token")}`,
+		},
+	}).then((res) => res.json())
+}
+
 
   export const deleteMedium = mediumsId => {
     return fetch(`http://localhost:8000/${mediumsId}`, {

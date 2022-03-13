@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {deletePost,getPosts} from "./PostManager"
+import {deletePost,getPosts,updatePost} from "./PostManager"
 
 import "./posts.css"
 
@@ -54,16 +54,33 @@ console.log(posts)
 													className='button is-link is-dark'
 													to={`/posts/${finishedPost.id}/update`}>
 													Edit
-												</Link>
+												</Link> */}
 												<button
 													className='button is-link is-dark'
 													onClick={() => {
 														deletePost(
 															finishedPost.id
-														).then(getPosts)
+														).then(getPosts).then((data) => setPosts(data))
+
+
+														.then(() => history.push('/posts'))
+
+
 													}}>
 													Delete
-												</button> */}
+												</button>
+												{/* <div>
+											
+												 <button className="button" onClick={() => {
+													let text;
+													if (confirm("Are you sure you'd like to delete?") == true) {
+													 
+													deletePost(finishedPost.id).then(getPosts)
+													then(() => history.push('/private_posts'))} 
+													else { text = "You canceled!" }
+													
+												}}>Delete</button>  */}
+											{/* </div> */}
 											</div>
 										</div>
 									</div>
