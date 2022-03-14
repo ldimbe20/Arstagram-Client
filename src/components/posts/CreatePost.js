@@ -7,7 +7,6 @@ import {getMediums} from "../mediums/MediumsManager"
 
 
 export const PostForm = () => {
-	// const [moods, setMoods] = useState({})
 	const [mediums, setMediums] = useState([])
 	const [moods, setMoods] = useState([])
 	const history = useHistory()
