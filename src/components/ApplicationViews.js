@@ -5,6 +5,7 @@ import { ShowCategories } from "./categories/Categories"
 import { ShowMedium } from "./mediums/Mediums"
 import { ShowPost } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
+import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
 
 
@@ -32,6 +33,10 @@ export const ApplicationViews = () => {
 			
 			<Route exact path='/createPost'>
 				<PostForm />
+			</Route>
+
+			<Route exact path='/posts/:postId(\d+)/update'>
+				<UpdatePost />
 			</Route>
 
 			<Route exact path='/comments/:postId(\d+)'>
