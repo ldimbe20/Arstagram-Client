@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import {deletePost,getPosts} from "./PostManager"
+import {getCurrentUser} from "../artists/ArtistManager"
 import {PostForm} from "./CreatePost"
 
 import "./posts.css"
@@ -18,6 +19,11 @@ export const ShowPost = () => {
 		getPosts().then((data) => setPosts(data))
 	}, [])
 
+	useEffect(() => {
+		getCurrentUser().then((data) => setCurrentUser(data))
+	}, [])
+
+
 const getAllPosts = () => getPosts().then(data => setPosts(data))
 
 
@@ -28,7 +34,7 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 			<div className='container'>
 				<div className='column'>
 				
-					<div className='title'>Posts</div>
+					<div className='title'>Shared Posts</div>
 
 					{posts.map((finishedPost) => {
 						if (finishedPost.private === false) 
@@ -54,11 +60,13 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 											</p>
                                             <p>Date:{finishedPost.publication_date} </p>
                                             <p>Notes:{finishedPost.notes} </p>
-											<Link
-													className='button is-link is-dark'
+
+											{finishedPost.user.user.id === currentUser.id 
+											?<Link className='button is-link is-dark'
 													to={`/posts/${finishedPost.id}/update`}>
 													Edit
-											</Link>
+											</Link>: ""}
+
 											<button
 													className='button is-link is-dark'
 													onClick={() => {
@@ -75,7 +83,20 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 													Add Comment
 												</Link>
 
+												<Link
+													className='button is-link is-dark'
+													to={`/posts/${finishedPost.id}`}>
+													View Comments
+												</Link>
+
+
+
 											</div>
+
+											
+
+
+
 										</div>
 									</div>
 
