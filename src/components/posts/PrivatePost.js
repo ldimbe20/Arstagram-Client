@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import {deletePost,getPosts,updatePost} from "./PostManager"
-
+import {getCurrentUser} from "../artists/ArtistManager"
 import "./posts.css"
 
 export const ShowPrivatePost = () => {
-	// declaring "works" that defines state
-	// declaring "showWorks" that defines function that will modify state/set value of works
-	// useState passes a value as argument and returns ARRAY WHEN INVOKED
-
+	const [currentUser, setCurrentUser] = useState([])
 	const [posts, setPosts] = useState([])
 	const history = useHistory()
 
@@ -17,17 +14,25 @@ export const ShowPrivatePost = () => {
 		getPosts().then((data) => setPosts(data))
 	}, [])
 
-console.log(posts)
+	useEffect(() => {
+		getCurrentUser().then((data) => setCurrentUser(data))
+	}, [])
+
 
 	return (
 		//  <> Fragment - putting all return elements into one JSX element
 		<>  
 			<div className='container'>
 				<div className='column'>
-					<div className='title'>Posts</div>
+					<div className='title'>Private Posts</div>
+
+					
+
+
 
 					{posts.map((finishedPost) => {
 						if (finishedPost.private === true) 
+							if(finishedPost.user.user.id === currentUser.id)
                         {
 								return (
 									<div

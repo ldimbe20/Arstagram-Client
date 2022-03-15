@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getCommentsByPostId, deleteComment } from "./CommentManager"
-import {getPosts} from "../posts/PostManager"
 import "./comments.css"
 
 export const CommentList = () => {
@@ -11,14 +10,13 @@ export const CommentList = () => {
 	const [image, setImage] = useState("")
 	
 	
-
-
 	useEffect(() => {
 		isLoading(true)
 		getCommentsByPostId(postId).then(data => {
 			setComments(data)
 		    setImage(data[0].post?.image_url)
-			console.log(image)
+			// grabbing the url from index 0
+			
 		})
 		isLoading(false)
 	}, [])
@@ -26,7 +24,7 @@ export const CommentList = () => {
 
    
     if (loading) return <div>Loading</div>
-	console.log(image)
+
 	return (
 
 		<>
@@ -52,19 +50,20 @@ export const CommentList = () => {
 								<h2 className='subtitle'>
 									Written by {comment.user.user?.username}
 								</h2>
-								<button
+								{/* <button
 													className='button is-link is-dark'
 													onClick={() => {
 														deleteComment(
 															comment.id
 														).then(getCommentsByPostId(postId)).then((data) => setComments(data))
-														.then(() => history.push('/posts'))
+														.then(() => history.push('/posts/${postId}'))
 													}}>
 													Delete
-								</button>
+								 </button> */}
+								
 
 
-							</div>
+							</div>   
 						</div>
 					</div>
 				)
