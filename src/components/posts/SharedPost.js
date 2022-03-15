@@ -68,10 +68,19 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 														.then(() => history.push('/posts'))
 													}}>
 													Delete
-												</button>
+											</button>
+												<Link
+													className='button is-link is-dark'
+													to={`/comments/${finishedPost.id}`}>
+													Add Comment
+												</Link>
+
 											</div>
 										</div>
 									</div>
+
+
+
 								)
 							
 						} 
@@ -87,3 +96,4 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 </section>
 })
 } */}
+
