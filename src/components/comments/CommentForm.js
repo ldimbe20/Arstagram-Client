@@ -3,12 +3,14 @@ import { useHistory, useParams } from "react-router-dom"
 import { createComment } from "./CommentManager"
 import "./comments.css"
 
-export const CommentForm = ({ getAllTags }) => {
+
+
+export const CommentForm = () => {
+	// const [post, setPost] = useState([])
 	const { postId } = useParams()
 
 	const [currentComment, setCurrentComment] = useState({
 		content: "",
-		subject: "",
 		post_id: postId,
 	})
 	const history = useHistory()
@@ -28,22 +30,7 @@ export const CommentForm = ({ getAllTags }) => {
 						<div className='card-content'>
 							<h1 className='title'>Post a New Comment</h1>
 							<form className='commentForm'>
-								<fieldset>
-									<div className='form-group'>
-										<label htmlFor='subject'>
-											Subject:
-										</label>
-										<input
-											type='text'
-											name='subject'
-											required
-											autoFocus
-											className='form-control'
-											value={setCurrentComment.subject}
-											onChange={handleAddComment}
-											placeholder='Enter Subject'></input>
-									</div>
-								</fieldset>
+							
 								<fieldset className='field'>
 									<label className='label'>Comment</label>
 									<div className='control'>
@@ -63,8 +50,7 @@ export const CommentForm = ({ getAllTags }) => {
 											onClick={(evt) => {
 												evt.preventDefault()
 												const newComment = {
-													subject:
-														currentComment.subject,
+													
 													content:
 														currentComment.content,
 													post_id:
