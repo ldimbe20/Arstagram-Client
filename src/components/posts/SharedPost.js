@@ -24,7 +24,7 @@ export const ShowPost = () => {
 		<>  
 			<div className='container'>
 				<div className='column'>
-					<div className='title'>Private Posts</div>
+					<div className='title'>Shared Posts</div>
 
 					
 
@@ -55,21 +55,29 @@ export const ShowPost = () => {
 											</p>
                                             <p>Date:{finishedPost.publication_date} </p>
                                             <p>Notes:{finishedPost.notes} </p>
+
+											{
+												finishedPost.user.user.id === currentUser.id ?
+												
 												<Link
 													className='button is-link is-dark'
 													to={`/posts/${finishedPost.id}/update`}>
 													Edit
-												</Link>
+											    </Link>: ""}
+											  
+												
+												{
+												finishedPost.user.user.id === currentUser.id ?
 												<button
 													className='button is-link is-dark'
 													onClick={() => {
 														deletePost(
 															finishedPost.id
 														).then(getPosts).then((data) => setPosts(data))
-														.then(() => history.push('/private_posts'))
+														.then(() => history.push('/posts'))
 													}}>
 													Delete
-												</button>
+												</button>: ""}
 												
 											</div>
 										</div>
