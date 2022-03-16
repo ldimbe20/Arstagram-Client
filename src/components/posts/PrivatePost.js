@@ -70,18 +70,18 @@ export const ShowPrivatePost = () => {
 													}}>
 													Delete
 												</button>
-												{/* <div>
-											
-												 <button className="button" onClick={() => {
-													let text;
-													if (confirm("Are you sure you'd like to delete?") == true) {
-													 
-													deletePost(finishedPost.id).then(getPosts)
-													then(() => history.push('/private_posts'))} 
-													else { text = "You canceled!" }
-													
-												}}>Delete</button>  */}
-											{/* </div> */}
+                                               
+												<Link
+													className='button is-link is-dark'
+													to={`/comments/${finishedPost.id}`}>
+													Add Comment
+												</Link>
+												
+												<Link
+													className='button is-link is-dark'
+													to={`/posts/${finishedPost.id}`}>
+													View Comments
+												</Link>
 											</div>
 										</div>
 									</div>
