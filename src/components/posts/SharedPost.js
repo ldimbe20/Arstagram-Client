@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {deletePost,getPosts} from "./PostManager"
+import {deletePost,getPosts,updatePost} from "./PostManager"
 import {getCurrentUser} from "../artists/ArtistManager"
-import {PostForm} from "./CreatePost"
-
 import "./posts.css"
 
 export const ShowPost = () => {
-	// declaring "works" that defines state
-	// declaring "showWorks" that defines function that will modify state/set value of works
-	// useState passes a value as argument and returns ARRAY WHEN INVOKED
-
+	const [currentUser, setCurrentUser] = useState([])
 	const [posts, setPosts] = useState([])
 	const history = useHistory()
 
@@ -24,20 +19,20 @@ export const ShowPost = () => {
 	}, [])
 
 
-const getAllPosts = () => getPosts().then(data => setPosts(data))
-
-
-
 	return (
 		//  <> Fragment - putting all return elements into one JSX element
 		<>  
 			<div className='container'>
 				<div className='column'>
-				
-					<div className='title'>Shared Posts</div>
+					<div className='title'>Private Posts</div>
+
+					
+
+
 
 					{posts.map((finishedPost) => {
 						if (finishedPost.private === false) 
+							
                         {
 								return (
 									<div
@@ -60,48 +55,25 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 											</p>
                                             <p>Date:{finishedPost.publication_date} </p>
                                             <p>Notes:{finishedPost.notes} </p>
-
-											{finishedPost.user.user.id === currentUser.id 
-											?<Link className='button is-link is-dark'
+												<Link
+													className='button is-link is-dark'
 													to={`/posts/${finishedPost.id}/update`}>
 													Edit
-											</Link>: ""}
-
-											<button
+												</Link>
+												<button
 													className='button is-link is-dark'
 													onClick={() => {
 														deletePost(
 															finishedPost.id
 														).then(getPosts).then((data) => setPosts(data))
-														.then(() => history.push('/posts'))
+														.then(() => history.push('/private_posts'))
 													}}>
 													Delete
-											</button>
-												<Link
-													className='button is-link is-dark'
-													to={`/comments/${finishedPost.id}`}>
-													Add Comment
-												</Link>
-
-												<Link
-													className='button is-link is-dark'
-													to={`/posts/${finishedPost.id}`}>
-													View Comments
-												</Link>
-
-
-
+												</button>
+												
 											</div>
-
-											
-
-
-
 										</div>
 									</div>
-
-
-
 								)
 							
 						} 
@@ -111,10 +83,3 @@ const getAllPosts = () => getPosts().then(data => setPosts(data))
 		</>
 	)
 }
-{/* <button onClick={() => {
-	deleteGame(game.id).then(getAllTheGames)
-  }}>Delete Game</button>
-</section>
-})
-} */}
-

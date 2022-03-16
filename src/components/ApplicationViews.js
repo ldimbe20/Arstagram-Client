@@ -1,12 +1,12 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import {ShowPrivatePost} from "./posts/PrivatePost"
-import { ShowCategories } from "./categories/Categories"
 import { ShowMedium } from "./mediums/Mediums"
 import { ShowPost } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
 import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
+import { Medium } from "./mediums/MediumsList"
 
 
 import { CommentList } from "./comments/CommentList"
@@ -28,7 +28,7 @@ export const ApplicationViews = () => {
 			
 			<Route exact path='/mediums'>
 				{/* child */}
-				<ShowMedium />
+				<Medium />
 			</Route>
 			
 			<Route exact path='/createPost'>

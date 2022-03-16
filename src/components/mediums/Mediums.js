@@ -1,12 +1,17 @@
 import {  getMediums, deleteMedium, } from "./MediumsManager"
 
-export const ShowMedium = ({ mediums, setMediums, setMediumToEdit, setEditBox }) => {
 
-    
+export const ShowMedium = ({ mediums, setMediums, setMediumToEdit, setEditBox }) => {
+    // const [mediums, setMediums] = useState([])
+    //  useEffect(() => {
+    //     getMediums().then(setMediums)
+    // }, [])
+
     return (
         <div className="column is-one-quarter mr-6">
 
             {
+                
                 mediums.map(
                     (medium) => {
                         return <div className="notification is-success p-3 has-text-weight-medium" key={`medium--${medium.id}`}>
@@ -21,19 +26,13 @@ export const ShowMedium = ({ mediums, setMediums, setMediumToEdit, setEditBox })
                             }}></button>
                             <div className="level-left">
 
-                                <div className="level-item">
-                                    <button className="button m-1" onClick={() => {
-                                    setMediumToEdit(medium)
-                                    setEditBox(true)
-                                }}>Edit</button>
-                                </div>
                                 <div className="level-item px-5">
 
-                                    {medium.label}
+                                    {medium.name}
                                 </div>
                             </div>
 
-                        // </div>
+                         </div>
                     }
                 )
             }
