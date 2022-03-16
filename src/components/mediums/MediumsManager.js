@@ -17,27 +17,27 @@ export const getMediums = () => {
     
 };
 
-export const createMediums = categories => {
-    return fetch("http://localhost:8000/categories", {
+export const createMedium = mediums => {
+    return fetch("http://localhost:8000/mediums", {
         method: "POST",
         headers: {
-            "Authorization": `Token ${localStorage.getItem("rare_token")}`,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(categories)
-    })
-        .then(getCategories)
-}
-
-export const updateMediums = (mediums, id) => {
-    return fetch(`http://localhost:8000/categories/${id}`, {
-        method: "PUT",
-        headers: {
-            "Authorization": `Token ${localStorage.getItem("rare_token")}`,
+            "Authorization": `Token ${localStorage.getItem("token")}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify(mediums)
     })
-        .then(getCategories)
+        .then(getMediums)
+}
+
+export const updateMediums = (mediums, id) => {
+    return fetch(`http://localhost:8000/mediums/${id}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(mediums)
+    })
+        .then(getMediums)
 }
 

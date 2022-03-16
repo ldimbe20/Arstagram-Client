@@ -1,7 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import {ShowPrivatePost} from "./posts/PrivatePost"
-import { ShowMedium } from "./mediums/Mediums"
 import { ShowPost } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
 import { UpdatePost } from "./posts/UpdatePost"
@@ -18,6 +17,8 @@ export const ApplicationViews = () => {
 				{/* parent */}
 				<ShowPost />
 			</Route>
+
+
 			<Route exact path='/private_posts'>
 				{/* child */}
 				<ShowPrivatePost />
