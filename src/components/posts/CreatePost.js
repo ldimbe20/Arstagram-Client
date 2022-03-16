@@ -9,23 +9,25 @@ import {getMediums} from "../mediums/MediumsManager"
 export const PostForm = () => {
 	const [mediums, setMediums] = useState([])
 	const [moods, setMoods] = useState([])
+	// !
+	const [string, setString ] = useState("")
 	const history = useHistory()
 
 	// Below code allows users to upload their own photos 
 
-	// const getBase64 = (file, callback) => {
-    //     const reader = new FileReader();
-    //     reader.addEventListener('load', () => callback(reader.result));
-    //     reader.readAsDataURL(file);
-    //   }
+	const getBase64 = (file, callback) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result));
+        reader.readAsDataURL(file);
+      }
     
-    //   const createImageString = (event) => {
-    //     getBase64(event.target.files[0], (base64ImageString) => {
-    //         console.log("Base64 of file is", base64ImageString);
-    //         // Update a component state variable to the value of base64ImageString
-    //         setString(base64ImageString)
-    //     });
-    //   }
+      const createImageString = (event) => {
+        getBase64(event.target.files[0], (base64ImageString) => {
+            console.log("Base64 of file is", base64ImageString);
+            // Update a component state variable to the value of base64ImageString
+            setString(base64ImageString)
+        });
+      }
   
 
 	const [post, setPost] = useState({
@@ -34,7 +36,7 @@ export const PostForm = () => {
 		mood_id: 1,
 		title: "",
 		publication_date: "",
-		image_url: "",
+		image_url: string,
 		notes: "",
 		private: false,
 		mediums_used: [],
@@ -63,7 +65,7 @@ export const PostForm = () => {
 
 
 
-				<div className='field my-5'>
+				{/* <div className='field my-5'>
 					<label htmlFor='image'>Image:</label>
 					<input
 						type='url'
@@ -74,12 +76,17 @@ export const PostForm = () => {
 						onChange={changePostState}
 					/>
 				</div>
-				{/* <input type="file" id="post_image" onChange={createImageString} />
-				<input type="hidden" name="post_id" value={post.id} /> */}
+				
 				<button onClick={() => {
-					// Upload the stringified image that is stored in state
-				}}>Upload</button>
+				}}>Upload</button> */}
 
+                <div className="field my-5">
+					<input type="file" id="game_image" onChange={createImageString} />
+					{/* <input type="hidden" name="game_id" value={game.id} /> */}
+					{/* <button onClick={() => {
+						// Upload the stringified image that is stored in state
+					}}>Upload</button> */}
+                </div>
 
 				<div className="field my-5">
 					<label className="label">Title </label>
