@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getMediums } from "./MediumsManager"
-// import { MediumForm } from "./MediumForm"
+import { MediumForm } from "./MediumForm"
 import { ShowMedium } from "./Mediums"
 
 
@@ -15,8 +15,7 @@ export const Medium = () => {
 
 
 
-    console.log(mediums)
-
+    
     return (
         <>
   
@@ -39,9 +38,9 @@ export const Medium = () => {
                 <ShowMedium setMediums={setMediums} mediums={mediums} 
                     setMediumToEdit={setMediumToEdit} setEditBox={setEditBox} />
 
-                {/* <div className="column is-one-third ml-6">
+                <div className="column is-one-third ml-6">
                     <MediumForm mediums={mediums} setMedium={setMediums} />
-                </div> */}
+                </div>
             </div> 
         </>
     )

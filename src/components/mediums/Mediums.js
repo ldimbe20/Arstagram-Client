@@ -15,7 +15,7 @@ export const ShowMedium = ({ mediums, setMediums, setMediumToEdit, setEditBox })
                 mediums.map(
                     (medium) => {
                         return <div className="notification is-success p-3 has-text-weight-medium" key={`medium--${medium.id}`}>
-                            <button className="delete is-info" onClick={() => { 
+                            {/* <button className="delete is-info" onClick={() => { 
                                 deleteMedium(medium.id).then((res)=>{
                                     if (res.status === 304){
                                         window.alert("This medium is already in use and cannot be deleted")
@@ -23,7 +23,7 @@ export const ShowMedium = ({ mediums, setMediums, setMediumToEdit, setEditBox })
 
                                 }).then(getMediums)
                                     .then(setMediums)
-                            }}></button>
+                            }}></button> */}
                             <div className="level-left">
 
                                 <div className="level-item px-5">
