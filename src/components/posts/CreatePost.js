@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { createPost, getPosts } from "./PostManager"
+import {createPost } from "./PostManager"
 import Multiselect from "multiselect-react-dropdown";
 import {getMoods} from "../moods/MoodManager"
 import {getMediums} from "../mediums/MediumsManager"
@@ -189,7 +189,7 @@ export const PostForm = () => {
 				</div>
              
 
-			 {/* This checkbox isn't recording state and I dont know why. Does it have some to do with event.target.checked */}
+			
 				<div className="Private">
                     <label className="checkbox">Check Here If Post Is Private:</label>
                     <input type="checkbox"
@@ -220,26 +220,13 @@ export const PostForm = () => {
 						
 						}
                         
-						
+
 							createPost(newPost)
-								// .then(() => history.push("/posts"))
-								// .then(getPosts)
-								.then(() => history.push("/posts"))
-
-
-
-							//! trying to make a ternary statement to push new post based on if they are private or notes
-						// !trying to figure out a way to view this?
-
-							// (newPost.private === false)?
-							// 	createPost(newPost)
-							// 		.then(() => history.push("/posts"))
-							// 		.then(getPosts):
-							// (newPost.private === true)?
-							// 	createPost(newPost)
-							// 		.then(() => history.push("/private_posts"))
-							// 		.then(getPosts):
-
+							if(newPost.private === false) {
+							(history.push("/posts"))}
+							else
+							{(history.push("/private_posts"))}
+							
 
 				}}
 					className='btn btn-primary is-small'>
