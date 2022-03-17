@@ -6,6 +6,7 @@ import { PostForm } from "./posts/CreatePost"
 import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
 import { Medium } from "./mediums/MediumsList"
+import { Resource } from "./resource/Resource"
 
 
 import { CommentList } from "./comments/CommentList"
@@ -31,6 +32,11 @@ export const ApplicationViews = () => {
 				{/* child */}
 				<Medium />
 			</Route>
+
+			<Route exact path='/resources'>
+				{/* child */}
+				<Resource />
+			</Route>
 			
 			<Route exact path='/createPost'>
 				<PostForm />
@@ -47,6 +53,9 @@ export const ApplicationViews = () => {
 			<Route exact path='/posts/:postId(\d+)'>
 				<CommentList />
 			</Route>
+
+			
 		</>
 	)
 }
+

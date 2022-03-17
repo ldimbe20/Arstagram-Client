@@ -59,9 +59,11 @@ export const NavBar = ({ token, setToken }) => {
 								className='navbar-item'>
 								Material Manager
 							</Link>
-							<Link to='/tags' className='navbar-item'>
+							<Link to='/resources' className='navbar-item'>
 								Art Resources
 							</Link>
+
+							
 						
 						</>
 					) : (
