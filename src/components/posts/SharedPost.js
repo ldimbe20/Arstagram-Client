@@ -41,7 +41,7 @@ export const ShowPost = () => {
 										<div className='card-content'>
 											<div className='card-image has-text-centered'>
 												<img
-													src={`${finishedPost.image_url}`}
+													src={`http://localhost:8000${finishedPost.image_url}`}
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
 												/>

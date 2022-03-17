@@ -9,8 +9,6 @@ import {getMediums} from "../mediums/MediumsManager"
 export const PostForm = () => {
 	const [mediums, setMediums] = useState([])
 	const [moods, setMoods] = useState([])
-	// !
-	const [string, setString ] = useState("")
 	const history = useHistory()
 
 	// Below code allows users to upload their own photos 
@@ -24,8 +22,9 @@ export const PostForm = () => {
       const createImageString = (event) => {
         getBase64(event.target.files[0], (base64ImageString) => {
             console.log("Base64 of file is", base64ImageString);
-            // Update a component state variable to the value of base64ImageString
-            setString(base64ImageString)
+			const copy = { ...post }
+			copy.image_url = base64ImageString, 
+			setPost(copy)
         });
       }
   
@@ -36,7 +35,7 @@ export const PostForm = () => {
 		mood_id: 1,
 		title: "",
 		publication_date: "",
-		image_url: string,
+		image_url: "",
 		notes: "",
 		private: false,
 		mediums_used: [],
@@ -81,11 +80,9 @@ export const PostForm = () => {
 				}}>Upload</button> */}
 
                 <div className="field my-5">
-					<input type="file" id="game_image" onChange={createImageString} />
-					{/* <input type="hidden" name="game_id" value={game.id} /> */}
-					{/* <button onClick={() => {
-						// Upload the stringified image that is stored in state
-					}}>Upload</button> */}
+					<p>Upload Image Post Here</p>
+					<input type="file" id="imgdata" onChange={createImageString} placeholder='Upload Image'/>
+					<input type="hidden" name="post_id" value={post.id} />
                 </div>
 
 				<div className="field my-5">
@@ -223,8 +220,9 @@ export const PostForm = () => {
                         
 						
 							createPost(newPost)
+								// .then(() => history.push("/posts"))
+								// .then(getPosts)
 								.then(() => history.push("/posts"))
-								.then(getPosts)
 
 
 
