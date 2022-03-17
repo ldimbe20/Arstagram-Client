@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { getCommentsByPostId, deleteComment } from "./CommentManager"
 import "./comments.css"
 
@@ -21,18 +21,20 @@ export const CommentList = () => {
 		isLoading(false)
 	}, [])
 
-
    
     if (loading) return <div>Loading</div>
 
 	return (
 
+	
 		<>
 		     <div className='title'>Posts</div>
              
 			 <div>
 				 <img
-						src={image}
+//! Trying to figure out if I need to change this syntax or need to add pillow code to this module
+
+						src={`http://localhost:8000${image}`}
 						alt='Submitted Artwork'
 						className='img image is-rounded is-horizontal-center'
 			/></div>
@@ -60,14 +62,20 @@ export const CommentList = () => {
 													}}>
 													Delete
 								 </button> */}
-								
-
-
+			
 							</div>   
 						</div>
 					</div>
 				)
 			})}
+
+			<div>
+			<Link
+				className='button is-link is-dark'
+				to={`/posts`}>
+				Back to Share Posts
+			</Link>					
+			</div>
 		</>
 	)
 }
