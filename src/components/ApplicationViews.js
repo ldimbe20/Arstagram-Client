@@ -7,7 +7,7 @@ import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
 import { Medium } from "./mediums/MediumsList"
 import { Resource } from "./resource/Resource"
-
+import { Watercolor } from "./resource/Watercolor"
 
 import { CommentList } from "./comments/CommentList"
 
@@ -53,6 +53,11 @@ export const ApplicationViews = () => {
 			<Route exact path='/posts/:postId(\d+)'>
 				<CommentList />
 			</Route>
+
+
+			 <Route exact path='/watercolor'>
+				<Watercolor />
+			</Route> 
 
 			
 		</>

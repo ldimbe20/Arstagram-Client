@@ -1,5 +1,9 @@
 
 import { Link } from "react-router-dom"
+import React from 'react'
+import { Watercolor } from "./Watercolor"
+import ReactPlayer from 'react-player/youtube'
+
 
 
 
@@ -16,38 +20,11 @@ export const Resource = () => {
                    <div className='column $column-gap'>
                     <Link
 						className='button is-link is-dark'
-						to={`/watercolors`}>
+						to={`/watercolor`}>
 						Watercolors
 					</Link>
 					</div>
-					<div className='column $column-gap'>
-                    <Link
-						className='button is-link is-dark'
-						to={`/watercolors`}>
-						Watercolors
-					</Link>
-					</div>
-					<div className='column $column-gap'>
-                    <Link
-						className='button is-link is-dark'
-						to={`/watercolors`}>
-						Watercolors
-					</Link>
-					</div>
-					<div className='column $column-gap'>
-                    <Link
-						className='button is-link is-dark'
-						to={`/watercolors`}>
-						Watercolors
-					</Link>
-					</div>
-
-					
-													
-                   
-
-                   
-
+			       
 
 				</div>
 			</div>
