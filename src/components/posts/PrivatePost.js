@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {deletePost,getPosts,updatePost} from "./PostManager"
+import {getPosts} from "./PostManager"
 import {getCurrentUser} from "../artists/ArtistManager"
 import "./posts.css"
 
@@ -71,17 +71,7 @@ export const ShowPrivatePost = () => {
 													Delete
 												</button>
                                                
-												<Link
-													className='button is-link is-dark'
-													to={`/comments/${finishedPost.id}`}>
-													Add Comment
-												</Link>
-												
-												<Link
-													className='button is-link is-dark'
-													to={`/posts/${finishedPost.id}`}>
-													View Comments
-												</Link>
+											
 											</div>
 										</div>
 									</div>

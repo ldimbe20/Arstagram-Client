@@ -31,7 +31,7 @@ export const Medium = () => {
                 </div>
 
             </div>
-            <h1 className="title is-1 is-success">Materials</h1>
+            <h1 className="title">Materials</h1>
             <h2>Current Listed Materials</h2>
              <div className="columns is-centered">
                 

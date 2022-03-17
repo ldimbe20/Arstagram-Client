@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 
 
+
 export const Resource = () => {
 	
 	return (
@@ -10,14 +11,39 @@ export const Resource = () => {
 		<>  
 			<div className='container'>
 				<div className='column'>
-					<div className='title'>Resources</div>
-
+				<h1 className="title">Resources</h1>
+				<p>Click button to be directed to resources by each art material. Resources include videos, articles, and tips and trips by professionals that use each art material. </p>
+                   <div className='column $column-gap'>
                     <Link
 						className='button is-link is-dark'
 						to={`/watercolors`}>
 						Watercolors
 					</Link>
-												
+					</div>
+					<div className='column $column-gap'>
+                    <Link
+						className='button is-link is-dark'
+						to={`/watercolors`}>
+						Watercolors
+					</Link>
+					</div>
+					<div className='column $column-gap'>
+                    <Link
+						className='button is-link is-dark'
+						to={`/watercolors`}>
+						Watercolors
+					</Link>
+					</div>
+					<div className='column $column-gap'>
+                    <Link
+						className='button is-link is-dark'
+						to={`/watercolors`}>
+						Watercolors
+					</Link>
+					</div>
+
+					
+													
                    
 
                    
