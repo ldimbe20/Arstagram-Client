@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {getPosts} from "./PostManager"
+import {getPosts, deletePost,} from "./PostManager"
 import {getCurrentUser} from "../artists/ArtistManager"
 import "./posts.css"
 
@@ -60,17 +60,17 @@ export const ShowPrivatePost = () => {
 													to={`/posts/${finishedPost.id}/update`}>
 													Edit
 												</Link>
+												
 												<button
 													className='button is-link is-dark'
 													onClick={() => {
 														deletePost(
 															finishedPost.id
 														).then(getPosts).then((data) => setPosts(data))
-														.then(() => history.push('/private_posts'))
+														.then(() => history.push('/posts'))
 													}}>
 													Delete
 												</button>
-                                               
 											
 											</div>
 										</div>
