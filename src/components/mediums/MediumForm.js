@@ -27,7 +27,7 @@ export const MediumForm = ({ setMediums, mediums }) => {
     
     return (
 
-        <form className="notification is-success has-text-weight-medium">
+        <form className="notification is-dark has-text-weight-medium">
        
             <fieldset>
                 <div className="form-group">

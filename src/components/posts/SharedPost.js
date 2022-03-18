@@ -1,22 +1,40 @@
 import React, { useEffect, useState } from "react"
 import { Link,  } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {deletePost,getPosts} from "./PostManager"
+import {deletePost,getPosts, postByMood} from "./PostManager"
 import {getCurrentUser} from "../artists/ArtistManager"
+import {getMoods} from "../moods/MoodManager"
 import "./posts.css"
 
 export const ShowPost = () => {
 	const [currentUser, setCurrentUser] = useState([])
 	const [posts, setPosts] = useState([])
+	const [moodChoice, setMoodChoice] = useState(0)
+	const [moods, setMoods] = useState([])
 	const history = useHistory()
+	
 
 	useEffect(() => {
 		getPosts().then((data) => setPosts(data))
 	}, [])
 
 	useEffect(() => {
+		getMoods().then((data) => setMoods(data))
+	}, [])
+
+	useEffect(() => {
 		getCurrentUser().then((data) => setCurrentUser(data))
 	}, [])
+
+
+	useEffect(() => {
+		if (moodChoice)
+			postByMood(moodChoice).then((posts) => {
+				setPosts(posts)
+			})
+	}, [moodChoice])
+
+	
 
 
 	return (
@@ -25,6 +43,31 @@ export const ShowPost = () => {
 			<div className='container'>
 				<div className='column'>
 					<div className='title'>Shared Posts</div>
+
+
+					<fieldset>
+						<label htmlFor='mood-select'>
+							{" "}
+							Choose a mood:
+						</label>
+						<select
+							className='select'
+							id='mood-select'
+							onChange={(evt) => {
+								setMoodChoice(parseInt(evt.target.value))
+							}}>
+							<option value='0'>
+								--Please choose a mood-
+							</option>
+							{moods.map((mood) => (
+								<option key={mood.id} value={mood.id}>
+									{mood.mood_type}
+								</option>
+							))}
+						</select>
+					</fieldset>
+
+					
 
 					
 

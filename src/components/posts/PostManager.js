@@ -55,5 +55,15 @@ export const deletePost = (postId) => {
 }
 
 
+export const postByMood = (moodId) => {
+	return fetch(`http://localhost:8000/posts?mood_id=${moodId}`, {
+		headers: {
+			Authorization: `Token ${localStorage.getItem("token")}`,
+		},
+	}).then((res) => res.json())
+}
+
+
+// http://localhost:8000/posts?mood_id=2
 
 
