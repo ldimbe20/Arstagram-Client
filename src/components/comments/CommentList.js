@@ -1,13 +1,29 @@
 import React, { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getCommentsByPostId, deleteComment } from "./CommentManager"
+import {getCurrentUser} from "../artists/ArtistManager"
 import "./comments.css"
 
 export const CommentList = () => {
 	const [comments, setComments] = useState([])
+	const [currentUser, setCurrentUser] = useState([])
 	const [loading, isLoading] = useState(true)
 	const { postId } = useParams()
 	const [image, setImage] = useState("")
+	
+
+
+	const getAllPostComments = () => getCommentsByPostId().then(data => setComments(data))
+
+    useEffect(() => {
+        getAllPostComments()
+    }, [])	
+
+useEffect(() => {
+		getCurrentUser().then((data) => setCurrentUser(data))
+	}, [])
+
+
 	
 	
 	useEffect(() => {
@@ -52,16 +68,19 @@ export const CommentList = () => {
 								<h2 className='subtitle'>
 									Written by {comment.user.user?.username}
 								</h2>
-								{/* <button
+								{comment.user.id === currentUser.id ?
+								<button
+
 													className='button is-link is-dark'
 													onClick={() => {
 														deleteComment(
 															comment.id
-														).then(getCommentsByPostId(postId)).then((data) => setComments(data))
-														.then(() => history.push('/posts/${postId}'))
+														).then(getAllPostComments)
 													}}>
 													Delete
-								 </button> */}
+
+								 </button>:"" }
+								 
 			
 							</div>   
 						</div>

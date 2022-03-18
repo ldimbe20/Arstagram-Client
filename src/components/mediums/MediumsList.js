@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react"
-import { getMediums } from "./MediumsManager"
+import { getMediums, getMediumPosts } from "./MediumsManager"
 import { MediumForm } from "./MediumForm"
 import { ShowMedium } from "./Mediums"
 
 
 export const Medium = () => {
     const [mediums, setMediums] = useState([])
+    const [mediumPosts, setMediumPosts] = useState([])
     const [materialToEdit, setMediumToEdit] = useState({})
     const [editBox, setEditBox] = useState(false)
 
     useEffect(() => {
         getMediums().then(setMediums)
     }, [])
+
+    useEffect(() => {
+        getMediumPosts().then(setMediumPosts)
+    }, [])
+
 
 
 
@@ -36,7 +42,8 @@ export const Medium = () => {
              <div className="columns is-centered">
                 
                 <ShowMedium setMediums={setMediums} mediums={mediums} 
-                    setMediumToEdit={setMediumToEdit} setEditBox={setEditBox} />
+                    setMediumToEdit={setMediumToEdit} setEditBox={setEditBox}
+                    setMediumPosts={setMediumPosts} mediumPosts={mediumPosts} />
 
                 <div className="column is-one-third ml-6">
                     <MediumForm mediums={mediums} setMediums={setMediums} />
