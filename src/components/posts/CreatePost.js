@@ -35,7 +35,7 @@ export const PostForm = () => {
         reader.readAsDataURL(file);
       }
     
-      const createImageString = (event) => {
+    const createImageString = (event) => {
         getBase64(event.target.files[0], (base64ImageString) => {
             console.log("Base64 of file is", base64ImageString);
 			const copy = { ...post }
