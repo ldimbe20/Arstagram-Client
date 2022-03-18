@@ -56,7 +56,7 @@ export const UpdatePost = () => {
         copy[domEvent.target.name] = domEvent.target.value
         setPost(copy)
 
-    } //changing state of currentCategory based on changes to dom 
+    } 
 
     return (
 
@@ -65,25 +65,6 @@ export const UpdatePost = () => {
 
             <div className='container'>
                 <form className='Column'>
-                    {/* <h2 className='title'>Create New Post</h2> */}
-
-                    {/* <div className='field my-5'>
-                        <label htmlFor='image'>Image:</label>
-                        <input
-                            type='url'
-                            name='image_url'
-                            placeholder='URL of img'
-                            className='input'
-                            value={post.image_url}
-                            onChange={changePostState}
-                        />
-                    </div>
-                    {/* <input type="file" id="post_image" onChange={createImageString} />
-                    <input type="hidden" name="post_id" value={post.id} /> */}
-                    {/* <button onClick={() => {
-                        // Upload the stringified image that is stored in state
-                    }}>Upload</button> */} 
-
 
                     <div className="field my-5">
                         <label className="label">Title </label>
@@ -197,10 +178,20 @@ export const UpdatePost = () => {
                             evt.preventDefault()
 
 
-                            updatePost(postId, post)
-                                .then(() => history.push("/posts"))
-                                .then(getPosts)
+                            // updatePost(postId, post)
+                            //     .then(() => history.push("/posts"))
+                            //     .then(getPosts)
 
+
+
+
+                                updatePost(postId, post)
+							if(post.private === false) {
+							(history.push("/posts"))
+                            .then(getPosts)}
+							else{
+							{(history.push("/private_posts"))
+                            .then(getPosts)}}
 
 
 
