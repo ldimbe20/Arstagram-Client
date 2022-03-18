@@ -23,6 +23,8 @@ export const UpdatePost = () => {
 		mediums_used: [],
     })
 
+
+
     useEffect(()=> {
         getMoods().then(m => setMoods(m))
     }, [])
@@ -38,7 +40,7 @@ export const UpdatePost = () => {
             mood_id: data.mood_id,
             title: data.title,
             publication_date: data.publication_date,
-            image_url: data.image_url,
+            // image_url: data.image_url,
             notes: data.notes,
             private: data.private,
             mediums_used: Array.from(data.mediums_used)
@@ -59,11 +61,13 @@ export const UpdatePost = () => {
     return (
 
         <>
+          
+
             <div className='container'>
                 <form className='Column'>
                     {/* <h2 className='title'>Create New Post</h2> */}
 
-                    <div className='field my-5'>
+                    {/* <div className='field my-5'>
                         <label htmlFor='image'>Image:</label>
                         <input
                             type='url'
@@ -76,9 +80,9 @@ export const UpdatePost = () => {
                     </div>
                     {/* <input type="file" id="post_image" onChange={createImageString} />
                     <input type="hidden" name="post_id" value={post.id} /> */}
-                    <button onClick={() => {
+                    {/* <button onClick={() => {
                         // Upload the stringified image that is stored in state
-                    }}>Upload</button>
+                    }}>Upload</button> */} 
 
 
                     <div className="field my-5">

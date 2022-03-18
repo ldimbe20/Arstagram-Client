@@ -32,7 +32,7 @@ export const CommentList = () => {
              
 			 <div>
 				 <img
-//! Trying to figure out if I need to change this syntax or need to add pillow code to this module
+
 
 						src={`http://localhost:8000${image}`}
 						alt='Submitted Artwork'

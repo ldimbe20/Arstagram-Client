@@ -35,7 +35,7 @@ export const PostForm = () => {
         reader.readAsDataURL(file);
       }
     
-      const createImageString = (event) => {
+    const createImageString = (event) => {
         getBase64(event.target.files[0], (base64ImageString) => {
             console.log("Base64 of file is", base64ImageString);
 			const copy = { ...post }
@@ -223,9 +223,20 @@ export const PostForm = () => {
 
 							createPost(newPost)
 							if(newPost.private === false) {
+							// (getPosts).then((data) => setPosts(data))
 							(history.push("/posts"))}
-							else
-							{(history.push("/private_posts"))}
+							else{
+							// (getPosts).then((data) => setPosts(data))
+							{(history.push("/private_posts"))}}
+
+
+							// ! FIGURE OUT HOW TO RERENDER THE POSTS
+
+							// createPost(newPost)
+							// if(newPost.private === false) {
+							// (history.push("/posts"))}
+							// else
+							// {(history.push("/private_posts"))}
 							
 
 				}}
