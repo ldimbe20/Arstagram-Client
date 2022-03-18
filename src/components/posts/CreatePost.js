@@ -223,20 +223,11 @@ export const PostForm = () => {
 
 							createPost(newPost)
 							if(newPost.private === false) {
-							// (getPosts).then((data) => setPosts(data))
 							(history.push("/posts"))}
 							else{
-							// (getPosts).then((data) => setPosts(data))
 							{(history.push("/private_posts"))}}
 
 
-							// ! FIGURE OUT HOW TO RERENDER THE POSTS
-
-							// createPost(newPost)
-							// if(newPost.private === false) {
-							// (history.push("/posts"))}
-							// else
-							// {(history.push("/private_posts"))}
 							
 
 				}}
