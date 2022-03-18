@@ -9,8 +9,11 @@ import Multiselect from "multiselect-react-dropdown";
 
 export const UpdatePost = () => {
     const history = useHistory()
+    const [loading, isLoading] = useState(true)
     const [mediums, setMediums] = useState([])
 	const [moods, setMoods] = useState([])
+    const [image, setImage] = useState("")
+    const [imagePost, setImagePost] = useState([])
     const { postId } = useParams()
     const [post, setPost] = useState({ // Declaring State variable
         user_id: "",
@@ -23,6 +26,18 @@ export const UpdatePost = () => {
 		mediums_used: [],
     })
 
+
+    useEffect(() => {
+		isLoading(true)
+		postById(postId).then(data => {
+            setImagePost(data)
+            console.log(data)
+		    setImage(data.image_url)
+		})
+		isLoading(false)
+	}, [])
+
+    
 
 
     useEffect(()=> {
@@ -58,6 +73,8 @@ export const UpdatePost = () => {
 
     } 
 
+    if (loading) return <div>Loading</div>
+
     return (
 
         <>
@@ -65,6 +82,13 @@ export const UpdatePost = () => {
 
             <div className='container'>
                 <form className='Column'>
+
+                <div>
+				 <img
+						src={`http://localhost:8000${image}`}
+						alt='Submitted Artwork'
+						className='img image is-rounded is-horizontal-center'
+			    /></div>
 
                     <div className="field my-5">
                         <label className="label">Title </label>

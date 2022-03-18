@@ -62,7 +62,7 @@ export const PostForm = () => {
 	return (
 		<div className='container'>
 			<form className='Column'>
-				{/* <h2 className='title'>Create New Post</h2> */}
+				<h2 className='title'>Create New Post</h2>
 
 
 
