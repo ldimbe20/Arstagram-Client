@@ -62,7 +62,7 @@ export const PostForm = () => {
 	return (
 		<div className='container'>
 			<form className='Column'>
-				<h2 className='title'>Create New Post</h2>
+				<h2 className='main-title'>Create New Post</h2>
 
 
 
@@ -81,14 +81,16 @@ export const PostForm = () => {
 				<button onClick={() => {
 				}}>Upload</button> */}
 
+				
+
                 <div className="field my-5">
-					<p>Upload Image Post Here</p>
-					<input type="file" id="imgdata" onChange={createImageString} placeholder='Upload Image'/>
+					<p className ='title is-5 mt-3 mb-1'>Upload Image Post Here</p>
+					<input className='input is-primary' type="file" id="imgdata" onChange={createImageString} placeholder='Upload Image'/>
 					<input type="hidden" name="post_id" value={post.id} />
                 </div>
 
 				<div className="field my-5">
-					<label className="label">Title </label>
+					<label className='title is-5 mt-3 mb-1'>Title </label>
 					<div className="control">
 						<input
 							required
@@ -97,6 +99,7 @@ export const PostForm = () => {
 							name='title'
 							className='input'
 							placeholder='Title'
+							className='input is-primary'
 							value={post.title}
 							onChange={changePostState}
 						/>
@@ -121,10 +124,10 @@ export const PostForm = () => {
 				
 
 					<div className="field my-5">
-						<label htmlFor='mood-select'> Choose a mood:</label>
+						<label htmlFor='mood-select' className='title is-5 mt-3 mb-1'> Choose a mood:</label>
 						<select
 							name='mood'
-							className='input'
+							className='input is-primary'
 							id='mood-select'
 							onChange={(evt) => {
 								const copy = { ...post }
@@ -142,13 +145,13 @@ export const PostForm = () => {
 
 
 					<div className='field my-5'>
-						<label className="label">Notes:</label>
+						<label className='title is-5 mt-3 mb-1'>Notes:</label>
 						<input
 							required
 							autoFocus
 							type='text'
 							name='notes'
-							className='input'
+							className='input is-primary'
 							placeholder='Name'
 							value={post.notes}
 							onChange={changePostState}
@@ -156,8 +159,9 @@ export const PostForm = () => {
 					</div>
 				
 				<div className="field my-5">
-					<label className="label">Add Materials Below </label>
+					<label className='title is-5 mt-3 mb-1'>Add Materials Below </label>
 					<Multiselect
+						// className='input is-primary'
 					    displayValue="key"
 						isObject={true}
 						onRemove={(array_of_mediums) => {
@@ -191,8 +195,8 @@ export const PostForm = () => {
 
 			
 				<div className="Private">
-                    <label className="checkbox">Check Here If Post Is Private:</label>
-                    <input type="checkbox"
+                    <label className='title is-5 mt-3 mb-1'>Check Here If Post Is Private:</label>
+                    <input className='checkbox'type="checkbox"
                          onChange={ 
                              (event) => {
                                  const copy ={...post}     
@@ -231,7 +235,7 @@ export const PostForm = () => {
 							
 
 				}}
-					className='btn btn-primary is-small'>
+				className='button is-primary mr-4 mt-4'>
 					Create
 				</button>
 			</form>

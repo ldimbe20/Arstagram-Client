@@ -24,15 +24,19 @@ export const ShowPrivatePost = () => {
 		<>  
 			<div className='container'>
 				<div className='column'>
-					<div className='title'>Private Posts</div>
+					<div className='main-title'>Private Posts</div>
 
+					
 					
 
 
 
-					{posts.map((finishedPost) => {
+				
+						{posts.map((finishedPost) => {
 						if (finishedPost.private === true) 
-							if(finishedPost.user.user.id === currentUser.id)
+						if(finishedPost.user.user.id === currentUser.id)
+
+							
                         {
 								return (
 									<div
@@ -40,38 +44,50 @@ export const ShowPrivatePost = () => {
 										key={`finishedPost-${finishedPost.id}`}>
 										<div className='card-content'>
 											<div className='card-image has-text-centered'>
-												<img
+												<img 
 													src={`http://localhost:8000${finishedPost.image_url}`}
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
 												/>
-											<p>Title:{finishedPost.title}</p> 
-                                            <p>Artist:{finishedPost.user.user.username}</p>    
-											<p>Mood:{finishedPost.mood.mood_type}</p>
-											<p>Mediums:{" "}
+											<p className='title is-5 mt-3 mb-1'>Title:{finishedPost.title}</p> 
+                                            <p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}     
+											&nbsp;&nbsp;&nbsp; Mood:{finishedPost.mood.mood_type}
+											&nbsp;&nbsp;&nbsp;Material:{" "}
 													{finishedPost.mediums_used
 														?.map((m) => m.name)
 														.join(", ")}
 											</p>
-                                            <p>Date:{finishedPost.publication_date} </p>
-                                            <p>Notes:{finishedPost.notes} </p>
+                                            <p className='title is-5 mb-1'>Date:{finishedPost.publication_date} </p>
+                                            <p className='title is-5'>Notes:{finishedPost.notes} </p>
+											
+										
+											<div className='column'>
+												{
+												finishedPost.user.user.id === currentUser.id ?
+												
 												<Link
-													className='button is-link is-dark'
+													className='button is-primary is-outlined mr-4'
 													to={`/posts/${finishedPost.id}/update`}>
 													Edit
-												</Link>
+											    </Link>: ""}
+											  
 												
+												{
+												finishedPost.user.user.id === currentUser.id ?
 												<button
-													className='button is-link is-dark'
+													className='button is-primary is-outlined mr-4'
 													onClick={() => {
 														deletePost(
 															finishedPost.id
 														).then(getPosts).then((data) => setPosts(data))
-														.then(() => history.push('/private_posts'))
+														.then(() => history.push('/posts'))
 													}}>
 													Delete
-												</button>
-											
+												</button>: ""}
+
+
+											</div>	
+												
 											</div>
 										</div>
 									</div>

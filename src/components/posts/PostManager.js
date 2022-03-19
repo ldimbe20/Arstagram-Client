@@ -64,6 +64,6 @@ export const postByMood = (moodId) => {
 }
 
 
-// http://localhost:8000/posts?mood_id=2
+
 
 
