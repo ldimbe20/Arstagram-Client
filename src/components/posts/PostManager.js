@@ -63,6 +63,16 @@ export const postByMood = (moodId) => {
 	}).then((res) => res.json())
 }
 
+export const postByUser = (userId) => {
+	return fetch(`http://localhost:8000/posts?user_id=${userId}`, {
+		headers: {
+			Authorization: `Token ${localStorage.getItem("token")}`,
+		},
+	}).then((res) => res.json())
+}
+
+
+
 
 
 
