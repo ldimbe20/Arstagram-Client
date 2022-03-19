@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Quicksand:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 
 
@@ -10,7 +10,7 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
  }
  /* create button */
  .btn-primary{
-     background-color:#b8b7b7;
+     /* background-color:#b8b7b7; */
      font-family:Quicksand;
      border-radius: 3px;
      border:none;
@@ -20,7 +20,7 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
  }
 
  .btn-primary:hover{
-    background-color:#b8b7b7;
+    /* background-color:#b8b7b7; */
  }
 /* TITLES */
 
@@ -33,47 +33,67 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
 
  /* delete and edit button */
  .button.is-info{
-     background-color:#b8b7b7;
+     /* background-color:#b8b7b7; */
      font-family:Quicksand;
      font-weight:500;
  }
 
  .button.is-info:hover{
-    background-color:#a09f9f;
+    /* background-color:#a09f9f; */
     font-family:Quicksand;
     font-weight:500;
 }
 
 .button.is-link{
-    background-color:#a09f9f;
+    /* background-color:#a09f9f; */
     font-family:Quicksand;
     font-weight:500;
 
 }
 
 .button.is-link:hover{
-    background-color:#b8b7b7;
+    /* background-color:#b8b7b7; */
     font-family:Quicksand;
     font-weight:500;
 }
 
 .button.is-link.is-light{
-    background-color:#6eb6f1;
+    /* background-color:#6eb6f1; */
     font-family:Quicksand;
     font-weight:500;
     color:white;
 }
 
 .button.is-link.is-light:hover{
-    background-color:#a09f9f;
+    /* background-color:#a09f9f; */
     font-family:Quicksand;
     font-weight:500;
     color:white;
 }
 
-.title{
+.main-title{
     font-family:Playfair;
     font-weight:700;
     font-style:italic;
+    font-size:xx-large;
+    margin-bottom: 30px;
 }
 
+.title{
+    font-family:Quicksand;
+    font-weight:600;
+}
+
+.button.button.is-primary.is-outlined.mr-4{
+
+    font-family:Quicksand;
+    font-weight:700;
+}
+
+.checkbox{
+    width: 20px;
+    height:20px;align-items: center;
+    margin-left: 5px;
+    margin-top: 5px;
+
+}

@@ -14,6 +14,7 @@ export const ShowPost = () => {
 	const history = useHistory()
 	
 
+
 	useEffect(() => {
 		getPosts().then((data) => setPosts(data))
 	}, [])
@@ -42,30 +43,57 @@ export const ShowPost = () => {
 		<>  
 			<div className='container'>
 				<div className='column'>
-					<div className='title'>Shared Posts</div>
+					<div className='main-title'>Shared Posts</div>
 
 
 					<fieldset>
-						<label htmlFor='mood-select'>
+						<div className='columns'>
+						<label htmlFor='mood-select'
+						 className='title is-5 mb-0 ml-3'>
 							{" "}
-							Choose a mood:
+							Choose a Mood
+						</label>
+						</div>
+							<div className='select is-primary'>
+								<select
+									
+									id='mood-select'
+									onChange={(evt) => {
+										setMoodChoice(parseInt(evt.target.value))
+									}}>
+									<option value='0'>
+										--Please choose a mood-
+									</option>
+									{moods.map((mood) => (
+										<option key={mood.id} value={mood.id}>
+											{mood.mood_type}
+										</option>
+									))}
+								</select>
+							</div>
+					</fieldset>
+
+					{/* <fieldset>
+						<label htmlFor='user-select'>
+							{" "}
+							Choose a user:
 						</label>
 						<select
 							className='select'
-							id='mood-select'
+							id='user-select'
 							onChange={(evt) => {
-								setMoodChoice(parseInt(evt.target.value))
+								setUserChoice(parseInt(evt.target.value))
 							}}>
 							<option value='0'>
-								--Please choose a mood-
+								--Please choose a user-
 							</option>
-							{moods.map((mood) => (
-								<option key={mood.id} value={mood.id}>
-									{mood.mood_type}
+							{users.map((user) => (
+								<option key={user.id} value={user.id}>
+									{user.user_type}
 								</option>
 							))}
 						</select>
-					</fieldset>
+					</fieldset> */}
 
 					
 
@@ -83,27 +111,40 @@ export const ShowPost = () => {
 										key={`finishedPost-${finishedPost.id}`}>
 										<div className='card-content'>
 											<div className='card-image has-text-centered'>
-												<img
+												<img 
 													src={`http://localhost:8000${finishedPost.image_url}`}
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
 												/>
-											<p>Title:{finishedPost.title}</p> 
-                                            <p>Artist:{finishedPost.user.user.username}</p>    
-											<p>Mood:{finishedPost.mood.mood_type}</p>
-											<p>Mediums:{" "}
+											<p className='title is-5 mt-3 mb-1'>Title:{finishedPost.title}</p> 
+                                            <p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}     
+											&nbsp;&nbsp;&nbsp; Mood:{finishedPost.mood.mood_type}
+											&nbsp;&nbsp;&nbsp;Material:{" "}
 													{finishedPost.mediums_used
 														?.map((m) => m.name)
 														.join(", ")}
 											</p>
-                                            <p>Date:{finishedPost.publication_date} </p>
-                                            <p>Notes:{finishedPost.notes} </p>
-
-											{
+                                            <p className='title is-5 mb-1'>Date:{finishedPost.publication_date} </p>
+                                            <p className='title is-5'>Notes:{finishedPost.notes} </p>
+											
+												<Link
+													className='button is-primary is-outlined mr-4'
+													to={`/comments/${finishedPost.id}`}>
+													Add Comment
+												</Link>
+												
+												<Link
+													className='button is-primary is-outlined mr-4'
+													to={`/posts/${finishedPost.id}`}>
+													View Comments
+												</Link>
+										
+											<div className='column'>
+												{
 												finishedPost.user.user.id === currentUser.id ?
 												
 												<Link
-													className='button is-link is-dark'
+													className='button is-primary is-outlined mr-4'
 													to={`/posts/${finishedPost.id}/update`}>
 													Edit
 											    </Link>: ""}
@@ -112,7 +153,7 @@ export const ShowPost = () => {
 												{
 												finishedPost.user.user.id === currentUser.id ?
 												<button
-													className='button is-link is-dark'
+													className='button is-primary is-outlined mr-4'
 													onClick={() => {
 														deletePost(
 															finishedPost.id
@@ -122,19 +163,8 @@ export const ShowPost = () => {
 													Delete
 												</button>: ""}
 
-												<Link
-													className='button is-link is-dark'
-													to={`/comments/${finishedPost.id}`}>
-													Add Comment
-												</Link>
-												
-												<Link
-													className='button is-link is-dark'
-													to={`/posts/${finishedPost.id}`}>
-													View Comments
-												</Link>
 
-												
+											</div>	
 												
 											</div>
 										</div>
