@@ -25,7 +25,7 @@ export const Medium = () => {
     return (
         <>
   
-
+        <div className="container">
             <div id="edit-modal" className={editBox ? "modal is-active" : "modal"}>
                 <div className="modal-background"></div>
 
@@ -37,9 +37,10 @@ export const Medium = () => {
                 </div>
 
             </div>
-            <h1 className="title">Materials</h1>
-            <h2>Current Listed Materials</h2>
-             <div className="columns is-centered">
+            <h1 className="main-title">Materials</h1>
+            <h2 className="title is-5">Current Listed Materials</h2>
+             <div className="columns">
+            
                 
                 <ShowMedium setMediums={setMediums} mediums={mediums} 
                     setMediumToEdit={setMediumToEdit} setEditBox={setEditBox}
@@ -49,6 +50,7 @@ export const Medium = () => {
                     <MediumForm mediums={mediums} setMediums={setMediums} />
                 </div>
             </div> 
+        </div>
         </>
     )
 }

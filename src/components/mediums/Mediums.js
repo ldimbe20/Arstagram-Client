@@ -3,7 +3,7 @@ import {getCurrentUser} from "../artists/ArtistManager"
 import React, { useEffect, useState } from "react"
 
 
-export const ShowMedium = ({ mediums, setMediums, mediumPosts,setMediumPost }) => {
+export const ShowMedium = ({ mediums, }) => {
     const [currentUser, setCurrentUser] = useState([])
 
     useEffect(() => {
@@ -18,11 +18,11 @@ export const ShowMedium = ({ mediums, setMediums, mediumPosts,setMediumPost }) =
                 
                 mediums.map(
                     (medium) => {
-                        return <div className="notification is-dark p-3 has-text-weight-medium" key={`medium--${medium.id}`}>
+                        return <div className="notification is-primary p-3 has-text-weight-medium" key={`medium--${medium.id}`}>
                            
                            {/* { */}
 							
-                            {/* <button className="delete is-info" onClick={() => { 
+                             {/* <button className="delete is-info" onClick={() => { 
                                 deleteMedium(medium.id).then((res)=>{
                                     if (res.status === 304){
                                         window.alert("This medium is already in use and cannot be deleted")
@@ -30,7 +30,7 @@ export const ShowMedium = ({ mediums, setMediums, mediumPosts,setMediumPost }) =
 
                                 }).then(getMediums)
                                     .then(setMediums)
-                            }}></button> */}
+                            }}></button>  */}
                           
                             <div className="level-left">
 
