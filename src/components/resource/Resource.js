@@ -1,8 +1,7 @@
 
 import { Link } from "react-router-dom"
 import React from 'react'
-import { Watercolor } from "./Watercolor"
-import ReactPlayer from 'react-player/youtube'
+
 
 
 
@@ -23,6 +22,69 @@ export const Resource = () => {
 						to={`/watercolor`}>
 						Watercolors
 					</Link>
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/acrylic`}>
+						Acrylics
+					</Link>
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/gauche`}>
+						Gauche
+					</Link>
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/ink`}>
+						Ink and Pen
+					</Link>
+
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/ink`}>
+						Tempura
+					</Link>
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/charcoal`}>
+						Charcoal
+					</Link>
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/ink`}>
+						Pastels
+					</Link>
+				
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/ink`}>
+						Graphite Pencils
+					</Link>
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/ink`}>
+						Color Pencil
+					</Link>
+
+					<Link
+						className='button is-primary mr-4 mt-4'
+						to={`/ink`}>
+						Pastels
+					</Link>
+
+					<div className='title is-5 mt-6 mb-1'>NOTE:Some of these links lead to the same page. I wanted to spend more time on different features rather than create filler page :) </div>
+
+
+
+
+
 					</div>
 			       
 

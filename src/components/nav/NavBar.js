@@ -39,6 +39,7 @@ export const NavBar = ({ token, setToken }) => {
 					<span aria-hidden='true'></span>
 				</a>
 			</div>
+			<div className='navbar-brand' ref={navbar}>Sketchbook</div>
 
 			<div className='navbar-end' ref={navbar}>
 				<div className='navbar-start'>
