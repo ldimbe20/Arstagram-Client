@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import {createPost } from "./PostManager"
 import Multiselect from "multiselect-react-dropdown";
 import {getMoods} from "../moods/MoodManager"
@@ -173,6 +173,7 @@ export const PostForm = () => {
 								mediums_used: array_of_newMediums,
 							})
 						}}
+
 						//when item is clicked the event is recorded(array_of_mediums) 
 						onSelect={(array_of_mediums) => {
 							//below we are making a copy of post object then resetting the setPost to the post object, but changing the mediums_used with recorded event
@@ -190,6 +191,14 @@ export const PostForm = () => {
 						}
 
 					/>
+					<div className="">
+						<p className='title is-5 mt-4 mb-2'><i>Material not listed?</i> </p>
+					<Link
+						className='button is-primary is-outlined  mr-4 is-small has-text-dark' 
+						to={`/mediums`}>
+						Click Here
+					 </Link>
+					</div>
 				</div>
              
 
