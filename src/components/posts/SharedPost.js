@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link,  } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {deletePost,getPosts, postByMood} from "./PostManager"
-import {getCurrentUser} from "../artists/ArtistManager"
+import {deletePost,getPosts, postByMood, postByUser} from "./PostManager"
+import {getCurrentUser, getUser} from "../artists/ArtistManager"
 import {getMoods} from "../moods/MoodManager"
 import "./posts.css"
 
@@ -10,7 +10,9 @@ export const ShowPost = () => {
 	const [currentUser, setCurrentUser] = useState([])
 	const [posts, setPosts] = useState([])
 	const [moodChoice, setMoodChoice] = useState(0)
+	const [userChoice, setUserChoice] = useState(0)
 	const [moods, setMoods] = useState([])
+	const [users, setUsers] = useState([])
 	const history = useHistory()
 	
 
@@ -27,6 +29,10 @@ export const ShowPost = () => {
 		getCurrentUser().then((data) => setCurrentUser(data))
 	}, [])
 
+	useEffect(() => {
+		getUser().then((data) => setUsers(data))
+	}, [])
+
 
 	useEffect(() => {
 		if (moodChoice)
@@ -34,6 +40,14 @@ export const ShowPost = () => {
 				setPosts(posts)
 			})
 	}, [moodChoice])
+
+	useEffect(() => {
+		if (userChoice)
+			postByUser(userChoice).then((posts) => {
+				setPosts(posts)
+			})
+	}, [userChoice])
+
 
 	
 
@@ -47,7 +61,7 @@ export const ShowPost = () => {
 
 
 					<fieldset>
-						<div className='columns'>
+						<div className='columns is-half'>
 						<label htmlFor='mood-select'
 						 className='title is-5 mb-0 ml-3'>
 							{" "}
@@ -73,13 +87,17 @@ export const ShowPost = () => {
 							</div>
 					</fieldset>
 
-					{/* <fieldset>
-						<label htmlFor='user-select'>
+					<fieldset>
+					<div className='columns is-half'>
+						<label htmlFor='mood-select'
+						 className='title is-5 mb-0 ml-3'>
 							{" "}
-							Choose a user:
+							Choose a User
 						</label>
+					</div>
+					<div className='select is-primary'>
 						<select
-							className='select'
+							className='select is-primary'
 							id='user-select'
 							onChange={(evt) => {
 								setUserChoice(parseInt(evt.target.value))
@@ -89,11 +107,12 @@ export const ShowPost = () => {
 							</option>
 							{users.map((user) => (
 								<option key={user.id} value={user.id}>
-									{user.user_type}
+									{user.user.username}
 								</option>
 							))}
 						</select>
-					</fieldset> */}
+					</div>
+					</fieldset>
 
 					
 
