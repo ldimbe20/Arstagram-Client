@@ -7,7 +7,12 @@ import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
 import { Medium } from "./mediums/MediumsList"
 import { Resource } from "./resource/Resource"
-import { Watercolor } from "./resource/Watercolor"
+import { Watercolor } from "./resource/watercolor"
+import { Ink } from "./resource/pen_ink"
+import { Oil } from "./resource/oils"
+import { Acrylic } from "./resource/acrylic"
+import { Gauche } from "./resource/gauche"
+import { Charcoal } from "./resource/charcoal"
 
 import { CommentList } from "./comments/CommentList"
 
@@ -58,6 +63,27 @@ export const ApplicationViews = () => {
 			 <Route exact path='/watercolor'>
 				<Watercolor />
 			</Route> 
+
+			<Route exact path='/ink'>
+				<Ink />
+			</Route> 
+
+			<Route exact path='/oil'>
+				<Oil />
+			</Route> 
+
+			<Route exact path='/acrylic'>
+				<Acrylic />
+			</Route> 
+
+			<Route exact path='/gauche'>
+				<Gauche />
+			</Route> 
+
+			<Route exact path='/charcoal'>
+				<Charcoal />
+			</Route> 
+
 
 			
 		</>

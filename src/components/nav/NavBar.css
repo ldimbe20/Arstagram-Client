@@ -7,7 +7,19 @@
 
 .navbar-item{
    font-family:Quicksand;
-   font-weight:500;
+   font-weight:700;
+   font-size:20px;
+   
+}
+
+
+.navbar-brand{
+   font-family:Playfair;
+   font-weight:700;
+   font-style:italic;
+   /* font-size:xx-large; */
+   margin: 10px;
+   font-size: 50px;
    
 }
 
