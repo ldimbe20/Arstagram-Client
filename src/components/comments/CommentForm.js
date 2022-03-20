@@ -28,15 +28,15 @@ export const CommentForm = () => {
 					<div className='column is-one-fifth'></div>
 					<div className='column is-three-fifths'>
 						<div className='card-content'>
-							<h1 className='title'>Post a New Comment</h1>
+							<h1 className='main-title'>Post Comment</h1>
 							<form className='commentForm'>
 							
 								<fieldset className='field'>
-									<label className='label'>Comment</label>
+									<label className='title is-5 mb-0 '>Comment</label>
 									<div className='control'>
 										<textarea
 											name='content'
-											className='textarea'
+											className='textarea is-primary'
 											value={setCurrentComment.content}
 											onChange={handleAddComment}
 											placeholder='Add your comment'></textarea>
@@ -45,7 +45,7 @@ export const CommentForm = () => {
 								<div className='field'>
 									<div className='control'>
 										<button
-											className='button is-link is-dark'
+											className='button is-primary '
 											type='submit'
 											onClick={(evt) => {
 												evt.preventDefault()
