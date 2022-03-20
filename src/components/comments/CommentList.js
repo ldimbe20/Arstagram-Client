@@ -44,7 +44,8 @@ useEffect(() => {
 
 	
 		<>
-		     <div className='title'>Posts</div>
+		<div className="container">
+			 <div className='main-title'>Posts</div>
              
 			 <div>
 				 <img
@@ -58,20 +59,20 @@ useEffect(() => {
 			{comments.map((comment) => {
 				return (
 					<div
-						className='card equal-height'
+						className='None'
 						key={`comment--${comment.id}`}>
 						<div className='columns card-content'>
 							<div className='column is-three-quarters'>
 								<h4 className='subtitle'>
 									{comment.content}
 								</h4>
-								<h2 className='subtitle'>
+								<h2 className='title is-5 mb-4'>
 									Written by {comment.user.user?.username}
 								</h2>
 								{comment.user.id === currentUser.id ?
 								<button
 
-													className='button is-link is-dark'
+													className='button is-primary'
 													onClick={() => {
 														deleteComment(
 															comment.id
@@ -90,11 +91,13 @@ useEffect(() => {
 
 			<div>
 			<Link
-				className='button is-link is-dark'
+				className='button is-primary is-outlined'
 				to={`/posts`}>
 				Back to Share Posts
 			</Link>					
 			</div>
+		</div>
+		
 		</>
 	)
 }
