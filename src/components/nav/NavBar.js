@@ -87,12 +87,12 @@ export const NavBar = ({ token, setToken }) => {
 								<>
 									<Link
 										to='/register'
-										className='button is-link'>
+										className='button is-primary'>
 										Register
 									</Link>
 									<Link
 										to='/login'
-										className='button is-dark'>
+										className='button is-light'>
 										Login
 									</Link>
 								</>

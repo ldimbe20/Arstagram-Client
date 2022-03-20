@@ -41,43 +41,43 @@ export const Register = ({ setToken }) => {
 	return (
 		<section className='columns is-centered'>
 			<form className='column is-two-thirds' onSubmit={handleRegister}>
-				<h1 className='title'>Sketchbook Registration</h1>
-				<p className='subtitle'>Create an account</p>
+				<h1 className='main-title'>Registration</h1>
+				<p className='title is-4 mb'>Create an account</p>
 				<div className='field'>
-					<label className='label'>First Name</label>
+					<label className='title is-5 mt-3 mb-1'>First Name</label>
 					<div className='control'>
-						<input className='input' type='text' ref={firstName} />
+						<input className='input is-primary' type='text' ref={firstName} />
 					</div>
 				</div>
 
 				<div className='field'>
-					<label className='label'>Last Name</label>
+					<label className='title is-5 mt-3 mb-1'>Last Name</label>
 					<div className='control'>
-						<input className='input' type='text' ref={lastName} />
+						<input className='input is-primary' type='text' ref={lastName} />
 					</div>
 				</div>
 
 				<div className='field'>
-					<label className='label'>Username</label>
+					<label className='title is-5 mt-3 mb-1'>Username</label>
 					<div className='control'>
-						<input className='input' type='text' ref={username} />
+						<input className='input is-primary' type='text' ref={username} />
 					</div>
 				</div>
 
 				<div className='field'>
-					<label className='label'>Email</label>
+					<label className='title is-5 mt-3 mb-1'>Email</label>
 					<div className='control'>
-						<input className='input' type='email' ref={email} />
+						<input className='input is-primary' type='email' ref={email} />
 					</div>
 				</div>
 
 				<div className='field'>
-					<label className='label'>Password</label>
+					<label className='title is-5 mt-3 mb-1'>Password</label>
 					<div className='field-body'>
 						<div className='field'>
-							<p className='control is-expanded'>
+							<p className='control is-primary'>
 								<input
-									className='input'
+									className='input is-primary'
 									type='password'
 									placeholder='Password'
 									ref={password}
@@ -86,9 +86,9 @@ export const Register = ({ setToken }) => {
 						</div>
 
 						<div className='field'>
-							<p className='control is-expanded'>
+							<p className='control is-primary'>
 								<input
-									className='input'
+									className='input is-primary'
 									type='password'
 									placeholder='Verify Password'
 									ref={verifyPassword}
@@ -99,10 +99,10 @@ export const Register = ({ setToken }) => {
 				</div>
 
 				<div className='field'>
-					<label className='label'>Bio</label>
+					<label className='title is-5 mt-3 mb-1'>Bio</label>
 					<div className='control'>
 						<textarea
-							className='textarea'
+							className='textarea is-primary'
 							placeholder='Tell us about yourself...'
 							ref={bio}></textarea>
 					</div>
@@ -110,15 +110,18 @@ export const Register = ({ setToken }) => {
 
 				<div className='field is-grouped'>
 					<div className='control'>
-						<button className='button is-link' type='submit'>
+						<button className='button is-primary' type='submit'>
 							Submit
 						</button>
 					</div>
+
+
 				
 					<div className='control'>
 						<Link to='/login' className='button is-dark'>
 							Cancel
 						</Link>
+
 					</div>
 				</div>
 			</form>

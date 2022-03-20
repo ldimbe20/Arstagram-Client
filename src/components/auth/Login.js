@@ -32,29 +32,29 @@ export const Login = ({ setToken }) => {
   return (
     <section className="columns is-centered">
       <form className="column is-two-thirds" onSubmit={handleLogin}>
-        <h1 className="title">Sketchbook Login</h1>
-        <p className="subtitle">Please sign in</p>
+        <h1 className="main-title">Login</h1>
+        <p className="title is-4 mb">Please sign in</p>
 
         <div className="field">
-          <label className="label">Username</label>
+          <label className="title is-5 mt-3 mb-1">Username</label>
           <div className="control">
-            <input className="input" type="text" ref={username} />
+            <input className="input is-primary" type="text" ref={username} />
           </div>
         </div>
 
         <div className="field">
-          <label className="label">Password</label>
+          <label className="title is-5 mt-3 mb-1">Password</label>
           <div className="control">
-            <input className="input" type="password" ref={password} />
+            <input className="input is-primary" type="password" ref={password} />
           </div>
         </div>
 
         <div className="field is-grouped">
           <div className="control">
-            <button className="button is-link" type="submit" >Submit</button>
+            <button className="button is-primary" type="submit" >Submit</button>
           </div>
           <div className="control">
-            <Link to="/register" className="button is-dark">Cancel</Link>
+            <Link to="/register" className="button is-primary is-outlined">Cancel</Link>
           </div>
         </div>
         {

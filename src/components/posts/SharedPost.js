@@ -56,19 +56,20 @@ export const ShowPost = () => {
 		//  <> Fragment - putting all return elements into one JSX element
 		<>  
 			<div className='container'>
-				<div className='column'>
-					<div className='main-title'>Shared Posts</div>
+			<div className='main-title'>Shared Posts</div>
+				<div className='columns'>
+					
 
 
 					<fieldset>
-						<div className='columns is-half'>
+						<div className='column '>
 						<label htmlFor='mood-select'
-						 className='title is-5 mb-0 ml-3'>
+						 className='title is-5 mb-0 ml-5'>
 							{" "}
 							Choose a Mood
 						</label>
 						</div>
-							<div className='select is-primary'>
+							<div className='select is-primary mr-5 '>
 								<select
 									
 									id='mood-select'
@@ -88,9 +89,9 @@ export const ShowPost = () => {
 					</fieldset>
 
 					<fieldset>
-					<div className='columns is-half'>
-						<label htmlFor='mood-select'
-						 className='title is-5 mb-0 ml-3'>
+					<div className='column is-center ml-2'>
+						<label htmlFor='mood-select ml-5'
+						 className='title is-5 mb-0 ml-5'>
 							{" "}
 							Choose a User
 						</label>
@@ -114,8 +115,12 @@ export const ShowPost = () => {
 					</div>
 					</fieldset>
 
-					
+				</div>
+			</div>
 
+					
+			<div className='container'>
+				<div className='column'>
 					
 
 
