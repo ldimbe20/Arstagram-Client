@@ -1,9 +1,9 @@
-import { deleteMedium } from "./MediumsManager"
+import { deleteMedium, getMediums } from "./MediumsManager"
 import {getCurrentUser} from "../artists/ArtistManager"
 import React, { useEffect, useState } from "react"
 
 
-export const ShowMedium = ({ mediums, }) => {
+export const ShowMedium = ({ mediums, setMediums }) => {
     const [currentUser, setCurrentUser] = useState([])
 
     useEffect(() => {
@@ -20,9 +20,9 @@ export const ShowMedium = ({ mediums, }) => {
                     (medium) => {
                         return <div className="notification is-primary p-3 has-text-weight-medium" key={`medium--${medium.id}`}>
                            
-                           {/* { */}
+                           
 							
-                             {/* <button className="delete is-info" onClick={() => { 
+                             <button className="delete is-info" onClick={() => { 
                                 deleteMedium(medium.id).then((res)=>{
                                     if (res.status === 304){
                                         window.alert("This medium is already in use and cannot be deleted")
@@ -30,7 +30,7 @@ export const ShowMedium = ({ mediums, }) => {
 
                                 }).then(getMediums)
                                     .then(setMediums)
-                            }}></button>  */}
+                            }}></button>  
                           
                             <div className="level-left">
 
@@ -47,5 +47,3 @@ export const ShowMedium = ({ mediums, }) => {
         </div>
     )
 }
-
-//!need to figure out why table isn't deleting info correctly
