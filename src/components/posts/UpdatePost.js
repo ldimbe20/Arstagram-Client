@@ -85,11 +85,12 @@ export const UpdatePost = () => {
                 <form className='Column'>
 
                 <div>
+                {image?
 				 <img
 						src={`http://localhost:8000${image}`}
 						alt='Submitted Artwork'
 						className='img image is-rounded is-horizontal-center'
-			    /></div>
+			    />:""}</div>
 
                     <div className="field my-5">
                         <label className="title is-5 mt-3 mb-1">Title </label>
@@ -202,26 +203,15 @@ export const UpdatePost = () => {
                     <button type="submit"
                         onClick={evt => {
                             evt.preventDefault()
-
-
-                            // updatePost(postId, post)
-                            //     .then(() => history.push("/posts"))
-                            //     .then(getPosts)
-
-
-
-
-                                updatePost(postId, post)
-							if(post.private === false) {
-							(history.push("/posts"))
-                            .then(getPosts)}
-							else{
-							{(history.push("/private_posts"))
-                            .then(getPosts)}}
-
-
-
-                            //! need to make logic so you wil be rerouted to private post OR shared post
+                            updatePost(postId, post)
+                                .then(()=>{
+                                    if(newPost.private) {
+                                        history.push("/private_posts")}
+                                    else 
+                                    {
+                                        history.push("/posts")
+                                        }
+                                })	
                         }}
                         className="button is-primary mr-4 mt-4'">Update</button>
 

@@ -176,7 +176,6 @@ export const ShowPost = () => {
 													Edit
 											    </Link>: ""}
 											  
-												
 												{
 												finishedPost.user.user.id === currentUser.id ?
 												<button
@@ -189,7 +188,6 @@ export const ShowPost = () => {
 													}}>
 													Delete
 												</button>: ""}
-
 
 											</div>	
 												

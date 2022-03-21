@@ -91,7 +91,6 @@ export const PostForm = () => {
 							autoFocus
 							type='text'
 							name='title'
-							className='input'
 							placeholder='Title'
 							className='input is-primary'
 							value={post.title}
@@ -204,7 +203,7 @@ export const PostForm = () => {
 							user_id: post.user_id,
 							mood_id: post.mood_id,
 							title: post.title,
-							publication_date: today.toDateString(),
+							publication_date: post.publication_date,
 							image_url: post.image_url,
 							notes: post.notes,
 							private: post.private,
@@ -214,15 +213,14 @@ export const PostForm = () => {
                         
 
 							createPost(newPost)
-							if(newPost.private === false) {
-							(history.push("/posts"))
-							.then(getPosts)}
-							else{
-							{(history.push("/private_posts"))
-							.then(getPosts)}
-						}
-
-
+							.then(()=>{
+								if(newPost.private) {
+									history.push("/private_posts")}
+								else 
+								  {
+									history.push("/posts")
+									}
+							})	
 				}}
 				className='button is-primary mr-4 mt-4'>
 					Create

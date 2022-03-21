@@ -31,7 +31,7 @@ export const MediumForm = ({ setMediums, mediums }) => {
        
             <fieldset>
                 <div className="form-group">
-                    <name htmlFor="mediumName"></name>
+                    <label htmlFor="mediumName"></label>
                     <h2 className="title is-5 has-text-light has-text-weight-bold">Add New Art Material Here</h2>
                     <input className="box" type="text" id="mediumName" ref={name} required autoFocus placeholder="Add medium name" />
                 </div>

@@ -9,6 +9,7 @@ export const getPosts = () => {
 
 export const createPost = (post) => {
 	return fetch("http://localhost:8000/posts", {
+		// fetch returns a promise
 		method: "POST",
 		headers: {
 			"Authorization": `Token ${localStorage.getItem("token")}`,
