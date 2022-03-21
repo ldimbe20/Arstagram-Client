@@ -14,6 +14,7 @@ export const ShowPost = () => {
 	const [moods, setMoods] = useState([])
 	const [users, setUsers] = useState([])
 	const history = useHistory()
+    
 	
 
 
@@ -47,6 +48,8 @@ export const ShowPost = () => {
 				setPosts(posts)
 			})
 	}, [userChoice])
+
+	// all the above useEffects are reacting to to the methods created on back-end
 
 
 	

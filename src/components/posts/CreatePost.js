@@ -9,6 +9,7 @@ import {getMediums} from "../mediums/MediumsManager"
 export const PostForm = () => {
 	const [mediums, setMediums] = useState([])
 	const [moods, setMoods] = useState([])
+	const [posts, setPosts] = useState([])
 	const history = useHistory()
 
 	// Below code allows users to upload their own photos 
@@ -29,20 +30,30 @@ export const PostForm = () => {
 		
 	})
 
+	// values above need to match values on request.data on backend
+
 	const getBase64 = (file, callback) => {
         const reader = new FileReader();
         reader.addEventListener('load', () => callback(reader.result));
         reader.readAsDataURL(file);
       }
+
+	
+	const getAllPosts = () => getAllPosts().then(data => setPosts(data))
+							
+
+	
     
     const createImageString = (event) => {
         getBase64(event.target.files[0], (base64ImageString) => {
-            console.log("Base64 of file is", base64ImageString);
+            // console.log("Base64 of file is", base64ImageString);
 			const copy = { ...post }
 			copy.image_url = base64ImageString, 
 			setPost(copy)
         });
       }
+
+
 
 	useEffect(()=> {
         getMoods().then(m => setMoods(m))
@@ -63,23 +74,6 @@ export const PostForm = () => {
 		<div className='container'>
 			<form className='Column'>
 				<h2 className='main-title'>Create New Post</h2>
-
-
-
-				{/* <div className='field my-5'>
-					<label htmlFor='image'>Image:</label>
-					<input
-						type='url'
-						name='image_url'
-						placeholder='URL of img'
-						className='input'
-						value={post.image_url}
-						onChange={changePostState}
-					/>
-				</div>
-				
-				<button onClick={() => {
-				}}>Upload</button> */}
 
 				
 
@@ -106,21 +100,6 @@ export const PostForm = () => {
 					</div>
 				</div>
 
-				{/* <div className="field my-5">
-					<label className="label">Date </label>
-					<div className="control">
-						<input
-							required
-							autoFocus
-							type='Date'
-							name='Date'
-							className='input'
-							placeholder='Choose Date'
-							value={post.publication_date}
-							onChange={changePostState}
-						/>
-					</div>
-				</div> */}
 				
 
 					<div className="field my-5">
@@ -225,7 +204,7 @@ export const PostForm = () => {
 							user_id: post.user_id,
 							mood_id: post.mood_id,
 							title: post.title,
-							publication_date: Date.now(),
+							publication_date: today.toDateString(),
 							image_url: post.image_url,
 							notes: post.notes,
 							private: post.private,
@@ -236,12 +215,13 @@ export const PostForm = () => {
 
 							createPost(newPost)
 							if(newPost.private === false) {
-							(history.push("/posts"))}
+							(history.push("/posts"))
+							.then(getPosts)}
 							else{
-							{(history.push("/private_posts"))}}
+							{(history.push("/private_posts"))
+							.then(getPosts)}
+						}
 
-
-							
 
 				}}
 				className='button is-primary mr-4 mt-4'>
@@ -253,3 +233,10 @@ export const PostForm = () => {
 	)
 }
 
+// updatePost(postId, post)
+// if(post.private === false) {
+// (history.push("/posts"))
+// .then(getPosts)}
+// else{
+// {(history.push("/private_posts"))
+// .then(getPosts)}}

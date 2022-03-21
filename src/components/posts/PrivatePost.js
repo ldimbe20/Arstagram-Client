@@ -80,7 +80,7 @@ export const ShowPrivatePost = () => {
 														deletePost(
 															finishedPost.id
 														).then(getPosts).then((data) => setPosts(data))
-														.then(() => history.push('/posts'))
+														.then(() => history.push('/private_posts'))
 													}}>
 													Delete
 												</button>: ""}
