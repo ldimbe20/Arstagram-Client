@@ -48,13 +48,12 @@ useEffect(() => {
 			 <div className='main-title'>Posts</div>
              
 			 <div>
+				 {image?
 				 <img
-
-
 						src={`http://localhost:8000${image}`}
 						alt='Submitted Artwork'
 						className='img image is-rounded is-horizontal-center'
-			/></div>
+			   />: "" } </div>
                      
 			{comments.map((comment) => {
 				return (
