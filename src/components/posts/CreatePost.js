@@ -231,10 +231,3 @@ export const PostForm = () => {
 	)
 }
 
-// updatePost(postId, post)
-// if(post.private === false) {
-// (history.push("/posts"))
-// .then(getPosts)}
-// else{
-// {(history.push("/private_posts"))
-// .then(getPosts)}}

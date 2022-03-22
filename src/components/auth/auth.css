@@ -98,3 +98,9 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
     margin-top: 5px;
 
 }
+
+.image{
+    max-width: 550px;
+    height:auto;
+}
+

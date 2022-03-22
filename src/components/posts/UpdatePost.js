@@ -205,7 +205,7 @@ export const UpdatePost = () => {
                             evt.preventDefault()
                             updatePost(postId, post)
                                 .then(()=>{
-                                    if(newPost.private) {
+                                    if(updatePost.private) {
                                         history.push("/private_posts")}
                                     else 
                                     {
@@ -222,3 +222,7 @@ export const UpdatePost = () => {
 
     )
 }
+
+
+
+	

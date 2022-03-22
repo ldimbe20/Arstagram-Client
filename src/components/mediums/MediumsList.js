@@ -33,6 +33,7 @@ export const Medium = () => {
                     <div className="box">
                         <MediumForm setMediums={setMediums} mediums={mediums}
                             materialToEdit={materialToEdit} setEditBox={setEditBox} />
+
                     </div>
                 </div>
 

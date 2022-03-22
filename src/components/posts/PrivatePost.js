@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {getPosts, deletePost,} from "./PostManager"
+import {getPosts, postByMood, deletePost,} from "./PostManager"
 import {getCurrentUser} from "../artists/ArtistManager"
+import {getMoods} from "../moods/MoodManager"
 import "./posts.css"
 
 export const ShowPrivatePost = () => {
 	const [currentUser, setCurrentUser] = useState([])
 	const [posts, setPosts] = useState([])
 	const history = useHistory()
+	const [moods, setMoods] = useState([])
+	const [moodChoice, setMoodChoice] = useState(0)
 
 	useEffect(() => {
 		getPosts().then((data) => setPosts(data))
@@ -18,6 +21,17 @@ export const ShowPrivatePost = () => {
 		getCurrentUser().then((data) => setCurrentUser(data))
 	}, [])
 
+	useEffect(() => {
+		getMoods().then((data) => setMoods(data))
+	}, [])
+
+	useEffect(() => {
+		if (moodChoice)
+			postByMood(moodChoice).then((posts) => {
+				setPosts(posts)
+			})
+	}, [moodChoice])
+
 
 	return (
 		//  <> Fragment - putting all return elements into one JSX element
@@ -25,6 +39,33 @@ export const ShowPrivatePost = () => {
 			<div className='container'>
 				<div className='column'>
 					<div className='main-title'>Private Posts</div>
+
+					<fieldset>
+						<div className='column '>
+						<label htmlFor='mood-select'
+						 className='title is-5 mb-0 ml-5'>
+							{" "}
+							Choose a Mood
+						</label>
+						</div>
+							<div className='select is-primary mr-5 '>
+								<select
+									
+									id='mood-select'
+									onChange={(evt) => {
+										setMoodChoice(parseInt(evt.target.value))
+									}}>
+									<option value='0'>
+										--Please choose a mood-
+									</option>
+									{moods.map((mood) => (
+										<option key={mood.id} value={mood.id}>
+											{mood.mood_type}
+										</option>
+									))}
+								</select>
+							</div>
+					</fieldset>
 
 					
 					

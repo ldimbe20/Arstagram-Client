@@ -138,7 +138,7 @@ export const ShowPost = () => {
 										key={`finishedPost-${finishedPost.id}`}>
 										<div className='card-content'>
 											<div className='card-image has-text-centered'>
-												<img 
+												<img
 													src={`http://localhost:8000${finishedPost.image_url}`}
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
