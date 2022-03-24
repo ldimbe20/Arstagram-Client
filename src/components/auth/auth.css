@@ -102,5 +102,6 @@ h2,.form-group,label,.form-control, .btn-primary .div .title{
 .image{
     max-width: 550px;
     height:auto;
+    border: 5px solid rgb(197, 196, 196);
 }
 
