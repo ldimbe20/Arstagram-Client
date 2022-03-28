@@ -10,4 +10,14 @@
 4. This template is using [Bulma](https://bulma.io/documentation) for styling. Take a little bit of time to familiarize yourself with the framework if you would like to continue using it.
 
 
-<!-- TODO: Finish writing the readme -->
+Clone this repository and change to the workspace directory in the terminal
+git clone git@github.com:ldimbe20/Food-Finder.git
+
+-cd into food-finder
+
+ACCESS THE DATA-click link follow README https://github.com/ldimbe20/Food-Finder-Api
+
+Launch the application
+-npm install -npm start
+
+Create own user or login into registered user using lauren@gmail.com
