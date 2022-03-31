@@ -42,6 +42,7 @@ export const CommentForm = () => {
 											placeholder='Add your comment'></textarea>
 									</div>
 								</fieldset>
+								
 								<div className='field'>
 									<div className='control'>
 										<button

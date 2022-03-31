@@ -79,8 +79,6 @@ export const Resource = () => {
 						Pastels
 					</Link>
 
-					<div className='title is-5 mt-6 mb-1'>NOTE:Some of these links lead to the same page. I wanted to spend more time on different features rather than create filler page :) </div>
-
 
 
 

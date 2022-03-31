@@ -99,7 +99,7 @@ export const ShowPrivatePost = () => {
 														?.map((m) => m.name)
 														.join(", ")}
 											</p>
-                                            <p className='title is-5 mb-1'>Date:{finishedPost.publication_date} </p>
+                                            <p className='title is-5 mb-1'>Notes:{finishedPost.notes} </p>
 											<div className='column'>
 												{
 												finishedPost.user.user.id === currentUser.id ?

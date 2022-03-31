@@ -13,13 +13,13 @@ export const CommentList = () => {
 	
 
 
-	const getAllPostComments = () => getCommentsByPostId().then(data => setComments(data))
+	const getAllPostComments = () => getCommentsByPostId(postId).then(data => setComments(data))
 
     useEffect(() => {
         getAllPostComments()
     }, [])	
 
-useEffect(() => {
+	useEffect(() => {
 		getCurrentUser().then((data) => setCurrentUser(data))
 	}, [])
 
