@@ -7,8 +7,8 @@ import React from 'react'
 export const Charcoal = () => {
 
     let imgs = [
-        'https://res.cloudinary.com/stealthman22/image/upload/v1586308024/new-portfolio/hero/time-lapse-photography-of-waterfalls-during-sunset-210186.jpg',
-        'https://res.cloudinary.com/stealthman22/image/upload/v1586308023/new-portfolio/hero/two-cargo-ships-sailing-near-city-2144905.jpg',
+        'https://thevirtualinstructor.com/images/DrawFormswithCharcoal.jpg',
+		'https://www.easterniowaartsacademy.org/application/files/9716/2982/9396/Screen_Shot_2021-08-24_at_12.43.02_PM.png'
       ];
 	
 	return (
@@ -37,18 +37,16 @@ export const Charcoal = () => {
 						<h1 className='title is-3 mb-2 mt-5'>Featured Pieces</h1>
 
                        
-<div>
-<img src={imgs[0]}/>
-<img src={imgs[1]}/>
-</div>
-)
+<div className= 'images mb-2'>
+<img src={imgs[0]}/> </div>
+{/* <img src={imgs[1]}/> */}
+
+
 				    </div>	
 			    </div>
             </div>
 				<div className="container">
 					<div className="columns">
-					
-				
 					
 			         </div>
 

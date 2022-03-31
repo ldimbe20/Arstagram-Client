@@ -46,9 +46,9 @@ export const Watercolor = () => {
 						<div className='column is-half'>
 									
 
-									<h3 className='subtitle is-4 mt-2 mb-1'>Inspired by Cats</h3>
+									<h3 className='subtitle is-4 mt-2 mb-1'>Misty Lake Demo</h3>
 
-									<ReactPlayer url='https://www.youtube.com/watch?v=VZrDxD0Za9I&list=PLu4wnki9NI_8VmJ7Qz_byhKwCquXcy6u9&index=2' />
+									<ReactPlayer url='https://www.youtube.com/watch?v=LA5p2z9dsz0' />
 					    </div>	
 			         </div>
 

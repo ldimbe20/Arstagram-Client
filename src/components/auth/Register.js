@@ -28,7 +28,8 @@ export const Register = ({ setToken }) => {
 			}
 
 			registerUser(newUser).then((res) => {
-				if ("valid" in res && res.valid) {
+				// if ("valid" in res && res.valid) 
+				{
 					setToken(res.token)
 					history.push("/posts")
 				}
@@ -37,6 +38,10 @@ export const Register = ({ setToken }) => {
 			passwordDialog.current.showModal()
 		}
 	}
+	
+	
+
+
 
 	return (
 		<section className='columns is-centered'>
