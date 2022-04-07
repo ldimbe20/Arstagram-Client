@@ -6,6 +6,7 @@
 import { useEffect, useState } from "react"
 import { getChecklists } from "./ChecklistManager"
 import { ShowChecklist } from "./Checklist"
+import "./checklist.css"
 
 
 export const Checklist = () => {
@@ -19,19 +20,25 @@ export const Checklist = () => {
     
     return (
         <>
-            <div className="container">
+        <section className = "Section">
+            <div className = "container">
                 
                 <div className = "column">
-                        <div className="column is-vcentered">
-                            <h1 className="main-title">Checklist</h1>
-                            <h2 className="title is-5">Your Current Checklist</h2> 
-                               
-                            <ShowChecklist setChecklists={setChecklists} checklists={checklists}  /> 
+                <h1 className="main-title">Checklist</h1>
+                        <h2 className="title is-5">Your Current Checklist</h2> 
 
-                </div>
-                
+                    <div className = "container">
+
+                        <div className = "columns mt-5 is-8 is-variable">
+                                <div className = "columns mt-5 is-8 is-variable">
+                                <ShowChecklist setChecklists={setChecklists} checklists={checklists}  /> 
+                                </div>
+                        </div>
+                    </div>
+            
                 </div>
             </div>
+        </section>
         </>
     )
 }
