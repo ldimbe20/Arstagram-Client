@@ -24,3 +24,12 @@
  .has-text-centered{
      padding:10px;
  }
+
+
+/* .columns:not(.is-desktop){} */
+
+.columns{
+    margin-right: 0px;
+
+}
+

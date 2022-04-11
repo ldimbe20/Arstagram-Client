@@ -6,6 +6,7 @@ import "./comments.css"
 
 
 export const CommentForm = () => {
+	const history = useHistory()
 	// const [post, setPost] = useState([])
 	const { postId } = useParams()
 
@@ -13,7 +14,7 @@ export const CommentForm = () => {
 		content: "",
 		post_id: postId,
 	})
-	const history = useHistory()
+	
 
 	const handleAddComment = (domEvent) => {
 		const copy = { ...currentComment }

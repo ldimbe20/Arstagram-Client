@@ -38,11 +38,6 @@ export const PostForm = () => {
         reader.readAsDataURL(file);
       }
 
-	
-	const getAllPosts = () => getAllPosts().then(data => setPosts(data))
-							
-
-	
     
     const createImageString = (event) => {
         getBase64(event.target.files[0], (base64ImageString) => {
@@ -52,7 +47,6 @@ export const PostForm = () => {
 			setPost(copy)
         });
       }
-
 
 
 	useEffect(()=> {
