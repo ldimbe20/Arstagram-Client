@@ -18,11 +18,15 @@ export const MediumForm = ({ setMediums, mediums }) => {
                 })
                 
         }
+
+    // creating a post method above
     
 
     useEffect(() => {
         name.current.value = null
     }, [mediums])
+
+    // using a useEffect to collect the newest data based on what user imputs
 
     
     return (

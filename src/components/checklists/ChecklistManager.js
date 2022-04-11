@@ -15,3 +15,13 @@ export const deleteChecklist = (checklistId) => {
     })
     
 };
+
+export const createChecklist = (checklistId) => {
+    return fetch(`http://localhost:8000/checklists/${checklistId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("token")}`
+        }
+    })
+    
+};
