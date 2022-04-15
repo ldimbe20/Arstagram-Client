@@ -3,6 +3,7 @@ import { Route } from "react-router-dom"
 import {ShowPrivatePost} from "./posts/PrivatePost"
 import { ShowPost } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
+import { ShowThumbnails } from "./posts/SharedPost_Thumbnails"
 import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
 import { Medium } from "./mediums/MediumsList"
@@ -24,6 +25,10 @@ export const ApplicationViews = () => {
 				{/* parent */}
 				<ShowPost />
 			</Route>
+
+			<Route exact path='/thumbnails'>
+				<ShowThumbnails />
+			</Route> 
 
 
 			<Route exact path='/private_posts'>
@@ -93,6 +98,8 @@ export const ApplicationViews = () => {
 			<Route exact path='/checklistsform'>
 				<ChecklistForm />
 			</Route> 
+
+			
 
 
 			
