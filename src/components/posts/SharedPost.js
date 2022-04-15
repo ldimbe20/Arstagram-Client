@@ -41,6 +41,9 @@ export const ShowPost = () => {
 			postByMood(moodChoice).then((posts) => {
 				setPosts(posts)
 			})
+		else {
+			getPosts().then((data) => setPosts(data))
+		}
 	}, [moodChoice])
 
 	useEffect(() => {
@@ -48,6 +51,9 @@ export const ShowPost = () => {
 			postByUser(userChoice).then((posts) => {
 				setPosts(posts)
 			})
+		else {
+				getPosts().then((data) => setPosts(data))
+			}
 	}, [userChoice])
 
 	// all the above useEffects are reacting to to the methods created on back-end
@@ -118,7 +124,7 @@ export const ShowPost = () => {
 							</option>
 							))} 
 
-							{/* if value ===0 return  */}
+						
 
 
 						</select>
@@ -150,11 +156,11 @@ export const ShowPost = () => {
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
 												/>
-											<p className='title is-5 mt-3 mb-1'>Title:{finishedPost.title}</p> 
+											<p className='title is-5 mt-3 mb-1'>Title: {finishedPost.title}</p> 
 											<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
                                             <p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}     
-											&nbsp;&nbsp;&nbsp; Mood:{finishedPost.mood.mood_type}
-											&nbsp;&nbsp;&nbsp;Material:{" "}
+											&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
+											&nbsp;&nbsp;&nbsp;Material: {" "}
 													{finishedPost.mediums_used
 														?.map((m) => m.name)
 														.join(", ")}
