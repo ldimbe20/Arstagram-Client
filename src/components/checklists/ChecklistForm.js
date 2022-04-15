@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { createChecklist } from './ChecklistManager.js'
 import { useHistory, } from "react-router-dom"
-import { useEffect, useRef } from "react"
+
 
 export const ChecklistForm = () => {
     const history = useHistory()
