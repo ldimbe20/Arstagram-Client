@@ -5,6 +5,7 @@ import {getPosts, postByMood, deletePost,} from "./PostManager"
 import {getCurrentUser} from "../artists/ArtistManager"
 import {getMoods} from "../moods/MoodManager"
 import "./posts.css"
+import moment from "moment"
 
 export const ShowPrivatePost = () => {
 	const [currentUser, setCurrentUser] = useState([])
@@ -30,6 +31,9 @@ export const ShowPrivatePost = () => {
 			postByMood(moodChoice).then((posts) => {
 				setPosts(posts)
 			})
+		else {
+				getPosts().then((data) => setPosts(data))
+			}
 	}, [moodChoice])
 
 
@@ -90,11 +94,11 @@ export const ShowPrivatePost = () => {
 													alt='Submitted Artwork'
 													className='img image is-rounded is-horizontal-center'
 												/>
-											<p className='title is-5 mt-3 mb-1'>Title:{finishedPost.title}</p> 
+											<p className='title is-5 mt-3 mb-1'>Title: {finishedPost.title}</p> 
 											<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
-                                            <p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}     
-											&nbsp;&nbsp;&nbsp; Mood:{finishedPost.mood.mood_type}
-											&nbsp;&nbsp;&nbsp;Material:{" "}
+                                            <p className='title is-5 mb-1'>Artist: {finishedPost.user.user.username}     
+											&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
+											&nbsp;&nbsp;&nbsp;Material: {" "}
 													{finishedPost.mediums_used
 														?.map((m) => m.name)
 														.join(", ")}
