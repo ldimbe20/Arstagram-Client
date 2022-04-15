@@ -16,12 +16,18 @@ export const deleteChecklist = (checklistId) => {
     
 };
 
-export const createChecklist = (checklistId) => {
-    return fetch(`http://localhost:8000/checklists/${checklistId}`, {
-        method: "DELETE",
-        headers: {
-            "Authorization": `Token ${localStorage.getItem("token")}`
-        }
-    })
-    
-};
+
+
+export const createChecklist = (checklist) => {
+	return fetch("http://localhost:8000/checklists", {
+		// fetch returns a promise
+		method: "POST",
+		headers: {
+			"Authorization": `Token ${localStorage.getItem("token")}`,
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(checklist)
+
+	})
+		.then(res => res.json())
+}

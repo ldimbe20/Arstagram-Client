@@ -41,15 +41,17 @@ export const ChecklistForm = () => {
         });
     }
 
+ 
 
     return (
         <>
             <div className='container'>
+                
                 <div className='columns'>
                     <div className='column is-one-fifth'></div>
                     <div className='column is-three-fifths'>
                         <div className='card-content'>
-                            <h1 className='main-title'>Post Checklist</h1>
+                            <h1 className='main-title'>Post To-Do List</h1>
                             <form className='checklistForm'>
 
                             <div className="field my-5">
@@ -59,7 +61,7 @@ export const ChecklistForm = () => {
                 </div>
 
                                 <fieldset className='field my-5'>
-                                    <label className='title is-5 mt-3 mb-1'>Checklist Title</label>
+                                    <label className='title is-5 mt-3 mb-1'>To-Do List Title</label>
                                     
                                         <input
                                             required
@@ -74,7 +76,7 @@ export const ChecklistForm = () => {
                                 </fieldset>
 
                                 <fieldset className='field'>
-                                    <label className='title is-5 mb-0 '>Checklist Task</label>
+                                    <label className='title is-5 mb-0 '>To-Do List Task</label>
                                     <div className='control'>
                                         <textarea
                                             name='task'

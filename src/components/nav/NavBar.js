@@ -63,7 +63,7 @@ export const NavBar = ({ token, setToken }) => {
 								Art Resources
 							</Link>
 							<Link to='/checklists' className='navbar-item'>
-								Checklists
+								To-Do List
 							</Link>
 
 							
