@@ -26,10 +26,7 @@
  }
 
 
-/* .columns:not(.is-desktop){} */
 
-.columns{
-    margin-right: 0px;
-
+.div.columns.is-4-tablet.is-3-desktop{
+    align-content:space-between;
 }
-

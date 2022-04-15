@@ -14,6 +14,7 @@ import { Acrylic } from "./resource/acrylic"
 import { Gauche } from "./resource/gauche"
 import { Charcoal } from "./resource/charcoal"
 import { Checklist } from "./checklists/CheckList_List"
+import { ChecklistForm } from "./checklists/ChecklistForm"
 import { CommentList } from "./comments/CommentList"
 
 export const ApplicationViews = () => {
@@ -87,6 +88,10 @@ export const ApplicationViews = () => {
 
 			<Route exact path='/checklists'>
 				<Checklist />
+			</Route> 
+
+			<Route exact path='/checklistsform'>
+				<ChecklistForm />
 			</Route> 
 
 

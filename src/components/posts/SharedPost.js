@@ -5,6 +5,7 @@ import {deletePost,getPosts, postByMood, postByUser} from "./PostManager"
 import {getCurrentUser, getUser} from "../artists/ArtistManager"
 import {getMoods} from "../moods/MoodManager"
 import "./posts.css"
+import moment from "moment"
 
 export const ShowPost = () => {
 	const [currentUser, setCurrentUser] = useState([])
@@ -109,11 +110,17 @@ export const ShowPost = () => {
 							<option value='0'>
 								--Please choose a user-
 							</option>
-							{users.map((user) => (
-								<option key={user.id} value={user.id}>
+							
+							{users.map((user) => 
+							(
+							<option key={user.id} value={user.id}>
 									{user.user.username}
-								</option>
-							))}
+							</option>
+							))} 
+
+							{/* if value ===0 return  */}
+
+
 						</select>
 					</div>
 					</fieldset>
@@ -144,7 +151,7 @@ export const ShowPost = () => {
 													className='img image is-rounded is-horizontal-center'
 												/>
 											<p className='title is-5 mt-3 mb-1'>Title:{finishedPost.title}</p> 
-											<p className='title is-5 mb-1'>Date:{finishedPost.publication_date} </p>
+											<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
                                             <p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}     
 											&nbsp;&nbsp;&nbsp; Mood:{finishedPost.mood.mood_type}
 											&nbsp;&nbsp;&nbsp;Material:{" "}
