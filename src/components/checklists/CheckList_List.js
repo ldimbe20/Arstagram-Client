@@ -7,8 +7,6 @@ import { useEffect, useState } from "react"
 import { getChecklists } from "./ChecklistManager"
 import { ShowChecklist} from "./Checklist"
 import { Link,  } from "react-router-dom"
-
-import { ChecklistForm} from "./ChecklistForm"
 import "./checklist.css"
 
 
@@ -44,7 +42,7 @@ export const Checklist = () => {
 
                     <Link
 					className='button is-primary is-outlined mr-4'
-					to={`/checklistform`}>
+					to={`/checklistsform`}>
 													Add Item
 					</Link>
                     
