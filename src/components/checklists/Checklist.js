@@ -1,12 +1,14 @@
 import { deleteChecklist, getChecklists } from "./ChecklistManager"
 import { getCurrentUser } from "../artists/ArtistManager"
 import React, { useEffect, useState } from "react"
+import moment from "moment"
+import "./checklist.css"
 
 
 
 export const ShowChecklist = ({ checklists, setChecklists }) => {
     const [currentUser, setCurrentUser] = useState([])
-
+    
     useEffect(() => {
         getCurrentUser().then((data) => setCurrentUser(data))
     }, [])
@@ -40,9 +42,9 @@ export const ShowChecklist = ({ checklists, setChecklists }) => {
                                     <div className="card-content">
                                         <p>{checklist.title}</p>
                                         <p>{checklist.task}</p>
-                                        <p>Date:{checklist.publication_date} </p>
+                                        <p>Date: {moment.utc(checklist.publication_date).format("MMMM Do YYYY")} </p>
                                     </div>
-
+                                    
                                     <div className="has-text-centered">
                                         <button className="button is-primary is-small" onClick={() => {
                                             deleteChecklist(checklist.id).then((res) => {

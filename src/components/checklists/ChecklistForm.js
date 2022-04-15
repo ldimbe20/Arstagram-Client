@@ -2,7 +2,10 @@ import React, { useState } from "react"
 import { createChecklist } from './ChecklistManager.js'
 import { useEffect, useRef } from "react"
 
-export const ChecklistForm = ({ checklists, setChecklists }) => {
+export const ChecklistForm = () => {
+    
+
+
 
     const [currentChecklist, setCurrentChecklist] = useState({
         title: "",
