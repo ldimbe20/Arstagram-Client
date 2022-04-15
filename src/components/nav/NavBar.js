@@ -67,6 +67,9 @@ export const NavBar = ({ token, setToken }) => {
 							</Link>
 
 							
+
+
+							
 						
 						</>
 					) : (
