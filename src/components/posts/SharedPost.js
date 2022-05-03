@@ -52,84 +52,91 @@ export const ShowPost = () => {
 				setPosts(posts)
 			})
 		else {
-				getPosts().then((data) => setPosts(data))
-			}
+			getPosts().then((data) => setPosts(data))
+		}
 	}, [userChoice])
 
 	// all the above useEffects are reacting to to the methods created on back-end
 
 
-	
+
 
 
 	return (
 		//  <> Fragment - putting all return elements into one JSX element
-		<>  
+		<>
 			<div className='container'>
-			<div className='main-title'>Shared Posts</div>
+				<div className='main-title'>Shared Posts</div>
 				<div className='columns'>
-					
+
 
 
 					<fieldset>
 						<div className='column '>
-						<label htmlFor='mood-select'
-						 className='title is-5 mb-0 ml-5'>
-							{" "}
-							Choose a Mood
-						</label>
+							<label htmlFor='mood-select'
+								className='title is-5 mb-0 ml-5'>
+								{" "}
+								Choose a Mood
+							</label>
 						</div>
-							<div className='select is-primary mr-5 '>
-								<select
-									
-									id='mood-select'
-									onChange={(evt) => {
-										setMoodChoice(parseInt(evt.target.value))
-									}}>
-									<option value='0'>
-										--Please choose a mood-
+						<div className='select is-primary mr-5 '>
+							<select
+
+								id='mood-select'
+								onChange={(evt) => {
+									setMoodChoice(parseInt(evt.target.value))
+								}}>
+								<option value='0'>
+									--Please choose a mood-
+								</option>
+								{moods.map((mood) => (
+									<option key={mood.id} value={mood.id}>
+										{mood.mood_type}
 									</option>
-									{moods.map((mood) => (
-										<option key={mood.id} value={mood.id}>
-											{mood.mood_type}
-										</option>
-									))}
-								</select>
-							</div>
+								))}
+							</select>
+						</div>
 					</fieldset>
 
 					<fieldset>
-					<div className='column is-center ml-2'>
-						<label htmlFor='mood-select ml-5'
-						 className='title is-5 mb-0 ml-5'>
-							{" "}
-							Choose a User
-						</label>
-					</div>
-					<div className='select is-primary'>
-						<select
-							className='select is-primary'
-							id='user-select'
-							onChange={(evt) => {
-								setUserChoice(parseInt(evt.target.value))
-							}}>
-							<option value='0'>
-								--Please choose a user-
-							</option>
-							
-							{users.map((user) => 
-							(
-							<option key={user.id} value={user.id}>
-									{user.user.username}
-							</option>
-							))} 
+						<div className='column is-center ml-2'>
+							<label htmlFor='mood-select ml-5'
+								className='title is-5 mb-0 ml-5'>
+								{" "}
+								Choose a User
+							</label>
+						</div>
+						<div className='select is-primary'>
+							<select
+								className='select is-primary'
+								id='user-select'
+								onChange={(evt) => {
+									setUserChoice(parseInt(evt.target.value))
+								}}>
+								<option value='0'>
+									--Please choose a user-
+								</option>
 
-						
+								{users.map((user) =>
+								(
+									<option key={user.id} value={user.id}>
+										{user.user.username}
+									</option>
+								))}
+
+							</select>
 
 
-						</select>
-					</div>
+						</div>
 					</fieldset>
+					<fieldset>
+						<Link
+							className='button is-primary is-outlined mr-4'
+							to={`/thumbnails`}>
+							View Comments
+						</Link>
+					</fieldset>
+
 
 				</div>
 			</div>
