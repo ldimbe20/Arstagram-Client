@@ -31,7 +31,7 @@ export const Checklist = () => {
 
 
 
-                <div className="p-4columns mt-5 is-8 is-variable">
+                <div className="p-4 columns mt-5 is-8 is-variable">
 
                     <ShowChecklist setChecklists={setChecklists} checklists={checklists} />
                 </div>

@@ -55,7 +55,7 @@ export const CommentList = () => {
 							className='image is-rounded is-horizontal-center'
 						/> : ""} </div>
 
-	
+
 				{comments.map((comment) => {
 					return (
 						<div
