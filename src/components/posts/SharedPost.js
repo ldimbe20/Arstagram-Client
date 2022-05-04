@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { Link,  } from "react-router-dom"
+import { Link, } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {deletePost,getPosts, postByMood, postByUser} from "./PostManager"
-import {getCurrentUser, getUser} from "../artists/ArtistManager"
-import {getMoods} from "../moods/MoodManager"
+import { deletePost, getPosts, postByMood, postByUser } from "./PostManager"
+import { getCurrentUser, getUser } from "../artists/ArtistManager"
+import { getMoods } from "../moods/MoodManager"
 // import "./posts.css"
 import moment from "moment"
 
@@ -15,8 +15,8 @@ export const ShowPost = () => {
 	const [moods, setMoods] = useState([])
 	const [users, setUsers] = useState([])
 	const history = useHistory()
-    
-	
+
+
 
 
 	useEffect(() => {
@@ -142,10 +142,10 @@ export const ShowPost = () => {
 				</div>
 			</div>
 
-					
+
 			<div className='container'>
 				<div className='column'>
-					
+
 
 
 
@@ -158,7 +158,7 @@ export const ShowPost = () => {
 									<div className='card-content'>
 										<div className='card-image has-text-centered'>
 
-											<div class="card-image has-text-centered">
+											<div className="card-image has-text-centered">
 												<figure className="image is-inline-block">
 													<img className="is-rounded" src={`http://localhost:8000${finishedPost.image_url}`}
 														alt='Submitted Artwork' />
@@ -182,46 +182,46 @@ export const ShowPost = () => {
 												to={`/comments/${finishedPost.id}`}>
 												Add Comment
 											</Link>
-												
-												<Link
-													className='button is-primary is-outlined mr-4'
-													to={`/posts/${finishedPost.id}`}>
-													View Comments
-												</Link>
 
-												
-										
+											<Link
+												className='button is-primary is-outlined mr-4'
+												to={`/posts/${finishedPost.id}`}>
+												View Comments
+											</Link>
+
+
+
 											<div className='column'>
 												{
-												finishedPost.user.user.id === currentUser.id ?
-												
-												<Link
-													className='button is-primary is-outlined mr-4'
-													to={`/posts/${finishedPost.id}/update`}>
-													Edit
-											    </Link>: ""}
-											  
-												{
-												finishedPost.user.user.id === currentUser.id ?
-												<button
-													className='button is-primary is-outlined mr-4'
-													onClick={() => {
-														deletePost(
-															finishedPost.id
-														).then(getPosts).then((data) => setPosts(data))
-														.then(() => history.push('/posts'))
-													}}>
-													Delete
-												</button>: ""}
+													finishedPost.user.user.id === currentUser.id ?
 
-											</div>	
-												
+														<Link
+															className='button is-primary is-outlined mr-4'
+															to={`/posts/${finishedPost.id}/update`}>
+															Edit
+														</Link> : ""}
+
+												{
+													finishedPost.user.user.id === currentUser.id ?
+														<button
+															className='button is-primary is-outlined mr-4'
+															onClick={() => {
+																deletePost(
+																	finishedPost.id
+																).then(getPosts).then((data) => setPosts(data))
+																	.then(() => history.push('/posts'))
+															}}>
+															Delete
+														</button> : ""}
+
 											</div>
+
 										</div>
 									</div>
-								)
-							
-						} 
+								</div>
+							)
+
+						}
 					})}
 				</div>
 			</div>
