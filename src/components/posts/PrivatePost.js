@@ -88,12 +88,15 @@ export const ShowPrivatePost = () => {
 										className='card equal-height has-text-centered'
 										key={`finishedPost-${finishedPost.id}`}>
 										<div className='card-content'>
+
+											
 											<div className='card-image has-text-centered'>
-												<img 
-													src={`http://localhost:8000${finishedPost.image_url}`}
-													alt='Submitted Artwork'
-													className='img image is-rounded is-horizontal-center'
-												/>
+											<div class="card-image has-text-centered">
+												<figure className="image is-inline-block">
+													<img className="is-rounded" src={`http://localhost:8000${finishedPost.image_url}`}
+														alt='Submitted Artwork' />
+												</figure>
+											</div>
 											<p className='title is-5 mt-3 mb-1'>Title: {finishedPost.title}</p> 
 											<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
                                             <p className='title is-5 mb-1'>Artist: {finishedPost.user.user.username}     
