@@ -18,11 +18,11 @@ export const ShowChecklist = ({ checklists, setChecklists }) => {
 
 
 
+<>
 
 
 
-
-        <div className="column">
+      
 
             {
 
@@ -30,7 +30,7 @@ export const ShowChecklist = ({ checklists, setChecklists }) => {
                     (checklist) => {
                         if (checklist.user.id === currentUser.id)
 
-                            return <div className="columns is-4-tablet is-3-desktop">
+                            return <div className="column is-4-tablet is-3-desktop">
                                 <div className="card" key={`checklist--${checklist.id}`}>
                                     <div className="card-image has-text-centered px-6">
                                         <figure className="image_checklist">
@@ -68,8 +68,8 @@ export const ShowChecklist = ({ checklists, setChecklists }) => {
                 )
             }
 
-
-        </div>
+</>
+       
 
     )
 }
