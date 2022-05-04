@@ -131,10 +131,11 @@ export const ShowPost = () => {
 					</fieldset>
 					<fieldset>
 						<Link
-							className='button is-primary is-align-self-baseline'
+							className='button is-primary mt-6 ml-4'
 							to={`/thumbnails`}>
 							See Thumbnails
 						</Link>
+
 					</fieldset>
 
 
@@ -152,7 +153,7 @@ export const ShowPost = () => {
 						if (finishedPost.private === false) {
 							return (
 								<div
-									className='card equal-height has-text-centered'
+									className='card equal-height has-text-centered mt-6'
 									key={`finishedPost-${finishedPost.id}`}>
 									<div className='card-content'>
 										<div className='card-image has-text-centered'>
@@ -187,6 +188,8 @@ export const ShowPost = () => {
 													to={`/posts/${finishedPost.id}`}>
 													View Comments
 												</Link>
+
+												
 										
 											<div className='column'>
 												{

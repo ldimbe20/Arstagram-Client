@@ -85,7 +85,7 @@ export const ShowPrivatePost = () => {
                         {
 								return (
 									<div
-										className='card equal-height has-text-centered'
+										className='card equal-height has-text-centered mt-6'
 										key={`finishedPost-${finishedPost.id}`}>
 										<div className='card-content'>
 
