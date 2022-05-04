@@ -1,3 +1,4 @@
+
 export const getCurrentUser = () => {
 	return fetch("http://localhost:8000/artists/current", {
 	  headers: {

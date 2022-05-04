@@ -1,5 +1,5 @@
 import { createMedium } from './MediumsManager.js'
-import {  useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useHistory } from 'react-router-dom'
 
 
@@ -9,18 +9,16 @@ export const MediumForm = ({ setMediums, mediums }) => {
 
     const newMedium = (evt) => {
         evt.preventDefault()
-            return createMedium({
-                name: name.current.value
+        return createMedium({
+            name: name.current.value
+        })
+            .then(data => {
+                setMediums(data)
+                return true
             })
-                .then(data => {
-                    setMediums(data)
-                    return true
-                })
-                
-        }
 
-    // creating a post method above
-    
+    }
+
 
     useEffect(() => {
         name.current.value = null
@@ -28,11 +26,11 @@ export const MediumForm = ({ setMediums, mediums }) => {
 
     // using a useEffect to collect the newest data based on what user imputs
 
-    
+
     return (
 
         <form className="notification is-primary has-text-weight-medium">
-       
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="mediumName"></label>
@@ -40,10 +38,12 @@ export const MediumForm = ({ setMediums, mediums }) => {
                     <input className="box" type="text" id="mediumName" ref={name} required autoFocus placeholder="Add medium name" />
                 </div>
             </fieldset>
-            
+
             <button className="button mt-2 m-1" type="submit"
-             onClick={(evt) => { newMedium(evt)
-             .then(() => history.push('/mediums'))}}>
+                onClick={(evt) => {
+                    newMedium(evt)
+                    .then(() => history.push('/mediums'))
+                }}>
                 Save Medium
             </button>
 
