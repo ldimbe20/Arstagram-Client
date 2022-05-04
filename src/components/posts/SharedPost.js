@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import {deletePost,getPosts, postByMood, postByUser} from "./PostManager"
 import {getCurrentUser, getUser} from "../artists/ArtistManager"
 import {getMoods} from "../moods/MoodManager"
-import "./posts.css"
+// import "./posts.css"
 import moment from "moment"
 
 export const ShowPost = () => {
@@ -99,7 +99,7 @@ export const ShowPost = () => {
 					</fieldset>
 
 					<fieldset>
-						<div className='column is-center ml-2'>
+						<div className='column is-center ml-2 '>
 							<label htmlFor='mood-select ml-5'
 								className='title is-5 mb-0 ml-5'>
 								{" "}
@@ -131,9 +131,9 @@ export const ShowPost = () => {
 					</fieldset>
 					<fieldset>
 						<Link
-							className='button is-primary is-outlined mr-4'
+							className='button is-primary is-align-self-baseline'
 							to={`/thumbnails`}>
-							View Comments
+							See Thumbnails
 						</Link>
 					</fieldset>
 
@@ -149,37 +149,38 @@ export const ShowPost = () => {
 
 
 					{posts.map((finishedPost) => {
-						if (finishedPost.private === false) 
-							
-                        {
-								return (
-									<div
-										className='card equal-height has-text-centered'
-										key={`finishedPost-${finishedPost.id}`}>
-										<div className='card-content'>
-											<div className='card-image has-text-centered'>
-												<img
-													src={`http://localhost:8000${finishedPost.image_url}`}
-													alt='Submitted Artwork'
-													className='img image is-rounded is-horizontal-center'
-												/>
-											<p className='title is-5 mt-3 mb-1'>Title: {finishedPost.title}</p> 
+						if (finishedPost.private === false) {
+							return (
+								<div
+									className='card equal-height has-text-centered'
+									key={`finishedPost-${finishedPost.id}`}>
+									<div className='card-content'>
+										<div className='card-image has-text-centered'>
+
+											<div class="card-image has-text-centered">
+												<figure className="image is-inline-block">
+													<img className="is-rounded" src={`http://localhost:8000${finishedPost.image_url}`}
+														alt='Submitted Artwork' />
+												</figure>
+											</div>
+
+											<p className='title is-5 mt-3 mb-1'>Title: {finishedPost.title}</p>
 											<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
-                                            <p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}     
-											&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
-											&nbsp;&nbsp;&nbsp;Material: {" "}
-													{finishedPost.mediums_used
-														?.map((m) => m.name)
-														.join(", ")}
+											<p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}
+												&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
+												&nbsp;&nbsp;&nbsp;Material: {" "}
+												{finishedPost.mediums_used
+													?.map((m) => m.name)
+													.join(", ")}
 											</p>
-                                            
-                                            <p className='title is-5'>Notes:{finishedPost.notes} </p>
-											
-												<Link
-													className='button is-primary is-outlined mr-4'
-													to={`/comments/${finishedPost.id}`}>
-													Add Comment
-												</Link>
+
+											<p className='title is-5'>Notes:{finishedPost.notes} </p>
+
+											<Link
+												className='button is-primary is-outlined mr-4'
+												to={`/comments/${finishedPost.id}`}>
+												Add Comment
+											</Link>
 												
 												<Link
 													className='button is-primary is-outlined mr-4'
