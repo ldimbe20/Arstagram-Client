@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import {ShowPrivatePost} from "./posts/PrivatePost"
 import { ShowPost } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
-// import { ShowThumbnails } from "./posts/SharedPost_Thumbnails"
+import { ShowThumbnails } from "./posts/SharedPost_Thumbnails"
 import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
 import { Medium } from "./mediums/MediumsList"
@@ -26,9 +26,9 @@ export const ApplicationViews = () => {
 				<ShowPost />
 			</Route>
 
-			{/* <Route exact path='/thumbnails'>
+			<Route exact path='/thumbnails'>
 				<ShowThumbnails />
-			</Route>  */}
+			</Route> 
 
 
 			<Route exact path='/private_posts'>
