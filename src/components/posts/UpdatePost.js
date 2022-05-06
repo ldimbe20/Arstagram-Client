@@ -32,7 +32,6 @@ export const UpdatePost = () => {
 		isLoading(true)
 		postById(postId).then(data => {
             setImagePost(data)
-            console.log(data)
 		    setImage(data.image_url)
 		})
 		isLoading(false)
