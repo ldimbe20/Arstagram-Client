@@ -31,7 +31,8 @@ export const CommentList = () => {
 		getCommentsByPostId(postId).then(data => {
 			setComments(data)
 			setImage(data[0].post?.image_url)
-			// grabbing the url from index 0
+			// !Challenge content not loading in time and data is returning undefined
+			// / grabbing the url from index 0 because that is the data that was returned, otherwise it is undefined
 
 		})
 		isLoading(false)
