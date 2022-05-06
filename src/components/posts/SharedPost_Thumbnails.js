@@ -136,7 +136,7 @@ export const ShowThumbnails = () => {
 
 
 
-                <div className="columns">
+                <div className="columns is-flex-wrap-wrap">
 
 
                     {posts.map((finishedPost) => {
@@ -144,7 +144,7 @@ export const ShowThumbnails = () => {
                             return (
 
 
-                                <div className="column is-one-quarter">
+                                <div className="column is-one-fifth">
 
                                     <div className="card">
                                         <div className="card-image">
@@ -152,10 +152,10 @@ export const ShowThumbnails = () => {
                                                 <img className="thumbnails"src={`http://localhost:8000${finishedPost.image_url}`} alt="Submitted Artwork" />
                                             </figure>
                                         </div>
-                                        <div className="card-content">
+                                        <div className="card-content ml-4 mt-0">
                                             <div className="content">
                                                 <Link
-                                                    className='button is-primary is-outlined mr-4 mt-4'
+                                                    className='button is-primary is-outlined mr-4'
                                                     to={`/posts/${finishedPost.id}`}>
                                                     View Comments
                                                 </Link>
