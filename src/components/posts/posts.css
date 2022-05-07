@@ -10,4 +10,13 @@
 
 
 .card{box-shadow: none;}
-	
+
+.image_small{
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	width: 170px;
+	height:auto;
+	line-height: 0;
+}
+
+.image{
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}

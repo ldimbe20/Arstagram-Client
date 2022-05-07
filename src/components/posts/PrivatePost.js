@@ -93,7 +93,7 @@ export const ShowPrivatePost = () => {
 											<div className='card-image has-text-centered'>
 											<div class="card-image has-text-centered">
 												<figure className="image is-inline-block">
-													<img className="is-rounded" src={`http://localhost:8000${finishedPost.image_url}`}
+													<img src={`http://localhost:8000${finishedPost.image_url}`}
 														alt='Submitted Artwork' />
 												</figure>
 											</div>
