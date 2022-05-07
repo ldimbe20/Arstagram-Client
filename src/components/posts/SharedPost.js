@@ -167,7 +167,7 @@ export const ShowPost = () => {
 
 												<div className="column is-one-quarter ml-4">
 
-													<p className='title is-5  mb-1'>Title: {finishedPost.title}</p>
+													<p className='title is-5  mb-1'> {finishedPost.title}</p>
 													<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
 													<p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}
 														&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
@@ -177,7 +177,8 @@ export const ShowPost = () => {
 															.join(", ")}
 													</p>
 
-													<p className='title is-5'>Notes:{finishedPost.notes} </p>
+													<p className='title is-5 mb-2'>Notes:{finishedPost.notes} </p>
+													<div className="column is-centered ml-4 mt-0">
 													<Link
 														className='button is-primary is-outlined is-small mr-4'
 														to={`/comments/${finishedPost.id}`}>
@@ -190,6 +191,7 @@ export const ShowPost = () => {
 														View Comments
 													</Link>
 												<div className='columns ml-6 mt-2'>
+													<div className='column'>
 												
 												{
 													finishedPost.user.user.id === currentUser.id ?
@@ -213,9 +215,9 @@ export const ShowPost = () => {
 															Delete
 														</button> : ""}
 														</div>
-											
+											</div>
 														</div>
-
+</div>
 											</div>
 
 
