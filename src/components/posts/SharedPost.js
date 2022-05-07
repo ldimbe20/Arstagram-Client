@@ -158,26 +158,28 @@ export const ShowPost = () => {
 									<div className='card-content'>
 										<div className='card-image'>
 
-											<div className="columns mb-2 is-vcentered">
+											<div className="columns mb-2 is-centered">
 												<figure className="image is-inline-block">
 													<img className="is-rounded" src={`http://localhost:8000${finishedPost.image_url}`}
 														alt='Submitted Artwork' />
 												</figure>
 
 
-												<div className="column is-one-quarter ml-4">
+												<div className="column is-one-quarter ml-4 mb-12">
+													<div className="column-test"> </div>
 
-													<p className='title is-5  mb-1'> {finishedPost.title}</p>
-													<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
-													<p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}
-														&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
-														&nbsp;&nbsp;&nbsp;Material: {" "}
+													<p className='title is-5  has-text-weight-bold is-size-2 mb-1'> {finishedPost.title}</p>
+													<p className='title is-5 is-size-4 mb-3 has-text-weight-bold' is-size-3>By {finishedPost.user.user.username}</p>
+													<p className='title is-6 mb-1'>Created on {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
+													
+													<p className='title is-6 mb-1'> {finishedPost.user.user.username}'s mood: {finishedPost.mood.mood_type} </p>
+													<p className='title is-6 mb-4' >	Created with {" "}
 														{finishedPost.mediums_used
 															?.map((m) => m.name)
 															.join(", ")}
 													</p>
-
-													<p className='title is-5 mb-2'>Notes:{finishedPost.notes} </p>
+													<p className='title is-5 mb-0 has-text-weight-bold'>Notes From Artist </p>
+													<p className='title is-5 mb-2 is-6 is-italic'>{finishedPost.notes} </p>
 													<div className="column is-centered ml-4 mt-0">
 													<Link
 														className='button is-primary is-outlined is-small mr-4'
