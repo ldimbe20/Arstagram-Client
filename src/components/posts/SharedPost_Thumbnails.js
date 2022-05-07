@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link, } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import { deletePost, getPosts, postByMood, postByUser } from "./PostManager"
+import {  getPosts, postByMood, postByUser } from "./PostManager"
 import { getCurrentUser, getUser } from "../artists/ArtistManager"
 import { getMoods } from "../moods/MoodManager"
 import "./posts.css"
@@ -148,14 +148,14 @@ export const ShowThumbnails = () => {
 
                                     <div className="card">
                                         <div className="card-image">
-                                            <figure className="image is-3by4">
-                                                <img className="thumbnails"src={`http://localhost:8000${finishedPost.image_url}`} alt="Submitted Artwork" />
+                                            <figure className="image_small">
+                                                <img className="image_small" src={`http://localhost:8000${finishedPost.image_url}`} alt="Submitted Artwork" />
                                             </figure>
                                         </div>
-                                        <div className="card-content ml-4 mt-0">
-                                            <div className="content">
+                                        <div className="card-content">
+                                            <div className="content ">
                                                 <Link
-                                                    className='button is-primary is-outlined mr-4'
+                                                    className='button is-primary is-small '
                                                     to={`/posts/${finishedPost.id}`}>
                                                     View Comments
                                                 </Link>
