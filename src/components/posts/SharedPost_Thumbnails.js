@@ -166,7 +166,7 @@ export const ShowThumbnails = () => {
                                                 <Link
                                                     className='button is-primary is-small '
                                                     to={`/posts/${finishedPost.id}`}>
-                                                    View Comments
+                                                    View Artwork
                                                 </Link>
                                             </div>
                                         </div>
