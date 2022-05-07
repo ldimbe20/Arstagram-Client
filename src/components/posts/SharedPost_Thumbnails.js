@@ -131,6 +131,15 @@ export const ShowThumbnails = () => {
                         </div>
                     </fieldset>
 
+                    <fieldset>
+						<Link
+							className='button is-primary mt-6 ml-4'
+							to={`/posts`}>
+							Shared Post
+						</Link>
+
+					</fieldset>
+
                 </div>
 
 
@@ -144,7 +153,7 @@ export const ShowThumbnails = () => {
                             return (
 
 
-                                <div className="column is-one-fifth">
+                                <div className="column is-one-fifth mt-4">
 
                                     <div className="card">
                                         <div className="card-image">
