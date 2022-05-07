@@ -72,7 +72,7 @@ export const ShowPost = () => {
 
 
 					<fieldset>
-						<div className='column '>
+						<div className='column'>
 							<label htmlFor='mood-select'
 								className='title is-5 mb-0 ml-5'>
 								{" "}
@@ -171,7 +171,7 @@ export const ShowPost = () => {
 													<p className='title is-5  has-text-weight-bold is-size-2 mb-1'> {finishedPost.title}</p>
 													<p className='title is-5 is-size-4 mb-3 has-text-weight-bold' is-size-3>By {finishedPost.user.user.username}</p>
 													<p className='title is-6 mb-1'>Created on {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
-													
+
 													<p className='title is-6 mb-1'> {finishedPost.user.user.username}'s mood: {finishedPost.mood.mood_type} </p>
 													<p className='title is-6 mb-4' >	Created with {" "}
 														{finishedPost.mediums_used
@@ -181,49 +181,49 @@ export const ShowPost = () => {
 													<p className='title is-5 mb-0 has-text-weight-bold'>Notes From Artist </p>
 													<p className='title is-5 mb-2 is-6 is-italic'>{finishedPost.notes} </p>
 													<div className="column is-centered ml-4 mt-0">
-													<Link
-														className='button is-primary is-outlined is-small mr-4'
-														to={`/comments/${finishedPost.id}`}>
-														Add Comment
-													</Link>
-
-													<Link
-														className='button is-primary is-outlined is-small mr-4'
-														to={`/posts/${finishedPost.id}`}>
-														View Comments
-													</Link>
-												<div className='columns ml-6 mt-2'>
-													<div className='column'>
-												
-												{
-													finishedPost.user.user.id === currentUser.id ?
+														<Link
+															className='button is-primary is-outlined is-small mr-4'
+															to={`/comments/${finishedPost.id}`}>
+															Add Comment
+														</Link>
 
 														<Link
 															className='button is-primary is-outlined is-small mr-4'
-															to={`/posts/${finishedPost.id}/update`}>
-															Edit
-														</Link> : ""}
+															to={`/posts/${finishedPost.id}`}>
+															View Comments
+														</Link>
+														<div className='columns ml-6 mt-2'>
+															<div className='column'>
 
-												{
-													finishedPost.user.user.id === currentUser.id ?
-														<button
-															className='button is-primary is-outlined is-small'
-															onClick={() => {
-																deletePost(
-																	finishedPost.id
-																).then(getPosts).then((data) => setPosts(data))
-																	.then(() => history.push('/posts'))
-															}}>
-															Delete
-														</button> : ""}
+																{
+																	finishedPost.user.user.id === currentUser.id ?
+
+																		<Link
+																			className='button is-primary is-outlined is-small mr-4'
+																			to={`/posts/${finishedPost.id}/update`}>
+																			Edit
+																		</Link> : ""}
+
+																{
+																	finishedPost.user.user.id === currentUser.id ?
+																		<button
+																			className='button is-primary is-outlined is-small'
+																			onClick={() => {
+																				deletePost(
+																					finishedPost.id
+																				).then(getPosts).then((data) => setPosts(data))
+																					.then(() => history.push('/posts'))
+																			}}>
+																			Delete
+																		</button> : ""}
+															</div>
 														</div>
-											</div>
-														</div>
-</div>
+													</div>
+												</div>
 											</div>
 
 
-									
+
 
 										</div>
 									</div>
