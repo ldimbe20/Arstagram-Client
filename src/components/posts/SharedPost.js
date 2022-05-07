@@ -67,7 +67,7 @@ export const ShowPost = () => {
 		<>
 			<div className='container'>
 				<div className='main-title'>Shared Posts</div>
-				<div className='columns'>
+				<div className='columns mb-4'>
 
 
 
@@ -153,50 +153,49 @@ export const ShowPost = () => {
 						if (finishedPost.private === false) {
 							return (
 								<div
-									className='card equal-height has-text-centered mt-6'
+									className='card equal-height'
 									key={`finishedPost-${finishedPost.id}`}>
 									<div className='card-content'>
-										<div className='card-image has-text-centered'>
+										<div className='card-image'>
 
-											<div className="card-image has-text-centered">
+											<div className="columns mb-2 is-vcentered">
 												<figure className="image is-inline-block">
 													<img className="is-rounded" src={`http://localhost:8000${finishedPost.image_url}`}
 														alt='Submitted Artwork' />
 												</figure>
-											</div>
-
-											<p className='title is-5 mt-3 mb-1'>Title: {finishedPost.title}</p>
-											<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
-											<p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}
-												&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
-												&nbsp;&nbsp;&nbsp;Material: {" "}
-												{finishedPost.mediums_used
-													?.map((m) => m.name)
-													.join(", ")}
-											</p>
-
-											<p className='title is-5'>Notes:{finishedPost.notes} </p>
-
-											<Link
-												className='button is-primary is-outlined mr-4'
-												to={`/comments/${finishedPost.id}`}>
-												Add Comment
-											</Link>
-
-											<Link
-												className='button is-primary is-outlined mr-4'
-												to={`/posts/${finishedPost.id}`}>
-												View Comments
-											</Link>
 
 
+												<div className="column is-one-quarter ml-4">
 
-											<div className='column'>
+													<p className='title is-5  mb-1'>Title: {finishedPost.title}</p>
+													<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
+													<p className='title is-5 mb-1'>Artist:{finishedPost.user.user.username}
+														&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
+														&nbsp;&nbsp;&nbsp;Material: {" "}
+														{finishedPost.mediums_used
+															?.map((m) => m.name)
+															.join(", ")}
+													</p>
+
+													<p className='title is-5'>Notes:{finishedPost.notes} </p>
+													<Link
+														className='button is-primary is-outlined is-small mr-4'
+														to={`/comments/${finishedPost.id}`}>
+														Add Comment
+													</Link>
+
+													<Link
+														className='button is-primary is-outlined is-small mr-4'
+														to={`/posts/${finishedPost.id}`}>
+														View Comments
+													</Link>
+												<div className='columns ml-6 mt-2'>
+												
 												{
 													finishedPost.user.user.id === currentUser.id ?
 
 														<Link
-															className='button is-primary is-outlined mr-4'
+															className='button is-primary is-outlined is-small mr-4'
 															to={`/posts/${finishedPost.id}/update`}>
 															Edit
 														</Link> : ""}
@@ -204,7 +203,7 @@ export const ShowPost = () => {
 												{
 													finishedPost.user.user.id === currentUser.id ?
 														<button
-															className='button is-primary is-outlined mr-4'
+															className='button is-primary is-outlined is-small'
 															onClick={() => {
 																deletePost(
 																	finishedPost.id
@@ -213,8 +212,14 @@ export const ShowPost = () => {
 															}}>
 															Delete
 														</button> : ""}
+														</div>
+											
+														</div>
 
 											</div>
+
+
+									
 
 										</div>
 									</div>

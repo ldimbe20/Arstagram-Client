@@ -54,7 +54,8 @@ export const CommentList = () => {
 							src={`http://localhost:8000${image}`}
 							alt='Submitted Artwork'
 							className='image is-rounded is-horizontal-center'
-						/> : ""} </div>
+						/> : ""}
+						 </div>
 
 
 				{comments.map((comment) => {
@@ -62,6 +63,9 @@ export const CommentList = () => {
 						<div
 							className='None'
 							key={`comment--${comment.id}`}>
+								<h4 className='title is-5 mb-4 mt-4 '>
+										Title: {comment.post.title}
+									</h4>
 							<div className='columns card-content'>
 								<div className='column is-three-quarters mt-4 has-text-left'>
 									<h4 className='subtitle'>
