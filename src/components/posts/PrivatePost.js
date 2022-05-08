@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, } from "react-router-dom"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import {getPosts, postByMood, deletePost,} from "./PostManager"
-import {getCurrentUser} from "../artists/ArtistManager"
-import {getMoods} from "../moods/MoodManager"
-import "./posts.css"
+import { deletePost, getPosts, postByMood, postByUser } from "./PostManager"
+import { getCurrentUser, getUser } from "../artists/ArtistManager"
+import { getMoods } from "../moods/MoodManager"
+// import "./posts.css"
 import moment from "moment"
 
 export const ShowPrivatePost = () => {
 	const [currentUser, setCurrentUser] = useState([])
 	const [posts, setPosts] = useState([])
-	const history = useHistory()
-	const [moods, setMoods] = useState([])
 	const [moodChoice, setMoodChoice] = useState(0)
+	const [userChoice, setUserChoice] = useState(0)
+	const [moods, setMoods] = useState([])
+	const [users, setUsers] = useState([])
+	const history = useHistory()
+
+
+
 
 	useEffect(() => {
 		getPosts().then((data) => setPosts(data))
-	}, [])
-
-	useEffect(() => {
-		getCurrentUser().then((data) => setCurrentUser(data))
 	}, [])
 
 	useEffect(() => {
@@ -27,119 +28,169 @@ export const ShowPrivatePost = () => {
 	}, [])
 
 	useEffect(() => {
+		getCurrentUser().then((data) => setCurrentUser(data))
+	}, [])
+
+	useEffect(() => {
+		getUser().then((data) => setUsers(data))
+	}, [])
+
+
+	useEffect(() => {
 		if (moodChoice)
 			postByMood(moodChoice).then((posts) => {
 				setPosts(posts)
 			})
 		else {
-				getPosts().then((data) => setPosts(data))
-			}
+			getPosts().then((data) => setPosts(data))
+		}
 	}, [moodChoice])
+
+	useEffect(() => {
+		if (userChoice)
+			postByUser(userChoice).then((posts) => {
+				setPosts(posts)
+			})
+		else {
+			getPosts().then((data) => setPosts(data))
+		}
+	}, [userChoice])
+
+	// all the above useEffects are reacting to to the methods created on back-end
+
+
+
 
 
 	return (
 		//  <> Fragment - putting all return elements into one JSX element
-		<>  
+		<>
 			<div className='container'>
-				<div className='column'>
-					<div className='main-title'>Private Posts</div>
+				<div className='main-title'>Private Posts</div>
+				<div className='columns mb-4'>
+
+
 
 					<fieldset>
-						<div className='column '>
-						<label htmlFor='mood-select'
-						 className='title is-5 mb-0 ml-5'>
-							{" "}
-							Choose a Mood
-						</label>
+						<div className='column'>
+							<label htmlFor='mood-select'
+								className='title is-5 mb-0 ml-5'>
+								{" "}
+								Choose a Mood
+							</label>
 						</div>
-							<div className='select is-primary mr-5 '>
-								<select
-									
-									id='mood-select'
-									onChange={(evt) => {
-										setMoodChoice(parseInt(evt.target.value))
-									}}>
-									<option value='0'>
-										--Please choose a mood-
+						<div className='select is-primary mr-5 '>
+							<select
+
+								id='mood-select'
+								onChange={(evt) => {
+									setMoodChoice(parseInt(evt.target.value))
+								}}>
+								<option value='0'>
+									--Please choose a mood-
+								</option>
+								{moods.map((mood) => (
+									<option key={mood.id} value={mood.id}>
+										{mood.mood_type}
 									</option>
-									{moods.map((mood) => (
-										<option key={mood.id} value={mood.id}>
-											{mood.mood_type}
-										</option>
-									))}
-								</select>
-							</div>
+								))}
+							</select>
+						</div>
 					</fieldset>
 
-					
-					
+					<fieldset>
+						<Link
+							className='button is-primary mt-6 ml-4'
+							to={`private_thumbnails`}>
+							See Thumbnails
+						</Link>
+
+					</fieldset>
+
+
+				</div>
+			</div>
+
+
+			<div className='container'>
+				<div className='column'>
 
 
 
-				
-						{posts.map((finishedPost) => {
+
+					{posts.map((finishedPost) => {
 						if (finishedPost.private === true) 
-						if(finishedPost.user.user.id === currentUser.id)
+						if(finishedPost.user.user.id === currentUser.id) {
+							return (
+								<div
+									className='card equal-height'
+									key={`finishedPost-${finishedPost.id}`}>
+									<div className='card-content'>
+										<div className='card-image'>
 
-							
-                        {
-								return (
-									<div
-										className='card equal-height has-text-centered mt-6'
-										key={`finishedPost-${finishedPost.id}`}>
-										<div className='card-content'>
-
-											
-											<div className='card-image has-text-centered'>
-											<div class="card-image has-text-centered">
+											<div className="columns mb-2 is-centered">
 												<figure className="image is-inline-block">
-													<img src={`http://localhost:8000${finishedPost.image_url}`}
+													<img className="is-rounded" src={`http://localhost:8000${finishedPost.image_url}`}
 														alt='Submitted Artwork' />
 												</figure>
-											</div>
-											<p className='title is-5 mt-3 mb-1'>Title: {finishedPost.title}</p> 
-											<p className='title is-5 mb-1'>Date: {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
-                                            <p className='title is-5 mb-1'>Artist: {finishedPost.user.user.username}     
-											&nbsp;&nbsp;&nbsp; Mood: {finishedPost.mood.mood_type}
-											&nbsp;&nbsp;&nbsp;Material: {" "}
-													{finishedPost.mediums_used
-														?.map((m) => m.name)
-														.join(", ")}
-											</p>
-                                            <p className='title is-5 mb-1'>Notes:{finishedPost.notes} </p>
-											<div className='column'>
-												{
-												finishedPost.user.user.id === currentUser.id ?
-												
-												<Link
-													className='button is-primary is-outlined mr-4'
-													to={`/posts/${finishedPost.id}/update`}>
-													Edit
-											    </Link>: ""}
-											  
-												
-												{
-												finishedPost.user.user.id === currentUser.id ?
-												<button
-													className='button is-primary is-outlined mr-4'
-													onClick={() => {
-														deletePost(
-															finishedPost.id
-														).then(getPosts).then((data) => setPosts(data))
-														.then(() => history.push('/private_posts'))
-													}}>
-													Delete
-												</button>: ""}
 
 
-											</div>	
-												
+												<div className="column is-one-quarter ml-4 mb-12">
+													<div className="column-test"> </div>
+
+													<p className='title is-5  has-text-weight-bold is-size-2 mb-1'> {finishedPost.title}</p>
+													<p className='title is-5 is-size-4 mb-3 has-text-weight-bold' is-size-3>By {finishedPost.user.user.username}</p>
+													<p className='title is-6 mb-1'>Created on {moment.utc(finishedPost.publication_date).format("MMMM Do YYYY")} </p>
+
+													<p className='title is-6 mb-1'> {finishedPost.user.user.username}'s mood: {finishedPost.mood.mood_type} </p>
+													<p className='title is-6 mb-4' >	Created with {" "}
+														{finishedPost.mediums_used
+															?.map((m) => m.name)
+															.join(", ")}
+													</p>
+													<p className='title is-5 mb-0 has-text-weight-bold'>Notes From Artist </p>
+													<p className='title is-5 mb-2 is-6 is-italic'>{finishedPost.notes} </p>
+													
+						
+														<div className='columns ml-6 mt-2'>
+															<div className='column'>
+
+																{
+																	finishedPost.user.user.id === currentUser.id ?
+
+																		<Link
+																			className='button is-primary is-outlined is-small mr-4'
+																			to={`/posts/${finishedPost.id}/update`}>
+																			Edit
+																		</Link> : ""}
+
+																{
+																	finishedPost.user.user.id === currentUser.id ?
+																		<button
+																			className='button is-primary is-outlined is-small'
+																			onClick={() => {
+																				deletePost(
+																					finishedPost.id
+																				).then(getPosts).then((data) => setPosts(data))
+																					.then(() => history.push('/posts'))
+																			}}>
+																			Delete
+																		</button> : ""}
+															</div>
+														</div>
+													
+												</div>
 											</div>
+
+
+
+
 										</div>
 									</div>
-								)
-							
-						} 
+								</div>
+							)
+
+						}
 					})}
 				</div>
 			</div>
