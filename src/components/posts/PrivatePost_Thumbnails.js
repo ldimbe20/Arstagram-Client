@@ -140,7 +140,7 @@ export const ShowPrivateThumbnails = () => {
                                             <div className="content ">
                                                 <Link
                                                     className='button is-primary is-small ml-3 '
-                                                    to={`/posts/${finishedPost.id}`}>
+                                                    to={`/private_posts/${finishedPost.id}`}>
                                                     View Artwork
                                                 </Link>
                                             </div>

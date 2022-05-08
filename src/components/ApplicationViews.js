@@ -18,11 +18,12 @@ import { Charcoal } from "./resource/charcoal"
 import { Checklist } from "./checklists/CheckList_List"
 import { ChecklistForm } from "./checklists/ChecklistForm"
 import { CommentList } from "./comments/CommentList"
+import { PrivatePostSingle } from "./posts/PrivatePostSingle"
 
 export const ApplicationViews = () => {
 	return (
 		<>
-			<Route exact path='/posts'>
+			<Route exact path='/'>
 				{/* parent */}
 				<ShowPost />
 			</Route>
@@ -30,6 +31,12 @@ export const ApplicationViews = () => {
 			<Route exact path='/thumbnails'>
 				<ShowThumbnails />
 			</Route> 
+
+
+
+			<Route exact path='/private_posts/:postId(\d+)'>
+			<PrivatePostSingle />
+			</Route>
 
 			<Route exact path='/private_thumbnails'>
 				<ShowPrivateThumbnails />
@@ -56,6 +63,10 @@ export const ApplicationViews = () => {
 			
 			<Route exact path='/createPost'>
 				<PostForm />
+			</Route>
+
+			<Route exact path='/createPost'>
+				<PrivatePostSingle />
 			</Route>
 
 			<Route exact path='/posts/:postId(\d+)/update'>
