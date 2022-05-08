@@ -7,7 +7,7 @@ import { getMoods } from "../moods/MoodManager"
 import "./posts.css"
 
 
-export const ShowThumbnails = () => {
+export const ShowPrivateThumbnails = () => {
     const [currentUser, setCurrentUser] = useState([])
     const [posts, setPosts] = useState([])
     const [moodChoice, setMoodChoice] = useState(0)
@@ -98,44 +98,18 @@ export const ShowThumbnails = () => {
                         </div>
                     </fieldset>
 
-                    <fieldset>
-                        <div className='column is-center ml-2'>
-                            <label htmlFor='mood-select ml-5'
-                                className='title is-5 mb-0 ml-5'>
-                                {" "}
-                                Choose a User
-                            </label>
-                        </div>
-                        <div className='select is-primary'>
-                            <select
-                                className='select is-primary'
-                                id='user-select'
-                                onChange={(evt) => {
-                                    setUserChoice(parseInt(evt.target.value))
-                                }}>
-                                <option value='0'>
-                                    --Please choose a user-
-                                </option>
-
-                                {users.map((user) =>
-                                (
-                                    <option key={user.id} value={user.id}>
-                                        {user.user.username}
-                                    </option>
-                                ))}
+                  
 
 
 
 
-                            </select>
-                        </div>
-                    </fieldset>
+                        
 
                     <fieldset>
 						<Link
 							className='button is-primary mt-6 ml-4'
-							to={`/posts`}>
-							Shared Post
+							to={`/private_posts`}>
+							Private Post
 						</Link>
 
 					</fieldset>
@@ -149,7 +123,8 @@ export const ShowThumbnails = () => {
 
 
                     {posts.map((finishedPost) => {
-                        if (finishedPost.private === false) {
+                        if (finishedPost.private === true) 
+						if(finishedPost.user.user.id === currentUser.id) {
                             return (
 
 

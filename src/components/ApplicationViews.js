@@ -4,6 +4,7 @@ import {ShowPrivatePost} from "./posts/PrivatePost"
 import { ShowPost } from "./posts/SharedPost"
 import { PostForm } from "./posts/CreatePost"
 import { ShowThumbnails } from "./posts/SharedPost_Thumbnails"
+import { ShowPrivateThumbnails } from "./posts/PrivatePost_Thumbnails"
 import { UpdatePost } from "./posts/UpdatePost"
 import { CommentForm } from "./comments/CommentForm"
 import { Medium } from "./mediums/MediumsList"
@@ -28,6 +29,10 @@ export const ApplicationViews = () => {
 
 			<Route exact path='/thumbnails'>
 				<ShowThumbnails />
+			</Route> 
+
+			<Route exact path='/private_thumbnails'>
+				<ShowPrivateThumbnails />
 			</Route> 
 
 
