@@ -134,7 +134,7 @@ export const ShowThumbnails = () => {
                     <fieldset>
 						<Link
 							className='button is-primary mt-6 ml-4'
-							to={`/posts`}>
+							to={`/`}>
 							Shared Post
 						</Link>
 
