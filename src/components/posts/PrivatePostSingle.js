@@ -8,7 +8,7 @@ export const PrivatePostSingle = () => {
 	const { postId } = useParams()
     const [post, setPosts] = useState([])
 	const [image, setImage] = useState("")
-	const [title, setTitle] = useState("")
+	
 
 
 
@@ -18,8 +18,8 @@ export const PrivatePostSingle = () => {
 	useEffect(() => {
 		isLoading(true)
 		postById(postId).then(data => {
+			setImage(data.image_url)
             setPosts(data)
-			setImage(post.image_url)
 			
 
 			// !Challenge content not loading in time and data is returning undefined
